@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<suppliers>
+    <supplier id="1">
+        <companyName>Acme Electronics</companyName>
+        <contactPerson>Ivan Horvat</contactPerson>
+        <email>ivan@acme.hr</email>
+        <phone>+385-1-234-5678</phone>
+        <address>Ilica 42, Zagreb</address>
+    </supplier>
+    <supplier id="2">
+        <companyName>Office Pro</companyName>
+        <contactPerson>Ana Anic</contactPerson>
+        <email>ana@officepro.hr</email>
+        <phone>+385-1-987-6543</phone>
+        <address>Vukovarska 58, Zagreb</address>
+    </supplier>
+</suppliers>

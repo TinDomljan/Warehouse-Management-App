@@ -1,0 +1,25 @@
+{
+    "entries": [
+        {
+            "action": "LOGIN",
+            "id": 1,
+            "target": "System",
+            "timestamp": 1778263135,
+            "username": "admin"
+        },
+        {
+            "action": "SAVE_SNAPSHOT",
+            "id": 2,
+            "target": "Products: 4",
+            "timestamp": 1778263150,
+            "username": "admin"
+        },
+        {
+            "action": "LOAD_SNAPSHOT",
+            "id": 3,
+            "target": "Records: 4",
+            "timestamp": 1778263153,
+            "username": "admin"
+        }
+    ]
+}

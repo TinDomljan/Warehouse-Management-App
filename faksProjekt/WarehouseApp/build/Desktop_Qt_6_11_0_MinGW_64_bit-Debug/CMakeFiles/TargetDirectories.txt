@@ -1,0 +1,9 @@
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp_autogen_timestamp_deps.dir
+C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp_autogen.dir

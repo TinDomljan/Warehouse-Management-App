@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:mainwindow.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:mainwindow.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.ui||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:mainwindow.ui||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\binarymanager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:binarymanager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\binarymanager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:binarymanager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mainwindow.cpp",
+              "DocumentMoniker": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.cpp",
+              "RelativeDocumentMoniker": "mainwindow.cpp",
+              "ToolTip": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.cpp",
+              "RelativeToolTip": "mainwindow.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-08T17:19:16.31Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "mainwindow.h",
+              "DocumentMoniker": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.h",
+              "RelativeDocumentMoniker": "mainwindow.h",
+              "ToolTip": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.h",
+              "RelativeToolTip": "mainwindow.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-08T17:19:15.791Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "mainwindow.ui",
+              "DocumentMoniker": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.ui",
+              "RelativeDocumentMoniker": "mainwindow.ui",
+              "ToolTip": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\mainwindow.ui",
+              "RelativeToolTip": "mainwindow.ui",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANcSURBVDhPjVXNbhtVGD3nju04GdtRTWKJJqoqqJJGRSpskEAsKEgVm6yyr7rgHVjwkwdgySN0F\u002BUFqkqo3bOhAlSHRalC7WI2iX/idDzfd1hcj\u002B2ERXulOzNn5s4355zvzAwlod1uYzgc7gPYJ\u002Bl4w5AU8jynmSlJEu3s7HzRaDSeAAABcbHo8vLy/ubmJiQJAiDEdVI8JQEkJaH3bw/9fh9X372KwWjwS7PZ/KnVaj0gidDpdJBlGQAgSRKkacpaWmO9VgtpmjJNU66kKdO0FtKVlOnKCtOVFJVyhUkpQaPRYLVS/Wg0HN3v9Xr3ACB0u91Z0YKdJLjP2bkckkfsAqSpC8L4fIxSuZSMRqPPu93u/cFgEMLMKIBRKgCBkAgX4QIdlCten64NITDLMraP2nj\u002B13Oe9k/DeDxOjo6OKsHdYWZwd5mbpswiySmnwuHpwONnf\u002BrV6LVuXL\u002Bh7fe3sfXeltaaa0qSBO5eCu4Od6e7Ux7lyQUpNlFFaUUVDMR6o471K6ts1OtYXW2gXqujWlmiJLo7i6IF26IAIOgsy/Cs\u002Bw/OsgwnZ2P1\u002BkOEJGCtnqK\u002BXFVIAkISQADuLjeHuyu4e8GKgsgkICknTCoJX/b7/PHhzzg\u002BOeHTToeP2m2GJMGj39t8etwhSRJEsXNFgsHMMJ0yM8kcMsnNJY9tBiloGoBoTcRTuyWpuN/MPMT4zNgCJECAgSx6TTLixUHw8plpnSjf3WlmkAQGgoyeFqtfnfZxMjqbYWCWhXhMwl2a1pp5WnR5\u002BnQybiLbh7/9wV\u002BPX17I6cJE1AYWqmeeTiYTZNkkdjA3yUybqw1989WX\u002BPqzT3Tv049199ZNyRx3b93U7WsbKtQIkFmuLMuipwtxouUGmxjkgrtYLZWw1VrH9XeauNa8wla9BndHq1ZDo1qNHrogd7g58zyfy3d35HmuPM9huRVTC8f/x5P8Io6dv5hTM6OZUSbYxGiZ0SdOywzT/RznTpv4DBOkzZleyCnM4rsf2zpv79tgyec5LeQXhefjUgrfgN2dlUoF29vb4uHhISSVz8/Pv18qL3334Qe3IUlk/AwwfukvY1y\u002B/uLvFzifvH6yu7t7hwcHBwBQHgwGPwyHw2/f5h8FICxkFogWYGNj4/He3t6d/wDMvjkTIFxI9gAAAABJRU5ErkJggg==",
+              "WhenOpened": "2026-05-08T17:19:15.069Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CMakeLists.txt",
+              "DocumentMoniker": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\CMakeLists.txt",
+              "RelativeDocumentMoniker": "CMakeLists.txt",
+              "ToolTip": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\CMakeLists.txt",
+              "RelativeToolTip": "CMakeLists.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAWwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-05-08T17:18:41.508Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "binarymanager.cpp",
+              "DocumentMoniker": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\binarymanager.cpp",
+              "RelativeDocumentMoniker": "binarymanager.cpp",
+              "ToolTip": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\binarymanager.cpp",
+              "RelativeToolTip": "binarymanager.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-05-08T17:14:20.277Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "binarymanager.h",
+              "DocumentMoniker": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\binarymanager.h",
+              "RelativeDocumentMoniker": "binarymanager.h",
+              "ToolTip": "C:\\Users\\tindo\\faksProjekt\\WarehouseApp\\binarymanager.h",
+              "RelativeToolTip": "binarymanager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-05-08T17:14:19.216Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
