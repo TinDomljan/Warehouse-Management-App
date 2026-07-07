@@ -1,7 +1,9 @@
 #include "databasemanager.h"
+#include "cryptomanager.h"
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QVariant>
+#include <QRandomGenerator>
 
 DatabaseManager& DatabaseManager::instance() {
     static DatabaseManager inst;
@@ -18,6 +20,7 @@ bool DatabaseManager::open(const QString& path) {
     q.exec("PRAGMA foreign_keys = ON");
     createTables();
     seedDefaultData();
+    migratePasswords();
     return true;
 }
 
@@ -29,7 +32,7 @@ QString DatabaseManager::lastError() const {
     return QSqlDatabase::database(CONNECTION).lastError().text();
 }
 
-// ─── Schema ──────────────────────────────────────────────────────────────────
+//shema tablice
 
 void DatabaseManager::createTables() {
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
@@ -58,6 +61,7 @@ void DatabaseManager::createTables() {
            "supplier_id INTEGER REFERENCES suppliers(id)"
            ")");
 
+
     q.exec("CREATE TABLE IF NOT EXISTS users ("
            "id        INTEGER PRIMARY KEY AUTOINCREMENT,"
            "username  TEXT NOT NULL UNIQUE,"
@@ -72,9 +76,9 @@ void DatabaseManager::seedDefaultData() {
 
     q.exec("SELECT COUNT(*) FROM categories");
     if (q.next() && q.value(0).toInt() > 0)
-        return; // already seeded
+        return;
 
-    // Categories
+
     q.exec("INSERT INTO categories (name, description) VALUES "
            "('Electronics',    'Electronic devices and components')");
     q.exec("INSERT INTO categories (name, description) VALUES "
@@ -82,13 +86,13 @@ void DatabaseManager::seedDefaultData() {
     q.exec("INSERT INTO categories (name, description) VALUES "
            "('Tools',          'Hand and power tools')");
 
-    // Suppliers
+
     q.exec("INSERT INTO suppliers (company_name, contact_person, email, phone, address) VALUES "
            "('Acme Electronics','Ivan Horvat','ivan@acme.hr','+385-1-234-5678','Ilica 42, Zagreb')");
     q.exec("INSERT INTO suppliers (company_name, contact_person, email, phone, address) VALUES "
            "('Office Pro','Ana Anic','ana@officepro.hr','+385-1-987-6543','Vukovarska 58, Zagreb')");
 
-    // Products
+
     q.exec("INSERT INTO products (name, price, quantity, category_id, supplier_id) VALUES "
            "('Laptop HP ProBook',   899.99,  25, 1, 1)");
     q.exec("INSERT INTO products (name, price, quantity, category_id, supplier_id) VALUES "
@@ -98,14 +102,61 @@ void DatabaseManager::seedDefaultData() {
     q.exec("INSERT INTO products (name, price, quantity, category_id, supplier_id) VALUES "
            "('Cordless Drill',      149.99,  12, 3, 1)");
 
-    // Users (role: 0=Admin, 1=Manager, 2=Clerk)
-    q.exec("INSERT INTO users (username, full_name, password, role) VALUES "
-           "('admin',   'Administrator', 'admin123',   0)");
-    q.exec("INSERT INTO users (username, full_name, password, role) VALUES "
-           "('manager', 'Manager User',  'manager123', 1)");
+
+    QSqlDatabase db = QSqlDatabase::database(CONNECTION);
+    db.transaction();
+    QSqlQuery ins(db);
+    ins.prepare("INSERT INTO products (name, price, quantity, category_id, supplier_id) "
+                "VALUES (:name, :price, :qty, :cat, :sup)");
+    QRandomGenerator* rng = QRandomGenerator::global();
+    for (int i = 5; i <= 1000; ++i) {
+        const double price = 10.0 + rng->bounded(49001) / 100.0;
+        const int    qty   = 1 + rng->bounded(100);
+        const int    cat   = 1 + rng->bounded(3);
+        const int    sup   = 1 + rng->bounded(2);
+        ins.bindValue(":name",  "Product_" + QString::number(i));
+        ins.bindValue(":price", price);
+        ins.bindValue(":qty",   qty);
+        ins.bindValue(":cat",   cat);
+        ins.bindValue(":sup",   sup);
+        ins.exec();
+    }
+    db.commit();
+
+
+    seedDefaultUsers();
 }
 
-// ─── Categories ──────────────────────────────────────────────────────────────
+
+void DatabaseManager::seedDefaultUsers() {
+    QSqlQuery q(QSqlDatabase::database(CONNECTION));
+
+    struct DefaultUser { const char* username; const char* fullName;
+                         const char* password; int role; };
+    const DefaultUser defaults[] = {
+        {"admin",   "Administrator", "admin123",   0},
+        {"manager", "Manager User",  "manager123", 1},
+        {"clerk",   "Clerk User",    "clerk123",   2},
+    };
+
+    for (const DefaultUser& d : defaults) {
+        const QString username = QString::fromUtf8(d.username);
+
+        const QString salt = CryptoManager::deriveSalt(username);
+
+        const QString hash = CryptoManager::hashWithSaltAndSpecificPepper(
+            QString::fromUtf8(d.password), salt, CryptoManager::PEPPER);
+
+        q.prepare("INSERT OR IGNORE INTO users (username, full_name, password, role) "
+                  "VALUES (:uname, :full, :pwd, :role)");
+        q.bindValue(":uname", username);
+        q.bindValue(":full",  QString::fromUtf8(d.fullName));
+        q.bindValue(":pwd",   hash);
+        q.bindValue(":role",  d.role);
+        q.exec();
+    }
+}
+
 
 bool DatabaseManager::addCategory(const Category& category) {
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
@@ -155,7 +206,7 @@ Category DatabaseManager::getCategoryById(int id) {
     return Category();
 }
 
-// ─── Suppliers ───────────────────────────────────────────────────────────────
+
 
 bool DatabaseManager::addSupplier(const Supplier& supplier) {
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
@@ -221,7 +272,7 @@ Supplier DatabaseManager::getSupplierById(int id) {
     return Supplier();
 }
 
-// ─── Products ────────────────────────────────────────────────────────────────
+
 
 bool DatabaseManager::addProduct(const Product& product) {
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
@@ -260,9 +311,9 @@ std::vector<Product> DatabaseManager::getAllProducts() {
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
     q.exec(
         "SELECT p.id, p.name, p.price, p.quantity, "
-        "       (p.price * p.quantity) AS total_value, "  // col 4 — SQL calculated field
-        "       c.id, c.name, c.description, "            // cols 5-7
-        "       s.id, s.company_name, s.contact_person, s.email, s.phone, s.address " // cols 8-13
+        "       (p.price * p.quantity) AS total_value, "
+        "       c.id, c.name, c.description, "
+        "       s.id, s.company_name, s.contact_person, s.email, s.phone, s.address "
         "FROM products p "
         "LEFT JOIN categories c ON p.category_id = c.id "
         "LEFT JOIN suppliers  s ON p.supplier_id  = s.id "
@@ -326,9 +377,9 @@ std::vector<Product> DatabaseManager::getProductsFiltered(const QString& search,
 
     QString sql =
         "SELECT p.id, p.name, p.price, p.quantity, "
-        "       (p.price * p.quantity) AS total_value, "  // col 4 — SQL calculated field
-        "       c.id, c.name, c.description, "            // cols 5-7
-        "       s.id, s.company_name, s.contact_person, s.email, s.phone, s.address " // cols 8-13
+        "       (p.price * p.quantity) AS total_value, "
+        "       c.id, c.name, c.description, "
+        "       s.id, s.company_name, s.contact_person, s.email, s.phone, s.address "
         "FROM products p "
         "LEFT JOIN categories c ON p.category_id = c.id "
         "LEFT JOIN suppliers  s ON p.supplier_id  = s.id ";
@@ -367,25 +418,35 @@ std::vector<Product> DatabaseManager::getProductsFiltered(const QString& search,
     return result;
 }
 
-// ─── Users ───────────────────────────────────────────────────────────────────
+
 
 bool DatabaseManager::addUser(const User& user, const std::string& password) {
+    const QString username = QString::fromStdString(user.getUsername());
+
+    const QString salt = CryptoManager::deriveSalt(username);
+    const QString hash = CryptoManager::hashWithSaltAndSpecificPepper(
+        QString::fromStdString(password), salt, CryptoManager::PEPPER);
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
     q.prepare("INSERT INTO users (username, full_name, password, role) "
               "VALUES (:uname, :fullname, :pwd, :role)");
-    q.bindValue(":uname",    QString::fromStdString(user.getUsername()));
+    q.bindValue(":uname",    username);
     q.bindValue(":fullname", QString::fromStdString(user.getFullName()));
-    q.bindValue(":pwd",      QString::fromStdString(password));
+    q.bindValue(":pwd",      hash);
     q.bindValue(":role",     static_cast<int>(user.getRole()));
     return q.exec();
 }
 
 bool DatabaseManager::updateUser(const User& user, const std::string& password) {
+    const QString username = QString::fromStdString(user.getUsername());
+
+    const QString salt = CryptoManager::deriveSalt(username);
+    const QString hash = CryptoManager::hashWithSaltAndSpecificPepper(
+        QString::fromStdString(password), salt, CryptoManager::PEPPER);
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
     q.prepare("UPDATE users SET full_name = :fullname, password = :pwd, role = :role "
               "WHERE id = :id");
     q.bindValue(":fullname", QString::fromStdString(user.getFullName()));
-    q.bindValue(":pwd",      QString::fromStdString(password));
+    q.bindValue(":pwd",      hash);
     q.bindValue(":role",     static_cast<int>(user.getRole()));
     q.bindValue(":id",       user.getId());
     return q.exec();
@@ -424,4 +485,34 @@ User DatabaseManager::getUserByUsername(const std::string& username) {
                     static_cast<UserRole>(q.value(4).toInt()));
     }
     return User();
+}
+
+void DatabaseManager::migratePasswords() {
+    QSqlDatabase db = QSqlDatabase::database(CONNECTION);
+    QSqlQuery q(db);
+
+
+    bool hasSaltColumn = false;
+    QSqlQuery info(db);
+    info.exec("PRAGMA table_info(users)");
+    while (info.next()) {
+        if (info.value(1).toString() == "salt") {
+            hasSaltColumn = true;
+            break;
+        }
+    }
+
+    if (!hasSaltColumn)
+        return;
+
+
+    q.exec("DROP TABLE users");
+    q.exec("CREATE TABLE IF NOT EXISTS users ("
+           "id        INTEGER PRIMARY KEY AUTOINCREMENT,"
+           "username  TEXT NOT NULL UNIQUE,"
+           "full_name TEXT,"
+           "password  TEXT NOT NULL,"
+           "role      INTEGER NOT NULL DEFAULT 2"
+           ")");
+    seedDefaultUsers();
 }

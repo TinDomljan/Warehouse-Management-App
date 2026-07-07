@@ -33,7 +33,7 @@ void SupplierDialog::setupUI() {
 
     mainLayout->addLayout(formLayout);
 
-    // Buttons
+
     QHBoxLayout* buttonLayout = new QHBoxLayout();
     saveButton_ = new QPushButton("Save");
     cancelButton_ = new QPushButton("Cancel");
@@ -46,7 +46,7 @@ void SupplierDialog::setupUI() {
     connect(cancelButton_, &QPushButton::clicked, this, &QDialog::reject);
 }
 
-// Pre-fill fields for Edit mode
+
 void SupplierDialog::setSupplier(const Supplier& supplier) {
     companyEdit_->setText(QString::fromStdString(supplier.getCompanyName()));
     contactEdit_->setText(QString::fromStdString(supplier.getContactPerson()));
@@ -56,7 +56,7 @@ void SupplierDialog::setSupplier(const Supplier& supplier) {
 }
 
 void SupplierDialog::onSaveClicked() {
-    // Validate — at minimum, company name is required
+
     if (companyEdit_->text().isEmpty()) {
         QMessageBox::warning(this, "Validation Error",
                              "Please enter a company name.");
@@ -67,7 +67,7 @@ void SupplierDialog::onSaveClicked() {
     accept();
 }
 
-// Build a Supplier object from the form fields
+
 Supplier SupplierDialog::getSupplier() const {
     return Supplier(
         id_,

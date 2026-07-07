@@ -1,0 +1,3 @@
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\WarehouseServer.dir/objects.a
+C:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\WarehouseServer.dir/objects.a @CMakeFiles\WarehouseServer.dir\objects1.rsp
+C:\Qt\Tools\mingw1310_64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\WarehouseServer.dir/objects.a -Wl,--no-whole-archive -o WarehouseServer.exe -Wl,--out-implib,libWarehouseServer.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\WarehouseServer.dir\linkLibs.rsp

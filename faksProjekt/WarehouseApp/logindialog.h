@@ -36,5 +36,5 @@ private:
     void setupUI();
 };
 
-#endif // LOGINDIALOG_H
+#endif
 

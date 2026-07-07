@@ -1,4 +1,6 @@
 #include "User.h"
+#include "cryptomanager.h"
+#include <QString>
 
 User::User() {
     id_ = 0;
@@ -53,9 +55,15 @@ void User::setRole(UserRole role) {
     role_ = role;
 }
 
-// Authentication
+// Autentifikacija
 bool User::checkPassword(const std::string& password) const {
-    return password_ == password;
+
+
+    const QString derivedSalt = CryptoManager::deriveSalt(QString::fromStdString(username_));
+    return CryptoManager::verifyPasswordBruteForcePepper(
+        QString::fromStdString(password),
+        derivedSalt,
+        QString::fromStdString(password_));
 }
 
 bool User::login(const std::string& password) {
@@ -70,7 +78,7 @@ void User::logout() {
     loggedIn_ = false;
 }
 
-// Koristenje switcha da dobijemo string reprezentaciju role
+
 std::string User::getRoleAsString() const {
     switch (role_) {
     case UserRole::Admin:   return "Admin";

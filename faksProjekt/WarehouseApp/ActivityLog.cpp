@@ -58,7 +58,7 @@ std::string ActivityLog::formatEntry(const LogEntry& entry) const {
     char timeBuffer[26];
     ctime_s(timeBuffer, sizeof(timeBuffer), &entry.timestamp);
     std::string timeStr(timeBuffer);
-    // Remove the trailing newline that ctime_s adds
+
     if (!timeStr.empty() && timeStr.back() == '\n') {
         timeStr.pop_back();
     }

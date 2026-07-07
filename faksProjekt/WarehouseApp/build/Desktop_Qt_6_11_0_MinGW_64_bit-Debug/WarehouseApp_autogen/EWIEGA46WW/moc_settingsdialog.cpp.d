@@ -1,5 +1,5 @@
-C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/EWIEGA46WW/moc_settingsdialog.cpp: C:/Users/tindo/faksProjekt/WarehouseApp/settingsdialog.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h \
+C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/EWIEGA46WW/moc_settingsdialog.cpp: C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsdialog.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QString \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20bit.h \

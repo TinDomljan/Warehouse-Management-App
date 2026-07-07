@@ -1,0 +1,28 @@
+=== Inventory Analysis Log ===
+Date/time    : 2026-07-03 08:48:13
+Total products: 1000
+Segments     : Thread 1 = [0,332]  Thread 2 = [333,665]  Thread 3 = [666,999]
+Mutex types  : QMutex (counter)  |  std::mutex (file)
+
+--- Thread 1 ---
+  Index range     : [0, 332]
+  Low-stock items : 34
+  Segment value   : $3975477.02
+  Most expensive  : Laptop HP ProBook  ($899.99)
+
+--- Thread 3 ---
+  Index range     : [666, 999]
+  Low-stock items : 32
+  Segment value   : $4621801.69
+  Most expensive  : Product_796  ($499.92)
+
+--- Thread 2 ---
+  Index range     : [333, 665]
+  Low-stock items : 26
+  Segment value   : $4311850.10
+  Most expensive  : Product_396  ($496.57)
+
+=== Summary ===
+  Items counted via QMutex counter : 1000
+  (should equal total products above)
+==============================

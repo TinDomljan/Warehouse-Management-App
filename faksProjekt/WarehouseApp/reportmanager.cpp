@@ -6,7 +6,7 @@
 #include <QPageLayout>
 #include <QFile>
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
+
 
 static QString money(double v) {
     return QString::number(v, 'f', 2);
@@ -19,7 +19,7 @@ static QString cell(const QString& content, const QString& align = "left",
            ">" + content + "</td>";
 }
 
-// ─── HTML generation ─────────────────────────────────────────────────────────
+
 
 QString ReportManager::generateInventoryReport(const std::vector<Product>& products,
                                                const std::vector<Category>& categories) {
@@ -28,7 +28,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
 
     for (const Category& cat : categories) {
 
-        // Collect products belonging to this category
+        // svi produkti u toj kategoriji
         std::vector<const Product*> catProducts;
         for (const Product& p : products) {
             if (p.getCategory().getId() == cat.getId())
@@ -38,11 +38,11 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
 
         double subtotal = 0.0;
 
-        // One table per category — master header + detail rows + subtotal
+
         body += "<table width=\"100%\" border=\"1\" cellspacing=\"0\" cellpadding=\"5\" "
                 "style=\"border-collapse:collapse; margin-bottom:18px;\">";
 
-        // ── Master row: category header ───────────────────────────────────────
+
         body += "<tr style=\"background-color:#1a3a5c; color:#ffffff;\">"
                 "<td colspan=\"4\" style=\"padding:7px 8px;\">"
                 "<b>CATEGORY: " + QString::fromStdString(cat.getName()) +
@@ -50,7 +50,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
                 "(" + QString::fromStdString(cat.getDescription()) + ")"
                 "</span></td></tr>";
 
-        // Column headers
+
         body += "<tr style=\"background-color:#d8e8f8;\">"
                 "<th align=\"left\"  style=\"padding:4px 8px;\">Product</th>"
                 "<th align=\"right\" style=\"padding:4px 8px;\">Qty</th>"
@@ -58,7 +58,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
                 "<th align=\"right\" style=\"padding:4px 8px;\">Total Value (&euro;)</th>"
                 "</tr>";
 
-        // ── Detail rows: products ─────────────────────────────────────────────
+
         for (int i = 0; i < static_cast<int>(catProducts.size()); i++) {
             const Product* p = catProducts[i];
             double tv = p->getTotalValue();
@@ -73,7 +73,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
             body += "</tr>";
         }
 
-        // Subtotal row
+
         body += "<tr style=\"background-color:#e4eff9;\">"
                 "<td colspan=\"3\" align=\"right\" style=\"padding:5px 8px;\"><b>Subtotal:</b></td>"
                 "<td align=\"right\" style=\"padding:5px 8px;\"><b>" + money(subtotal) + "</b></td>"
@@ -83,14 +83,14 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
         grandTotal += subtotal;
     }
 
-    // ── Grand total ───────────────────────────────────────────────────────────
+
     body += "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">"
             "<tr><td style=\"background-color:#1a3a5c; color:#ffffff; "
             "padding:10px 12px; text-align:right; font-size:13pt;\">"
             "<b>GRAND TOTAL: &euro;" + money(grandTotal) + "</b>"
             "</td></tr></table>";
 
-    // ── Assemble full HTML document ───────────────────────────────────────────
+
     QString datetime = QDateTime::currentDateTime().toString("dd.MM.yyyy HH:mm");
     int count = static_cast<int>(products.size());
 
@@ -109,10 +109,10 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
         "</body></html>";
 }
 
-// ─── PDF export ───────────────────────────────────────────────────────────────
+// pdf export
 
 bool ReportManager::exportToPDF(const QString& html, const QString& filePath) {
-    QPrinter printer(QPrinter::HighResolution);
+    QPrinter printer(QPrinter::ScreenResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
     printer.setOutputFileName(filePath);
     printer.setPageSize(QPageSize(QPageSize::A4));

@@ -1,10 +1,16 @@
-C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/tindo/faksProjekt/WarehouseApp/mainwindow.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h \
-  C:/Qt/6.11.0/mingw_64/include/QtCore/QList \
+C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/mainwindow.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QElapsedTimer \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QMutex \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QObject \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QPoint \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QProcess \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QRunnable \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QSettings \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QSize \
   C:/Qt/6.11.0/mingw_64/include/QtCore/QString \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QThreadPool \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/QtGlobal \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20functional.h \
@@ -44,7 +50,9 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtCore/qcontiguouscache.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qdatastream.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qdeadlinetimer.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qdebug.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qelapsedtimer.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qendian.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qflags.h \
@@ -74,6 +82,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtCore/qmetacontainer.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qmetatype.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qminmax.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qmutex.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qnamespace.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qnumeric.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qobject.h \
@@ -83,10 +92,12 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtCore/qoverload.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qpair.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qpoint.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qprocess.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qprocessordetection.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qrect.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qrefcount.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qregularexpression.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qrunnable.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qscopedpointer.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qscopeguard.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qset.h \
@@ -123,10 +134,13 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtextstream.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtformat_impl.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qthread.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qthreadpool.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtresource.h \
+  C:/Qt/6.11.0/mingw_64/include/QtCore/qtsan_impl.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qttranslation.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qttypetraits.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/qtversion.h \
@@ -175,6 +189,13 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtGui/qvalidator.h \
   C:/Qt/6.11.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.11.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/QTcpSocket \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/qabstractsocket.h \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/qhostaddress.h \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtcpsocket.h \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
+  C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QHeaderView \
@@ -184,9 +205,11 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMenu \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMenuBar \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressBar \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QStatusBar \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTableWidget \
+  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -209,6 +232,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenu.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenubar.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
+  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressbar.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -220,6 +244,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtableview.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtablewidget.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
+  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -236,6 +261,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocator.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_base.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_lockfree_defines.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_string.tcc \
@@ -282,6 +308,8 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/specfun.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_function.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algobase.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_bvector.h \
@@ -310,6 +338,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/string_view.tcc \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stringfwd.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_ptr.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_set.h \
@@ -325,6 +354,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/clocale \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cmath \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/compare \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstddef \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdint \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdio \
@@ -343,6 +373,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/string_conversions.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/type_traits.h \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/functional \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/initializer_list \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iosfwd \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iterator \
@@ -350,6 +381,7 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/memory \
+  C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/new \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/numeric \
   C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/optional \
@@ -437,12 +469,14 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/ActivityLog.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/Category.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/Product.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/Supplier.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/User.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/binarymanager.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/jsonmanager.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/settingsmanager.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/xmlmanager.h
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/ActivityLog.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Category.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Order.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Product.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Supplier.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/User.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/binarymanager.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/inventoryanalyzer.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/jsonmanager.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/orderxmlmanager.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsmanager.h

@@ -12,7 +12,7 @@ LoginDialog::LoginDialog(QWidget* parent) : QDialog(parent) {
     updateLanguage();
     setFixedSize(350, 200);
 
-    // Pre-fill username from last session =====
+    // username iz zadnje sesije
     QString lastUser = SettingsManager::instance().loadLastUsername();
     if (!lastUser.isEmpty()) {
         usernameEdit_->setText(lastUser);
@@ -31,12 +31,16 @@ void LoginDialog::setupUI() {
     titleLabel_->setFont(titleFont);
     mainLayout->addWidget(titleLabel_);
     userLabel_ = new QLabel();
+
     mainLayout->addWidget(userLabel_);
     usernameEdit_ = new QLineEdit();
+
     mainLayout->addWidget(usernameEdit_);
     passLabel_ = new QLabel();
+
     mainLayout->addWidget(passLabel_);
     passwordEdit_ = new QLineEdit();
+
     passwordEdit_->setEchoMode(QLineEdit::Password);
     mainLayout->addWidget(passwordEdit_);
     loginButton_ = new QPushButton();

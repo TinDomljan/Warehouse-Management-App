@@ -4,8 +4,7 @@ Product::Product() {
     id_ = 0;
     name_ = "";
     price_ = 0.0;
-    quantity_ = 0;
-    // category_ and supplier_ automatically use their default constructors
+    quantity_ = 0; 
 }
 
 Product::Product(int id, std::string name, double price, int quantity,
@@ -18,7 +17,7 @@ Product::Product(int id, std::string name, double price, int quantity,
     supplier_ = supplier;
 }
 
-// Getters
+
 int Product::getId() const {
     return id_;
 }
@@ -43,7 +42,7 @@ Supplier Product::getSupplier() const {
     return supplier_;
 }
 
-// Setters
+//seteri
 void Product::setName(const std::string& name) {
     name_ = name;
 }
@@ -64,7 +63,7 @@ void Product::setSupplier(const Supplier& supplier) {
     supplier_ = supplier;
 }
 
-// Business logic
+// izr polje
 double Product::getTotalValue() const {
     return price_ * quantity_;
 }
@@ -85,7 +84,7 @@ void Product::removeStock(int amount) {
     }
 }
 
-// Utility
+
 std::string Product::toString() const {
     return "[" + std::to_string(id_) + "] " + name_ +
         " | Price: " + std::to_string(price_) +

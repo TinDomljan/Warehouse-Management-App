@@ -1,0 +1,132 @@
+=== UDP log from ::ffff:127.0.0.1:60017  at 2026-06-28 13:14:53  (20 entries) ===
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGOUT | System
+  [2026-06-28 12:57:18] clerk | LOGIN | System
+  [2026-06-28 12:57:18] clerk | LOGOUT | System
+  [2026-06-28 12:57:18] manager | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ADD_PRODUCT | Slušalice
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ANALYZE_INVENTORY | Products: 5
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:23] admin | NET_QUERY | laptop
+  [2026-06-28 13:00:59] admin | NET_SEND_BACKUP | Bytes: 344
+  [2026-06-28 13:14:50] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:52] admin | NET_UDP_STATUS | localhost
+
+=== UDP log from ::ffff:127.0.0.1:49215  at 2026-06-28 13:17:54  (20 entries) ===
+  [2026-06-28 12:57:18] clerk | LOGIN | System
+  [2026-06-28 12:57:18] clerk | LOGOUT | System
+  [2026-06-28 12:57:18] manager | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ADD_PRODUCT | Slušalice
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ANALYZE_INVENTORY | Products: 5
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:23] admin | NET_QUERY | laptop
+  [2026-06-28 13:00:59] admin | NET_SEND_BACKUP | Bytes: 344
+  [2026-06-28 13:14:50] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:52] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:53] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:14:55] admin | NET_UDP_STATUS | localhost
+
+=== UDP log from ::ffff:127.0.0.1:49216  at 2026-06-28 13:17:55  (20 entries) ===
+  [2026-06-28 12:57:18] clerk | LOGOUT | System
+  [2026-06-28 12:57:18] manager | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ADD_PRODUCT | Slušalice
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ANALYZE_INVENTORY | Products: 5
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:23] admin | NET_QUERY | laptop
+  [2026-06-28 13:00:59] admin | NET_SEND_BACKUP | Bytes: 344
+  [2026-06-28 13:14:50] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:52] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:53] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:14:55] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:17:54] admin | NET_UDP_LOG | Entries: 20
+
+=== UDP log from ::ffff:127.0.0.1:49218  at 2026-06-28 13:17:58  (20 entries) ===
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ADD_PRODUCT | Slušalice
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ANALYZE_INVENTORY | Products: 5
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:23] admin | NET_QUERY | laptop
+  [2026-06-28 13:00:59] admin | NET_SEND_BACKUP | Bytes: 344
+  [2026-06-28 13:14:50] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:52] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:53] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:14:55] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:17:54] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:17:55] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:17:56] admin | NET_UDP_STATUS | localhost
+
+=== UDP log from ::ffff:127.0.0.1:49219  at 2026-06-28 13:18:02  (20 entries) ===
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | GENERATE_REPORT | C:/Users/tindo/Desktop/ntp/inventory_report.pdf
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | ANALYZE_INVENTORY | Products: 5
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:18] admin | LOGIN | System
+  [2026-06-28 12:57:23] admin | NET_QUERY | laptop
+  [2026-06-28 13:00:59] admin | NET_SEND_BACKUP | Bytes: 344
+  [2026-06-28 13:14:50] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:52] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:14:53] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:14:55] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:17:54] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:17:55] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:17:56] admin | NET_UDP_STATUS | localhost
+  [2026-06-28 13:17:58] admin | NET_UDP_LOG | Entries: 20
+  [2026-06-28 13:17:59] admin | NET_SEND_BACKUP | Bytes: 344
+  [2026-06-28 13:18:01] admin | NET_QUERY | laptop
+
+=== UDP log from ::ffff:127.0.0.1:64269  at 2026-07-03 08:36:22  (20 entries) ===
+  [2026-07-03 08:33:58] admin | GENERATE_REPORT | C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/bu
+  [2026-07-03 08:33:58] admin | ANALYZE_INVENTORY | Products: 1000
+  [2026-07-03 08:33:58] admin | LOAD_SNAPSHOT | Records: 3
+  [2026-07-03 08:33:58] admin | SIGN_ORDERS | data=646B sig=256B
+  [2026-07-03 08:33:58] admin | VERIFY_ORDERS | VALID
+  [2026-07-03 08:33:58] admin | SIGN_ORDERS | data=646B sig=256B
+  [2026-07-03 08:33:58] admin | VERIFY_ORDERS | VALID
+  [2026-07-03 08:33:58] admin | USERS_EXPORT_RSA | users_export.bin 256B
+  [2026-07-03 08:33:58] admin | USERS_DECRYPT_RSA | users_export.bin decrypted
+  [2026-07-03 08:33:58] admin | CRYPTO_ENCRYPT | plain=312B cipher=336B
+  [2026-07-03 08:33:58] admin | CRYPTO_DECRYPT | cipher=336B plain=312B
+  [2026-07-03 08:33:58] admin | CRYPTO_RESTORE | stock_snapshot.bin.dec -> stock_snapshot.bin
+  [2026-07-03 08:33:58] admin | LOAD_SNAPSHOT | Records: 3
+  [2026-07-03 08:33:58] admin | LOGIN | System
+  [2026-07-03 08:33:58] admin | LOGIN | System
+  [2026-07-03 08:33:58] admin | LOGIN | System
+  [2026-07-03 08:34:02] admin | REST_EXCHANGE_RATES | base=EUR count=166
+  [2026-07-03 08:34:06] admin | NET_QUERY | Laptop
+  [2026-07-03 08:36:17] admin | NET_SEND_BACKUP | Bytes: 312
+  [2026-07-03 08:36:20] admin | NET_UDP_STATUS | localhost
+

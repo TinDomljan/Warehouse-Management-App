@@ -1,20 +1,20 @@
 {
 	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
-	"BUILD_DIR" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen",
-	"CMAKE_BINARY_DIR" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/tindo/faksProjekt/WarehouseApp",
+	"BUILD_DIR" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp",
 	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/Users/tindo/faksProjekt/WarehouseApp/CMakeLists.txt",
-		"C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/qtcreator-project.cmake",
-		"C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/package-manager.cmake",
-		"C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
-		"C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/CMakeLists.txt",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/qtcreator-project.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/package-manager.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/.qtcreator/cmake-helper/maintenance_tool_provider.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInitialize.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-Initialize.cmake",
-		"C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeGenericSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeInitializeConfigs.cmake",
@@ -27,7 +27,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU.cmake",
-		"C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeRCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-windres.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
@@ -416,6 +416,52 @@
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake",
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Sql/Qt6SqlVersionlessAliasTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersion.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfigVersionImpl.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportDependencies.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargetsPrecheck.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportPlugins.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6PrintSupport/Qt6PrintSupportVersionlessAliasTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersion.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfigVersionImpl.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkDependencies.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargetsPrecheck.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkPlugins.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QNLMNIPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QSchannelBackendPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendCertOnlyPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargetsPrecheck.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6Network/Qt6NetworkVersionlessAliasTargets.cmake",
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersion.cmake",
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6/Qt6ConfigVersionImpl.cmake",
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6/Qt6Config.cmake",
@@ -462,120 +508,159 @@
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6/QtPublicWindowsHelpers.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeFindDependencyMacro.cmake",
 		"C:/Qt/6.11.0/mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
-		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake"
+		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/GNUInstallDirs.cmake",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/warehouse_icons.qrc"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/Users/tindo/faksProjekt/WarehouseApp",
+	"CMAKE_SOURCE_DIR" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp",
 	"CROSS_CONFIG" : false,
-	"DEP_FILE" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/deps",
+	"DEP_FILE" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "WarehouseApp_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/ActivityLog.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/ActivityLog.h",
 			"MU",
 			"EWIEGA46WW/moc_ActivityLog.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/Category.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Category.h",
 			"MU",
 			"EWIEGA46WW/moc_Category.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/Product.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Order.h",
+			"MU",
+			"EWIEGA46WW/moc_Order.cpp",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Product.h",
 			"MU",
 			"EWIEGA46WW/moc_Product.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/Supplier.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Supplier.h",
 			"MU",
 			"EWIEGA46WW/moc_Supplier.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/User.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/User.h",
 			"MU",
 			"EWIEGA46WW/moc_User.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/binarymanager.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/binarymanager.h",
 			"MU",
 			"EWIEGA46WW/moc_binarymanager.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/databasemanager.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/cryptomanager.h",
+			"MU",
+			"EWIEGA46WW/moc_cryptomanager.cpp",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/databasemanager.h",
 			"MU",
 			"EWIEGA46WW/moc_databasemanager.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/jsonmanager.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/inventoryanalyzer.h",
+			"MU",
+			"EWIEGA46WW/moc_inventoryanalyzer.cpp",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/jsonmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_jsonmanager.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/logindialog.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/logindialog.h",
 			"MU",
 			"EWIEGA46WW/moc_logindialog.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/mainwindow.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/productdialog.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/orderdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_orderdialog.cpp",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/orderxmlmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_orderxmlmanager.cpp",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/productdialog.h",
 			"MU",
 			"EWIEGA46WW/moc_productdialog.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/settingsdialog.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/reportmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_reportmanager.cpp",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsdialog.h",
 			"MU",
 			"EWIEGA46WW/moc_settingsdialog.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/settingsmanager.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_settingsmanager.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/supplierdialog.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/supplierdialog.h",
 			"MU",
 			"EWIEGA46WW/moc_supplierdialog.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/translationmanager.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/translationmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_translationmanager.cpp",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/xmlmanager.h",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/udpprotocol.h",
 			"MU",
-			"EWIEGA46WW/moc_xmlmanager.cpp",
+			"EWIEGA46WW/moc_udpprotocol.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
 		"QT_NEEDS_QMAIN",
+		"QT_NETWORK_LIB",
+		"QT_PRINTSUPPORT_LIB",
 		"QT_QML_DEBUG",
 		"QT_SQL_LIB",
 		"QT_WIDGETS_LIB",
@@ -603,6 +688,9 @@
 		"C:/Qt/6.11.0/mingw_64/include/QtGui",
 		"C:/Qt/6.11.0/mingw_64/include/QtXml",
 		"C:/Qt/6.11.0/mingw_64/include/QtSql",
+		"C:/Qt/6.11.0/mingw_64/include/QtPrintSupport",
+		"C:/Qt/6.11.0/mingw_64/include/QtNetwork",
+		"C:/Program Files/OpenSSL-Win64/include",
 		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++",
 		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32",
 		"C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward",
@@ -630,68 +718,159 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
-	"MOC_SKIP" : [],
+	"MOC_SKIP" : 
+	[
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/IconGenerator_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/IconGenerator_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseDlgs_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseDlgs_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseExport_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseExport_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseResources_autogen/EWIEGA46WW/qrc_warehouse_icons.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseResources_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseResources_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseUtils_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseUtils_autogen/mocs_compilation.cpp"
+	],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp_autogen.dir/ParseCache.txt",
+	"PARALLEL" : 6,
+	"PARSE_CACHE_FILE" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.11.0/mingw_64/bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.11.0/mingw_64/bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 11,
-	"SETTINGS_FILE" : "C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/CMakeFiles/WarehouseApp_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/ActivityLog.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/Category.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/Product.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/Supplier.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/User.cpp", "MU", null ],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/binarymanager.cpp",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/ActivityLog.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/databasemanager.cpp",
-			"MU",
-			null
-		],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/jsonmanager.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/logindialog.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/main.cpp", "MU", null ],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/mainwindow.cpp", "MU", null ],
-		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/productdialog.cpp",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Category.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/settingsdialog.cpp",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Order.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/settingsmanager.cpp",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Product.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/supplierdialog.cpp",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/Supplier.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/Users/tindo/faksProjekt/WarehouseApp/translationmanager.cpp",
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/User.cpp",
 			"MU",
 			null
 		],
-		[ "C:/Users/tindo/faksProjekt/WarehouseApp/xmlmanager.cpp", "MU", null ]
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/binarymanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/cryptomanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/databasemanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/inventoryanalyzer.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/jsonmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/logindialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/main.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/orderdialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/orderxmlmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/productdialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/reportmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsdialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/supplierdialog.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/translationmanager.cpp",
+			"MU",
+			null
+		]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
-	"UIC_SKIP" : [],
+	"UIC_SKIP" : 
+	[
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/IconGenerator_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/IconGenerator_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseDlgs_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseDlgs_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseExport_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseExport_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseResources_autogen/EWIEGA46WW/qrc_warehouse_icons.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseResources_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseResources_autogen/mocs_compilation.cpp",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseUtils_autogen/include/ui_mainwindow.h",
+		"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseUtils_autogen/mocs_compilation.cpp"
+	],
 	"UIC_UI_FILES" : [],
 	"USE_BETTER_GRAPH" : true,
 	"VERBOSITY" : 0

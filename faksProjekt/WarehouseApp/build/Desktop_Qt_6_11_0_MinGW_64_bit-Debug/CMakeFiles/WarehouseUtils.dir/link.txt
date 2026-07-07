@@ -1,0 +1,2 @@
+C:\Qt\Tools\mingw1310_64\bin\ar.exe qc libWarehouseUtils.a CMakeFiles/WarehouseUtils.dir/WarehouseUtils_autogen/mocs_compilation.cpp.obj CMakeFiles/WarehouseUtils.dir/warehouseutils.cpp.obj
+C:\Qt\Tools\mingw1310_64\bin\ranlib.exe libWarehouseUtils.a

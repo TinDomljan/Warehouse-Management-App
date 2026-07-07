@@ -13,24 +13,24 @@ public:
     User(int id, std::string username, std::string fullName,
         std::string password, UserRole role);
 
-    // Getters
+    // Getteri
     int getId() const;
     std::string getUsername() const;
     std::string getFullName() const;
     UserRole getRole() const;
     bool isLoggedIn() const;
 
-    // Setters
+    // Setteri
     void setFullName(const std::string& fullName);
     void setPassword(const std::string& password);
     void setRole(UserRole role);
 
-    // Authentication
+    // Autentifikacija
     bool login(const std::string& password);
     void logout();
     bool checkPassword(const std::string& password) const;
 
-    // Utility
+    // za string
     std::string getRoleAsString() const;
     std::string toString() const;
 

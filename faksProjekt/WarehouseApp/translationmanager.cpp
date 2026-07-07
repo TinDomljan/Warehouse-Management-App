@@ -26,11 +26,11 @@ std::string TranslationManager::tr(const std::string& key) const {
             return langIt->second;
         }
     }
-    return key;  // fallback: return the key itself if no translation found
+    return key;  // ako nema prijevoda vrati ključ
 }
 
 void TranslationManager::loadTranslations() {
-    // ===== LOGIN DIALOG =====
+
     translations_["login_title"]["ENG"] = "Warehouse App - Login";
     translations_["login_title"]["HRV"] = "Skladišna Aplikacija - Prijava";
     translations_["login_header"]["ENG"] = "Warehouse Management System";
@@ -54,7 +54,7 @@ void TranslationManager::loadTranslations() {
     translations_["login_failed_title"]["ENG"] = "Login Failed";
     translations_["login_failed_title"]["HRV"] = "Prijava neuspješna";
 
-    // ===== MAIN WINDOW =====
+
     translations_["main_title"]["ENG"] = "Warehouse Management System";
     translations_["main_title"]["HRV"] = "Sustav Upravljanja Skladištem";
     translations_["main_logged_in"]["ENG"] = "Logged in: ";
@@ -106,7 +106,7 @@ void TranslationManager::loadTranslations() {
     translations_["main_product_added"]["ENG"] = "Product added: ";
     translations_["main_product_added"]["HRV"] = "Proizvod dodan: ";
 
-    // ===== PRODUCT DIALOG =====
+
     translations_["product_title"]["ENG"] = "Add New Product";
     translations_["product_title"]["HRV"] = "Dodaj Novi Proizvod";
     translations_["product_name"]["ENG"] = "Name:";
@@ -130,7 +130,7 @@ void TranslationManager::loadTranslations() {
     translations_["product_ph_name"]["ENG"] = "Enter product name...";
     translations_["product_ph_name"]["HRV"] = "Unesite naziv proizvoda...";
 
-    // ===== SETTINGS DIALOG =====
+
     translations_["settings_title"]["ENG"] = "Settings";
     translations_["settings_title"]["HRV"] = "Postavke";
     translations_["settings_font"]["ENG"] = "Font Size:";
@@ -154,7 +154,75 @@ void TranslationManager::loadTranslations() {
     translations_["settings_bg_title"]["ENG"] = "Choose Background Color";
     translations_["settings_bg_title"]["HRV"] = "Odaberite boju pozadine";
 
-    // ===== ABOUT DIALOG =====
+
+    translations_["main_menu_data"]["ENG"] = "&Data";
+    translations_["main_menu_data"]["HRV"] = "&Podaci";
+    translations_["main_menu_orders"]["ENG"] = "Orders";
+    translations_["main_menu_orders"]["HRV"] = "Narudžbe";
+
+
+    translations_["order_title"]["ENG"] = "Orders";
+    translations_["order_title"]["HRV"] = "Narudžbe";
+    translations_["order_col_id"]["ENG"] = "ID";
+    translations_["order_col_id"]["HRV"] = "ID";
+    translations_["order_col_customer"]["ENG"] = "Customer";
+    translations_["order_col_customer"]["HRV"] = "Kupac";
+    translations_["order_col_date"]["ENG"] = "Date";
+    translations_["order_col_date"]["HRV"] = "Datum";
+    translations_["order_col_status"]["ENG"] = "Status";
+    translations_["order_col_status"]["HRV"] = "Status";
+    translations_["order_col_items"]["ENG"] = "Items";
+    translations_["order_col_items"]["HRV"] = "Stavke";
+    translations_["order_btn_add"]["ENG"] = "Add";
+    translations_["order_btn_add"]["HRV"] = "Dodaj";
+    translations_["order_btn_edit"]["ENG"] = "Edit";
+    translations_["order_btn_edit"]["HRV"] = "Uredi";
+    translations_["order_btn_delete"]["ENG"] = "Delete";
+    translations_["order_btn_delete"]["HRV"] = "Obriši";
+    translations_["order_add_title"]["ENG"] = "Add Order";
+    translations_["order_add_title"]["HRV"] = "Dodaj Narudžbu";
+    translations_["order_edit_title"]["ENG"] = "Edit Order";
+    translations_["order_edit_title"]["HRV"] = "Uredi Narudžbu";
+    translations_["order_customer"]["ENG"] = "Customer:";
+    translations_["order_customer"]["HRV"] = "Kupac:";
+    translations_["order_date"]["ENG"] = "Order Date:";
+    translations_["order_date"]["HRV"] = "Datum narudžbe:";
+    translations_["order_status"]["ENG"] = "Status:";
+    translations_["order_status"]["HRV"] = "Status:";
+    translations_["order_items"]["ENG"] = "Items:";
+    translations_["order_items"]["HRV"] = "Stavke:";
+    translations_["order_item_col_pid"]["ENG"] = "Product ID";
+    translations_["order_item_col_pid"]["HRV"] = "ID proizvoda";
+    translations_["order_item_col_pname"]["ENG"] = "Product Name";
+    translations_["order_item_col_pname"]["HRV"] = "Naziv proizvoda";
+    translations_["order_item_col_qty"]["ENG"] = "Quantity";
+    translations_["order_item_col_qty"]["HRV"] = "Količina";
+    translations_["order_item_add"]["ENG"] = "Add Item";
+    translations_["order_item_add"]["HRV"] = "Dodaj Stavku";
+    translations_["order_item_remove"]["ENG"] = "Remove Item";
+    translations_["order_item_remove"]["HRV"] = "Ukloni Stavku";
+    translations_["order_btn_save"]["ENG"] = "Save";
+    translations_["order_btn_save"]["HRV"] = "Spremi";
+    translations_["order_btn_cancel"]["ENG"] = "Cancel";
+    translations_["order_btn_cancel"]["HRV"] = "Odustani";
+    translations_["order_ph_customer"]["ENG"] = "Enter customer name...";
+    translations_["order_ph_customer"]["HRV"] = "Unesite ime kupca...";
+    translations_["order_err_title"]["ENG"] = "Validation Error";
+    translations_["order_err_title"]["HRV"] = "Greška validacije";
+    translations_["order_err_customer"]["ENG"] = "Please enter a customer name.";
+    translations_["order_err_customer"]["HRV"] = "Molimo unesite ime kupca.";
+    translations_["order_err_items"]["ENG"] = "Each item must have quantity greater than 0.";
+    translations_["order_err_items"]["HRV"] = "Svaka stavka mora imati količinu veću od 0.";
+    translations_["order_select_edit"]["ENG"] = "Please select an order to edit.";
+    translations_["order_select_edit"]["HRV"] = "Odaberite narudžbu za uređivanje.";
+    translations_["order_select_delete"]["ENG"] = "Please select an order to delete.";
+    translations_["order_select_delete"]["HRV"] = "Odaberite narudžbu za brisanje.";
+    translations_["order_confirm_delete"]["ENG"] = "Are you sure you want to delete order for ";
+    translations_["order_confirm_delete"]["HRV"] = "Jeste li sigurni da želite obrisati narudžbu za ";
+    translations_["order_delete_title"]["ENG"] = "Delete Order";
+    translations_["order_delete_title"]["HRV"] = "Brisanje Narudžbe";
+
+
     translations_["about_title"]["ENG"] = "About Warehouse App";
     translations_["about_title"]["HRV"] = "O aplikaciji";
     translations_["about_text"]["ENG"] = "Warehouse Management System\nVersion 1.0\n\nDeveloped for Advanced Programming Techniques\nZagreb University of Applied Sciences\n\nAuthor: Tindo";

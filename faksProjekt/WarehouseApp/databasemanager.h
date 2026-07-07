@@ -16,14 +16,14 @@ public:
     bool isOpen() const;
     QString lastError() const;
 
-    // Categories CRUD
+    // Kategorije CRUD
     bool addCategory(const Category& category);
     bool updateCategory(const Category& category);
     bool deleteCategory(int id);
     std::vector<Category> getAllCategories();
     Category getCategoryById(int id);
 
-    // Suppliers CRUD
+    // Supplieri CRUD
     bool addSupplier(const Supplier& supplier);
     bool updateSupplier(const Supplier& supplier);
     bool deleteSupplier(int id);
@@ -36,12 +36,12 @@ public:
     bool deleteProduct(int id);
     std::vector<Product> getAllProducts();
     Product getProductById(int id);
-    // orderByClause must be a trusted SQL fragment, e.g. "p.name ASC"
+
     std::vector<Product> getProductsFiltered(const QString& search,
                                              const QString& orderByClause);
 
     // Users CRUD
-    // password is passed separately since User has no getPassword()
+
     bool addUser(const User& user, const std::string& password);
     bool updateUser(const User& user, const std::string& password);
     bool deleteUser(int id);
@@ -55,6 +55,8 @@ private:
 
     void createTables();
     void seedDefaultData();
+    void seedDefaultUsers();
+    void migratePasswords();
 
     static constexpr const char* CONNECTION = "warehouse";
 };

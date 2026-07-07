@@ -1,5 +1,5 @@
-C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/EWIEGA46WW/moc_logindialog.cpp: C:/Users/tindo/faksProjekt/WarehouseApp/logindialog.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h \
+C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/EWIEGA46WW/moc_logindialog.cpp: C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/logindialog.h \
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/WarehouseApp_autogen/moc_predefs.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20bit.h \
   C:/Qt/6.11.0/mingw_64/include/QtCore/q20functional.h \
@@ -398,4 +398,4 @@ C:/Users/tindo/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Deb
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/tindo/faksProjekt/WarehouseApp/User.h
+  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/User.h

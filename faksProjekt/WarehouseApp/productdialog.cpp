@@ -20,31 +20,31 @@ void ProductDialog::setupUI() {
     formLayout_ = new QFormLayout();
 
     nameEdit_ = new QLineEdit();
-    formLayout_->addRow("", nameEdit_);
+    formLayout_->addRow("Name:", nameEdit_);
 
     priceSpinBox_ = new QDoubleSpinBox();
     priceSpinBox_->setRange(0.01, 99999.99);
     priceSpinBox_->setDecimals(2);
     priceSpinBox_->setPrefix("€ ");
     priceSpinBox_->setValue(0.01);
-    formLayout_->addRow("", priceSpinBox_);
+    formLayout_->addRow("Price:", priceSpinBox_);
 
     quantitySpinBox_ = new QSpinBox();
     quantitySpinBox_->setRange(0, 99999);
     quantitySpinBox_->setValue(1);
-    formLayout_->addRow("", quantitySpinBox_);
+    formLayout_->addRow("Quantity:", quantitySpinBox_);
 
     categoryCombo_ = new QComboBox();
-    for (int i = 0; i < categories_.size(); i++) {
+    for (int i = 0; i < (int)categories_.size(); i++) {
         categoryCombo_->addItem(QString::fromStdString(categories_[i].getName()));
     }
-    formLayout_->addRow("", categoryCombo_);
+    formLayout_->addRow("Category:", categoryCombo_);
 
     supplierCombo_ = new QComboBox();
-    for (int i = 0; i < suppliers_.size(); i++) {
+    for (int i = 0; i < (int)suppliers_.size(); i++) {
         supplierCombo_->addItem(QString::fromStdString(suppliers_[i].getCompanyName()));
     }
-    formLayout_->addRow("", supplierCombo_);
+    formLayout_->addRow("Supplier:", supplierCombo_);
 
     mainLayout->addLayout(formLayout_);
 
@@ -66,8 +66,6 @@ void ProductDialog::updateLanguage() {
     saveButton_->setText(T("product_btn_save"));
     cancelButton_->setText(T("product_btn_cancel"));
 
-    // Update form labels
-    formLayout_->labelForField(nameEdit_)->setProperty("text", T("product_name"));
     if (auto* label = qobject_cast<QLabel*>(formLayout_->labelForField(nameEdit_)))
         label->setText(T("product_name"));
     if (auto* label = qobject_cast<QLabel*>(formLayout_->labelForField(priceSpinBox_)))
@@ -93,6 +91,15 @@ void ProductDialog::onSaveClicked() {
     int quantity = quantitySpinBox_->value();
     int categoryIndex = categoryCombo_->currentIndex();
     int supplierIndex = supplierCombo_->currentIndex();
+
+    if (categoryIndex < 0 || categoryIndex >= (int)categories_.size()) {
+        QMessageBox::warning(this, T("product_err_title"), "No category available. Please add a category first.");
+        return;
+    }
+    if (supplierIndex < 0 || supplierIndex >= (int)suppliers_.size()) {
+        QMessageBox::warning(this, T("product_err_title"), "No supplier available. Please add a supplier first.");
+        return;
+    }
 
     product_ = Product(nextId_, name, price, quantity,
                        categories_[categoryIndex],
