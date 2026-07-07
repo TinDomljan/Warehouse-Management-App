@@ -6,15 +6,14 @@ Developed as a university project for the Advanced Programming Techniques course
 
 ## What It Does
 
-WarehouseApp lets you track stock levels, manage suppliers and orders, run parallel inventory analysis, generate PDF reports, and communicate over TCP/UDP/HTTP. It also includes AES and RSA encryption, SHA-256 password hashing with salt and pepper, and digital signature support.
+WarehouseApp lets you track stock levels, manage suppliers and orders, run parallel inventory analysis with usage of thread pools, generate PDF reports, and communicate over TCP/UDP/HTTP. It also includes AES and RSA encryption, SHA-256 password hashing with salt and pepper, and digital signature support. It uses local SQLite database for inventory handling with four tables (products, categories, suppliers and users) with full CRUD features on each of them.
 
 There are three user defined roles, mostly based on how much visibility and functionality they have over the app itself:
 
-**Administrator** has full access to everything, including network services, cryptographic operations, and clearing the activity log
+- **Administrator** has full access to everything, including network services, cryptographic operations, and clearing the activity log.
+- **Manager** can manage products, suppliers, and orders, run analyses, and generate reports, but has no access to networking or crypto features.
+- **Clerk** has read-only access to products, suppliers, orders, and the activity log.
 
-**Manager** can manage products, suppliers, and orders, run analyses, and generate reports, but has no access to networking or crypto features
-
-**Clerk** has read-only access to products, suppliers, orders, and the activity log
 
 ## Project Structure
 
