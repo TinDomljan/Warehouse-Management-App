@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<allergens>
-    <allergen id="1">
-        <code>GLU</code>
-        <name>Gluten</name>
-        <description>Prisutan u pšenici</description>
-        <severity>MEDIUM</severity>
-    </allergen>
-</allergens>

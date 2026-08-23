@@ -1,3 +1,0 @@
-C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\WarehouseValidator.dir/objects.a
-C:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\WarehouseValidator.dir/objects.a @CMakeFiles\WarehouseValidator.dir\objects1.rsp
-C:\Qt\Tools\mingw1310_64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\WarehouseValidator.dir/objects.a -Wl,--no-whole-archive -o WarehouseValidator.exe -Wl,--out-implib,libWarehouseValidator.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\WarehouseValidator.dir\linkLibs.rsp
