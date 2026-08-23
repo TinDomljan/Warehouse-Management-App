@@ -16,7 +16,7 @@ User::User(int id, std::string username, std::string fullName,
     id_ = id;
     username_ = username;
     fullName_ = fullName;
-    password_ = password;
+    password_ = password; //ovdje nije spremljena lozinka nego SHA-256 hash sa soli i paprom
     role_ = role;
     loggedIn_ = false;
 }

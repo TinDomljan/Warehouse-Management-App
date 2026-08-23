@@ -1,8 +1,8 @@
-CMakeFiles/WarehouseApp.dir/mainwindow.cpp.obj: \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\mainwindow.cpp \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\mainwindow.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMainWindow \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmainwindow.h \
+CMakeFiles/WarehouseApp.dir/userdialog.cpp.obj: \
+ C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\userdialog.cpp \
+ C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\userdialog.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
  C:/Qt/6.11.0/mingw_64/include/QtGui/qtguiglobal.h \
  C:/Qt/6.11.0/mingw_64/include/QtCore/qglobal.h \
@@ -385,15 +385,17 @@ CMakeFiles/WarehouseApp.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qsizepolicy.h \
  C:/Qt/6.11.0/mingw_64/include/QtGui/qcursor.h \
  C:/Qt/6.11.0/mingw_64/include/QtGui/qbitmap.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTableWidget \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtablewidget.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtableview.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemview.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QLineEdit \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qframe.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qitemselectionmodel.h \
+ C:/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
+ C:/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
+ C:/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
+ C:/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
+ C:/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
+ C:/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qstyleoption.h \
  C:/Qt/6.11.0/mingw_64/include/QtCore/qlocale.h \
@@ -404,7 +406,9 @@ CMakeFiles/WarehouseApp.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractslider.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qstyle.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabbar.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtabwidget.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
+ C:/Qt/6.11.0/mingw_64/include/QtCore/qabstractitemmodel.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QPushButton \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qpushbutton.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -412,237 +416,16 @@ CMakeFiles/WarehouseApp.dir/mainwindow.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlabel.h \
  C:/Qt/6.11.0/mingw_64/include/QtGui/qpicture.h \
  C:/Qt/6.11.0/mingw_64/include/QtCore/qiodevice.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qtextdocument.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qurl.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QLineEdit \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlineedit.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qtextcursor.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qtextformat.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qpen.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qtextoption.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSpinBox \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qspinbox.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMenuBar \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenubar.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenu.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMenu \
- C:/Qt/6.11.0/mingw_64/include/QtGui/QAction \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QHeaderView \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qheaderview.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QHBoxLayout \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QStatusBar \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qstatusbar.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QThreadPool \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qthreadpool.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qthread.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qdeadlinetimer.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/future \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/mutex \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_mutex.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unique_lock.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/condition_variable \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/atomic_futex.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_thread.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qrunnable.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QRunnable \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QProgressBar \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qprogressbar.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QElapsedTimer \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qelapsedtimer.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QMutex \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qmutex.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qtsan_impl.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QProcess \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qprocess.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QTcpSocket \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtcpsocket.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtnetworkglobal.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtnetwork-config.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qtnetworkexports.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qabstractsocket.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qhostaddress.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTextEdit \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qtextedit.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\settingsmanager.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QString \
- C:/Qt/6.11.0/mingw_64/include/QtGui/QColor \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QPoint \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QSize \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QSettings \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qsettings.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\User.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\Product.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\Category.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\Supplier.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\ActivityLog.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\orderxmlmanager.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\Order.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\jsonmanager.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\binarymanager.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QtGlobal \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\inventoryanalyzer.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QObject \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\productdialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDialog \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDoubleSpinBox \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QFormLayout \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qformlayout.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QLayout \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\settingsdialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QColorDialog \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcolordialog.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\translationmanager.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\databasemanager.h \
- C:/Qt/6.11.0/mingw_64/include/QtSql/QSqlDatabase \
- C:/Qt/6.11.0/mingw_64/include/QtSql/qsqldatabase.h \
- C:/Qt/6.11.0/mingw_64/include/QtSql/qtsqlglobal.h \
- C:/Qt/6.11.0/mingw_64/include/QtSql/qtsql-config.h \
- C:/Qt/6.11.0/mingw_64/include/QtSql/qtsqlexports.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qmetaobject.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\reportmanager.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/QCloseEvent \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qevent.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcoreevent.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qbasictimer.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qabstracteventdispatcher.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qeventloop.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qeventpoint.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qvector2d.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qvectornd.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qpointingdevice.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qinputdevice.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qscreen.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QList \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QObject \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QRect \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QSize \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QSizeF \
- C:/Qt/6.11.0/mingw_64/include/QtGui/QTransform \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qnativeinterface.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qscreen_platform.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcoreapplication_platform.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qinputmethod.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/qguiapplication_platform.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QTabWidget \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QInputDialog \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qinputdialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QFileDialog \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qfiledialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qdir.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qdirlisting.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qfiledevice.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/filesystem \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_fwd.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_path.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/locale \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwctype \
- C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wctype.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_base.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/ctype_inline.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/time_members.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/messages_members.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_facets_nonio.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/locale_conv.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iomanip \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/istream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/basic_ios.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ostream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/istream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/codecvt \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_dir.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fs_ops.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qdatetime.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcalendar.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qfile.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qfileinfo.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qtimezone.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QDateTime \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QDate \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\supplierdialog.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\orderdialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDateEdit \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdatetimeedit.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\userdialog.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QCoreApplication \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonDocument \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qjsondocument.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qjsonparseerror.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonObject \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qjsonobject.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qjsonvalue.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcborvalue.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcborcommon.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/quuid.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QFile \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QUdpSocket \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qudpsocket.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qnetworkaccessmanager.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qnetworkrequest.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qhttpheaders.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QSharedDataPointer \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QString \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QUrl \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QVariant \
- C:/Qt/6.11.0/mingw_64/include/QtCore/q26numeric.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QSslConfiguration \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qsslconfiguration.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qsslsocket.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qsslerror.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qsslcertificate.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qcryptographichash.h \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qssl.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QFlags \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QSslPreSharedKeyAuthenticator \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qsslpresharedkeyauthenticator.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QMetaType \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QNetworkReply \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/qnetworkreply.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QIODevice \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QNetworkRequest \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QNetworkAccessManager \
- C:/Qt/6.11.0/mingw_64/include/QtNetwork/QNetworkRequest \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QUrl \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QTimer \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qtimer.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QFrame \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QCheckBox \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcheckbox.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\udpprotocol.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\cryptomanager.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QByteArray \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QStringList \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\warehouseutils.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\warehouseexport.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/QJsonArray \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qjsonarray.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\warehousedlgs.h \
- C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\warehouseresources.h \
- C:/Qt/6.11.0/mingw_64/include/QtGui/QPixmap \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
- C:/Qt/Tools/mingw1310_64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayout.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qboxlayout.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qgridlayout.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QVBoxLayout \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMessageBox \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmessagebox.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
+ C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\User.h \
+ C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\translationmanager.h

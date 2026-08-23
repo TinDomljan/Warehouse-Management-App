@@ -7,6 +7,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QComboBox>
+#include <QSpinBox>
 #include <QMenuBar>
 #include <QMenu>
 #include <QAction>
@@ -54,6 +55,7 @@ public:
 
 private slots:
     void onAddProduct();
+    void onReorderReport();
     void onRemoveProduct();
     void onOpenSettings();
     void onOpenAbout();
@@ -90,6 +92,9 @@ private slots:
     void onAnalyzerFinished(int threadId);
     void onAnalysisProgressTick();
     void onOpenOrders();
+    void onAddUser();
+    void onEditUser();
+    void onDeleteUser();
 
 private:
     // UI
@@ -98,8 +103,11 @@ private:
     QTableWidget* supplierTable_;
     QTableWidget* logTable_;
     QTableWidget* snapshotTable_;
+    QTableWidget* userTable_;
     QLabel*       userInfoLabel_;
     QPushButton*  addProductBtn_;
+    QPushButton*  reorderReportBtn_;
+    QSpinBox*     leadTimeSpin_;
     QPushButton*  removeProductBtn_;
     QPushButton*  generateReportBtn_;
     QPushButton*  analyzeInventoryBtn_;
@@ -125,6 +133,11 @@ private:
     QPushButton*  deleteSupplierBtn_;
 
 
+    QPushButton*  addUserBtn_;
+    QPushButton*  editUserBtn_;
+    QPushButton*  deleteUserBtn_;
+
+
     QPushButton*  clearLogBtn_;
 
 
@@ -136,6 +149,7 @@ private:
     std::vector<Product> products_;
     std::vector<Category> categories_;
     std::vector<Supplier> suppliers_;
+    std::vector<User> users_;
     ActivityLog activityLog_;
 
 
@@ -187,11 +201,11 @@ private:
     QPushButton*           downloadBtn_;
     QProgressBar*          downloadProgressBar_;
     QTextEdit*             downloadView_;
-    QNetworkAccessManager* networkManager_  = nullptr;
-    QNetworkReply*         currentReply_    = nullptr;
-    QTimer*                speedTimer_      = nullptr;
-    QByteArray             downloadBuffer_;
-    qint64                 readChunkSize_   = -1;   // -1 = unlimited
+    QNetworkAccessManager* networkManager_  = nullptr; //tvornica zahtjeva
+    QNetworkReply*         currentReply_    = nullptr; //trenutnidownload, nullptr = ništa ne ide, ako je download aktivan
+    QTimer*                speedTimer_      = nullptr; //otkucava samo u throttle modeu
+    QByteArray             downloadBuffer_;            //ovdje se skupa preuzeto
+    qint64                 readChunkSize_   = -1;   // -1 = unlimited, >0 = bajtova po ticku
 
 
     void setupUI();
@@ -201,6 +215,7 @@ private:
     void setupLogTab(QTabWidget* tabs);
     void setupNetworkTab(QTabWidget* tabs);
     void setupCryptoTab(QTabWidget* tabs);
+    void setupUsersTab(QTabWidget* tabs);
     void setupMenuBar();
     void loadSampleData();
 
@@ -215,6 +230,7 @@ private:
     void refreshProductTable();
     void refreshSupplierTable();
     void refreshLogTable();
+    void refreshUserTable();
     void applyTableStyle(QTableWidget* table);
 };
 

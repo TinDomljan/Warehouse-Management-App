@@ -824,5 +824,7 @@ WarehouseApp_autogen/timestamp: \
 	C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/translationmanager.cpp \
 	C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/translationmanager.h \
 	C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/udpprotocol.h \
+	C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/userdialog.cpp \
+	C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/userdialog.h \
 	C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/warehouse_icons.qrc \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -82,13 +82,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 169,
+				"line" : 170,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 151,
+				"line" : 152,
 				"parent" : 0
 			},
 			{
@@ -152,7 +152,7 @@
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 150,
+				"line" : 151,
 				"parent" : 0
 			},
 			{
@@ -530,7 +530,8 @@
 				42,
 				44,
 				46,
-				48
+				48,
+				50
 			]
 		}
 	],
@@ -538,11 +539,7 @@
 	[
 		{
 			"backtrace" : 6,
-			"id" : "WarehouseDlgs::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 6,
-			"id" : "WarehouseExport::@6890427a1f51a3e7e1df"
+			"id" : "WarehouseResources::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 6,
@@ -550,7 +547,11 @@
 		},
 		{
 			"backtrace" : 6,
-			"id" : "WarehouseResources::@6890427a1f51a3e7e1df"
+			"id" : "WarehouseExport::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 6,
+			"id" : "WarehouseDlgs::@6890427a1f51a3e7e1df"
 		},
 		{
 			"id" : "WarehouseApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
@@ -749,7 +750,8 @@
 				42,
 				44,
 				46,
-				48
+				48,
+				50
 			]
 		},
 		{
@@ -778,7 +780,8 @@
 				43,
 				45,
 				47,
-				49
+				49,
+				51
 			]
 		},
 		{
@@ -795,14 +798,14 @@
 				9,
 				12,
 				13,
-				50
+				52
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				51
+				53
 			]
 		}
 	],
@@ -1075,6 +1078,17 @@
 			"backtrace" : 4,
 			"compileGroupIndex" : 0,
 			"path" : "orderdialog.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 4,
+			"path" : "userdialog.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 4,
+			"compileGroupIndex" : 0,
+			"path" : "userdialog.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

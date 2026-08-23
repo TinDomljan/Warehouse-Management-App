@@ -1319,6 +1319,30 @@ translationmanager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\WarehouseApp.dir\build.make CMakeFiles/WarehouseApp.dir/translationmanager.cpp.s
 .PHONY : translationmanager.cpp.s
 
+userdialog.obj: userdialog.cpp.obj
+.PHONY : userdialog.obj
+
+# target to build an object file
+userdialog.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WarehouseApp.dir\build.make CMakeFiles/WarehouseApp.dir/userdialog.cpp.obj
+.PHONY : userdialog.cpp.obj
+
+userdialog.i: userdialog.cpp.i
+.PHONY : userdialog.i
+
+# target to preprocess a source file
+userdialog.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WarehouseApp.dir\build.make CMakeFiles/WarehouseApp.dir/userdialog.cpp.i
+.PHONY : userdialog.cpp.i
+
+userdialog.s: userdialog.cpp.s
+.PHONY : userdialog.s
+
+# target to generate assembly for a file
+userdialog.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\WarehouseApp.dir\build.make CMakeFiles/WarehouseApp.dir/userdialog.cpp.s
+.PHONY : userdialog.cpp.s
+
 validator_main.obj: validator_main.cpp.obj
 .PHONY : validator_main.obj
 
@@ -1602,6 +1626,9 @@ help:
 	@echo ... translationmanager.obj
 	@echo ... translationmanager.i
 	@echo ... translationmanager.s
+	@echo ... userdialog.obj
+	@echo ... userdialog.i
+	@echo ... userdialog.s
 	@echo ... validator_main.obj
 	@echo ... validator_main.i
 	@echo ... validator_main.s

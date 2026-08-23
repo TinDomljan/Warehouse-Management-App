@@ -447,6 +447,8 @@ CMakeFiles/WarehouseApp.dir/main.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSpinBox \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qspinbox.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenubar.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenu.h \
@@ -511,4 +513,5 @@ CMakeFiles/WarehouseApp.dir/main.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtSql/qtsqlglobal.h \
  C:/Qt/6.11.0/mingw_64/include/QtSql/qtsql-config.h \
  C:/Qt/6.11.0/mingw_64/include/QtSql/qtsqlexports.h \
- C:/Qt/6.11.0/mingw_64/include/QtCore/qmetaobject.h
+ C:/Qt/6.11.0/mingw_64/include/QtCore/qmetaobject.h \
+ C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\translationmanager.h

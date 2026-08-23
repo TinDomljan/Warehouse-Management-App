@@ -6,3 +6,4 @@
 #include "EWIEGA46WW/moc_productdialog.cpp"
 #include "EWIEGA46WW/moc_settingsdialog.cpp"
 #include "EWIEGA46WW/moc_supplierdialog.cpp"
+#include "EWIEGA46WW/moc_userdialog.cpp"

@@ -44,6 +44,8 @@ public:
 
     bool addUser(const User& user, const std::string& password);
     bool updateUser(const User& user, const std::string& password);
+    // Updates full name + role only, leaving the stored password hash untouched.
+    bool updateUserProfile(const User& user);
     bool deleteUser(int id);
     std::vector<User> getAllUsers();
     User getUserByUsername(const std::string& username);

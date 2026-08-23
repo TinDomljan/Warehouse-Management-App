@@ -26,15 +26,15 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
     QString body;
     double grandTotal = 0.0;
 
-    for (const Category& cat : categories) {
+    for (const Category& cat : categories) { //master petlja
 
-        // svi produkti u toj kategoriji
+        // detail veza, proizvodi čiji category_id odgovara ovoj kategoriji
         std::vector<const Product*> catProducts;
         for (const Product& p : products) {
             if (p.getCategory().getId() == cat.getId())
                 catProducts.push_back(&p);
         }
-        if (catProducts.empty()) continue;
+        if (catProducts.empty()) continue; //preskacemo prazne kategorije
 
         double subtotal = 0.0;
 
@@ -44,22 +44,23 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
 
 
         body += "<tr style=\"background-color:#1a3a5c; color:#ffffff;\">"
-                "<td colspan=\"4\" style=\"padding:7px 8px;\">"
+                "<td colspan=\"5\" style=\"padding:7px 8px;\">"
                 "<b>CATEGORY: " + QString::fromStdString(cat.getName()) +
                 "</b> &nbsp;<span style=\"font-weight:normal; font-size:9pt;\">"
                 "(" + QString::fromStdString(cat.getDescription()) + ")"
-                "</span></td></tr>";
+                "</span></td></tr>"; //zaglavlje
 
 
         body += "<tr style=\"background-color:#d8e8f8;\">"
                 "<th align=\"left\"  style=\"padding:4px 8px;\">Product</th>"
+                "<th align=\"left\"  style=\"padding:4px 8px;\">Supplier</th>"
                 "<th align=\"right\" style=\"padding:4px 8px;\">Qty</th>"
                 "<th align=\"right\" style=\"padding:4px 8px;\">Unit Price (&euro;)</th>"
                 "<th align=\"right\" style=\"padding:4px 8px;\">Total Value (&euro;)</th>"
                 "</tr>";
 
 
-        for (int i = 0; i < static_cast<int>(catProducts.size()); i++) {
+        for (int i = 0; i < static_cast<int>(catProducts.size()); i++) { //detail retci, cast radi size_t
             const Product* p = catProducts[i];
             double tv = p->getTotalValue();
             subtotal += tv;
@@ -67,6 +68,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
             QString rowBg = (i % 2 == 0) ? "#ffffff" : "#f4f8fd";
             body += "<tr style=\"background-color:" + rowBg + ";\">";
             body += cell(QString::fromStdString(p->getName()));
+            body += cell(QString::fromStdString(p->getSupplier().getCompanyName()));
             body += cell(QString::number(p->getQuantity()), "right");
             body += cell(money(p->getPrice()),    "right");
             body += cell(money(tv),               "right");
@@ -75,7 +77,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
 
 
         body += "<tr style=\"background-color:#e4eff9;\">"
-                "<td colspan=\"3\" align=\"right\" style=\"padding:5px 8px;\"><b>Subtotal:</b></td>"
+                "<td colspan=\"4\" align=\"right\" style=\"padding:5px 8px;\"><b>Subtotal:</b></td>"
                 "<td align=\"right\" style=\"padding:5px 8px;\"><b>" + money(subtotal) + "</b></td>"
                 "</tr>";
 
@@ -110,7 +112,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
 }
 
 // pdf export
-
+//vracamo bool
 bool ReportManager::exportToPDF(const QString& html, const QString& filePath) {
     QPrinter printer(QPrinter::ScreenResolution);
     printer.setOutputFormat(QPrinter::PdfFormat);
@@ -118,10 +120,12 @@ bool ReportManager::exportToPDF(const QString& html, const QString& filePath) {
     printer.setPageSize(QPageSize(QPageSize::A4));
     printer.setPageOrientation(QPageLayout::Portrait);
     printer.setPageMargins(QMarginsF(15, 15, 15, 15), QPageLayout::Millimeter);
-
+    //nije nista jos zapisano samo je konfiguriran objekt u memoriji
+    //QTextDocument zapisuje
     QTextDocument doc;
     doc.setHtml(html);
     doc.setPageSize(printer.pageLayout().paintRectPixels(printer.resolution()).size());
+    //QTextDocument mjeri u pikselima,QPrinter u milimetrima ova linija kaze koliko piksela ima na raspolaganju
     doc.print(&printer);
 
     return QFile::exists(filePath);

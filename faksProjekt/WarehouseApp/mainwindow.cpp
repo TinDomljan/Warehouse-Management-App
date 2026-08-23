@@ -13,10 +13,14 @@
 #include <QInputDialog>
 #include <QFileDialog>
 #include <QDialog>
+#include <QSpinBox>
 #include <QTextEdit>
 #include <QDateTime>
+#include <QDate>
+#include <map>
 #include "supplierdialog.h"
 #include "orderdialog.h"
+#include "userdialog.h"
 #include <QProcess>
 #include <QCoreApplication>
 #include <QJsonDocument>
@@ -73,6 +77,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     refreshProductTable();
     refreshSupplierTable();
     refreshLogTable();
+    refreshUserTable();
     updateLanguage();
 
     QPoint pos = sm.loadWindowPosition(); //citamo iz registry
@@ -129,13 +134,14 @@ void MainWindow::applyRolePermissions() {
 
     switch (currentUser_.getRole()) {
     case UserRole::Admin:
-
+        // Full access, including the admin-only Users tab (index 6).
         break;
 
     case UserRole::Manager:
 
         tabWidget_->setTabVisible(4, false);
         tabWidget_->setTabVisible(5, false);
+        tabWidget_->setTabVisible(6, false);  // Users — admin only
         enable(clearLogBtn_, false);
         break;
 
@@ -144,6 +150,7 @@ void MainWindow::applyRolePermissions() {
         tabWidget_->setTabVisible(1, false);
         tabWidget_->setTabVisible(4, false);
         tabWidget_->setTabVisible(5, false);
+        tabWidget_->setTabVisible(6, false);  // Users — admin only
 
         enable(addProductBtn_,     false);
         enable(removeProductBtn_,  false);
@@ -186,6 +193,7 @@ void MainWindow::setupUI() {
     setupLogTab(tabWidget_);
     setupNetworkTab(tabWidget_);
     setupCryptoTab(tabWidget_);
+    setupUsersTab(tabWidget_);
 
 
     tabWidget_->setTabIcon(0, QIcon(loadWarehouseIcon("product")));
@@ -238,6 +246,8 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     sortCombo_->addItem("Value ↓",     QString("(p.price * p.quantity) DESC"));
     sortCombo_->addItem("Category",         QString("c.name ASC"));
     sortCombo_->addItem("Supplier",         QString("s.company_name ASC"));
+    sortCombo_->addItem("Value ↑", QString("total_value ASC"));
+    sortCombo_->addItem("Value ↓", QString("total_value DESC"));
 
     filterLayout->addWidget(new QLabel("Search:"));
     filterLayout->addWidget(searchEdit_, 1);
@@ -278,6 +288,16 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     btnLayout->addWidget(analyzeInventoryBtn_);
     btnLayout->addWidget(exportCsvBtn_);
     btnLayout->addWidget(exportHtmlBtn_);
+
+    QLabel* leadTimeLabel = new QLabel("Lead time (days):");
+    leadTimeSpin_ = new QSpinBox();
+    leadTimeSpin_->setRange(1, 90);
+    leadTimeSpin_->setValue(7);
+    reorderReportBtn_ = new QPushButton("Reorder Report");
+    btnLayout->addWidget(leadTimeLabel);
+    btnLayout->addWidget(leadTimeSpin_);
+    btnLayout->addWidget(reorderReportBtn_);
+
     btnLayout->addStretch();
     layout->addLayout(btnLayout);
 
@@ -286,7 +306,8 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     connect(analyzeInventoryBtn_, &QPushButton::clicked, this, &MainWindow::onAnalyzeInventory);
     connect(exportCsvBtn_,        &QPushButton::clicked, this, &MainWindow::onExportCSV);
     connect(exportHtmlBtn_,       &QPushButton::clicked, this, &MainWindow::onExportHTML);
-    connect(searchEdit_, &QLineEdit::textChanged,         this, [this]{ refreshProductTable(); });
+    connect(reorderReportBtn_,    &QPushButton::clicked, this, &MainWindow::onReorderReport);
+    connect(searchEdit_, &QLineEdit::textChanged,         this, [this]{ refreshProductTable(); }); //svaki pritisak tipke je novi upit
     connect(sortCombo_,  &QComboBox::currentIndexChanged, this, [this]{ refreshProductTable(); });
 
     tabs->addTab(tab, "Products");
@@ -354,6 +375,36 @@ void MainWindow::setupSuppliersTab(QTabWidget* tabs) {
     connect(deleteSupplierBtn_, &QPushButton::clicked, this, &MainWindow::onDeleteSupplier);
 
     tabs->addTab(tab, "Suppliers");
+}
+
+void MainWindow::setupUsersTab(QTabWidget* tabs) {
+    QWidget* tab = new QWidget();
+    QVBoxLayout* layout = new QVBoxLayout(tab);
+
+    userTable_ = new QTableWidget(0, 4);
+    userTable_->setHorizontalHeaderLabels(
+        {T("users_col_id"), T("users_col_username"),
+         T("users_col_fullname"), T("users_col_role")});
+    userTable_->setSelectionBehavior(QAbstractItemView::SelectRows);
+    userTable_->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    userTable_->horizontalHeader()->setStretchLastSection(true);
+    layout->addWidget(userTable_);
+
+    QHBoxLayout* btnLayout = new QHBoxLayout();
+    addUserBtn_    = new QPushButton(T("users_btn_add"));
+    editUserBtn_   = new QPushButton(T("users_btn_edit"));
+    deleteUserBtn_ = new QPushButton(T("users_btn_delete"));
+    btnLayout->addWidget(addUserBtn_);
+    btnLayout->addWidget(editUserBtn_);
+    btnLayout->addWidget(deleteUserBtn_);
+    btnLayout->addStretch();
+    layout->addLayout(btnLayout);
+
+    connect(addUserBtn_,    &QPushButton::clicked, this, &MainWindow::onAddUser);
+    connect(editUserBtn_,   &QPushButton::clicked, this, &MainWindow::onEditUser);
+    connect(deleteUserBtn_, &QPushButton::clicked, this, &MainWindow::onDeleteUser);
+
+    tabs->addTab(tab, T("users_tab"));
 }
 
 void MainWindow::setupLogTab(QTabWidget* tabs) {
@@ -435,6 +486,7 @@ void MainWindow::loadSampleData() {
     categories_ = DatabaseManager::instance().getAllCategories();
     suppliers_  = DatabaseManager::instance().getAllSuppliers();
     products_   = DatabaseManager::instance().getAllProducts();
+    users_      = DatabaseManager::instance().getAllUsers();
 }
 
 
@@ -455,12 +507,15 @@ void MainWindow::applyTableStyle(QTableWidget* table) {
 }
 
 void MainWindow::refreshProductTable() {
+    //procitamo stanja sucelja
     QString search  = searchEdit_->text().trimmed();
     QString orderBy = sortCombo_->currentData().toString();
+
 
     std::vector<Product> rows =
         DatabaseManager::instance().getProductsFiltered(search, orderBy);
 
+    //ispisujemo
     productTable_->setRowCount(0);
     for (int i = 0; i < rows.size(); i++) {
         int row = productTable_->rowCount();
@@ -509,6 +564,29 @@ void MainWindow::refreshSupplierTable() {
 
     applyTableStyle(supplierTable_);
     supplierTable_->resizeColumnsToContents();
+}
+
+void MainWindow::refreshUserTable() {
+    users_ = DatabaseManager::instance().getAllUsers();
+
+    userTable_->setRowCount(0);
+    for (int i = 0; i < (int)users_.size(); i++) {
+        int row = userTable_->rowCount();
+        userTable_->insertRow(row);
+
+        // Never display the password hash — only id, username, full name, role.
+        userTable_->setItem(row, 0, new QTableWidgetItem(
+                                        QString::number(users_[i].getId())));
+        userTable_->setItem(row, 1, new QTableWidgetItem(
+                                        QString::fromStdString(users_[i].getUsername())));
+        userTable_->setItem(row, 2, new QTableWidgetItem(
+                                        QString::fromStdString(users_[i].getFullName())));
+        userTable_->setItem(row, 3, new QTableWidgetItem(
+                                        QString::fromStdString(users_[i].getRoleAsString())));
+    }
+
+    applyTableStyle(userTable_);
+    userTable_->resizeColumnsToContents();
 }
 
 void MainWindow::refreshLogTable() {
@@ -598,6 +676,102 @@ void MainWindow::onDeleteSupplier() {
                               companyName.toStdString());
         statusBar()->showMessage("Supplier deleted: " + companyName, 3000);
     }
+}
+
+void MainWindow::onAddUser() {
+    UserDialog dlg(this);
+    if (dlg.exec() != QDialog::Accepted)
+        return;
+
+    const User u = dlg.getUser();
+
+    // Reject a duplicate username (usernames are unique in the schema).
+    if (DatabaseManager::instance().getUserByUsername(u.getUsername()).getId() != 0) {
+        QMessageBox::warning(this, T("user_err_title"), T("user_err_duplicate"));
+        return;
+    }
+
+    if (!DatabaseManager::instance().addUser(u, dlg.getPassword())) {
+        QMessageBox::warning(this, T("user_err_title"), T("user_op_failed"));
+        return;
+    }
+
+    refreshUserTable();
+    activityLog_.addEntry(currentUser_.getUsername(), "ADD_USER", u.getUsername());
+    statusBar()->showMessage("User added: " + QString::fromStdString(u.getUsername()), 3000);
+}
+
+void MainWindow::onEditUser() {
+    int currentRow = userTable_->currentRow();
+    if (currentRow < 0) {
+        QMessageBox::warning(this, T("users_btn_edit"), T("user_select_edit"));
+        return;
+    }
+
+    UserDialog dlg(users_[currentRow], this);
+    if (dlg.exec() != QDialog::Accepted)
+        return;
+
+    const User u = dlg.getUser();
+    const std::string password = dlg.getPassword();
+
+    // Empty password => keep the existing hash (profile-only update).
+    bool ok = password.empty()
+                  ? DatabaseManager::instance().updateUserProfile(u)
+                  : DatabaseManager::instance().updateUser(u, password);
+
+    if (!ok) {
+        QMessageBox::warning(this, T("user_err_title"), T("user_op_failed"));
+        return;
+    }
+
+    refreshUserTable();
+    activityLog_.addEntry(currentUser_.getUsername(), "EDIT_USER", u.getUsername());
+    statusBar()->showMessage("User updated: " + QString::fromStdString(u.getUsername()), 3000);
+}
+
+void MainWindow::onDeleteUser() {
+    int currentRow = userTable_->currentRow();
+    if (currentRow < 0) {
+        QMessageBox::warning(this, T("user_delete_title"), T("user_select_delete"));
+        return;
+    }
+
+    const User& target = users_[currentRow];
+
+    // Guard 1: an admin cannot delete their own account.
+    if (target.getId() == currentUser_.getId()) {
+        QMessageBox::warning(this, T("user_delete_title"), T("user_err_self_delete"));
+        return;
+    }
+
+    // Guard 2: never delete the last remaining Admin account.
+    if (target.getRole() == UserRole::Admin) {
+        int adminCount = 0;
+        for (const auto& u : users_)
+            if (u.getRole() == UserRole::Admin)
+                ++adminCount;
+        if (adminCount <= 1) {
+            QMessageBox::warning(this, T("user_delete_title"), T("user_err_last_admin"));
+            return;
+        }
+    }
+
+    QString username = QString::fromStdString(target.getUsername());
+    int reply = QMessageBox::question(this, T("user_delete_title"),
+                                      T("user_delete_confirm") + username + "?",
+                                      QMessageBox::Yes | QMessageBox::No);
+    if (reply != QMessageBox::Yes)
+        return;
+
+    if (!DatabaseManager::instance().deleteUser(target.getId())) {
+        QMessageBox::warning(this, T("user_err_title"), T("user_op_failed"));
+        return;
+    }
+
+    refreshUserTable();
+    activityLog_.addEntry(currentUser_.getUsername(), "DELETE_USER", username.toStdString());
+    statusBar()->showMessage("User deleted: " + username, 3000);
 }
 
 void MainWindow::onAddProduct() {
@@ -832,7 +1006,7 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
 
     networkManager_ = new QNetworkAccessManager(this);
     speedTimer_      = new QTimer(this);
-    speedTimer_->setInterval(200);
+    speedTimer_->setInterval(200); //5 tickova u sekundi
     connect(speedTimer_, &QTimer::timeout, this, &MainWindow::onReadChunk);
 
     connect(downloadBtn_, &QPushButton::clicked, this, &MainWindow::onDownload);
@@ -860,15 +1034,17 @@ void MainWindow::onFetchExchangeRates() {
 
     //saljemo zahtjev
     QNetworkRequest request{QUrl("http://open.er-api.com/v6/latest/EUR")};
-    request.setHeader(QNetworkRequest::UserAgentHeader, "WarehouseApp/1.0");
+    request.setHeader(QNetworkRequest::UserAgentHeader, "WarehouseApp/1.0"); // zaglavlje zahtjeva
 
-    QNetworkReply* reply = networkManager_->get(request);
+    QNetworkReply* reply = networkManager_->get(request); //get nad resursom
 
     //odgovor
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
+        //kad objekt reply emitira signal finished, izvrši ovu funkciju, jer je QNetworkAccessManager radi asinkrono
+        //capture list za okolni kontekst
         reply->deleteLater();
 
-        if (reply->error() != QNetworkReply::NoError) {
+        if (reply->error() != QNetworkReply::NoError) { //mrezna razina
             networkResponseView_->setPlainText(
                 "Error: " + reply->errorString());
             statusBar()->showMessage("Exchange rate fetch failed", 3000);
@@ -876,14 +1052,14 @@ void MainWindow::onFetchExchangeRates() {
         }
 
 
-        QJsonDocument doc = QJsonDocument::fromJson(reply->readAll());
-        if (doc.isNull() || !doc.isObject()) {
+        QJsonDocument doc = QJsonDocument::fromJson(reply->readAll()); //parsiranje
+        if (doc.isNull() || !doc.isObject()) { //razina formata
             networkResponseView_->setPlainText("Error: could not parse JSON response.");
             return;
         }
 
         QJsonObject root  = doc.object();
-        if (root["result"].toString() != "success") {
+        if (root["result"].toString() != "success") { //aplikacijska razina, npr. nepoznata bazna valuta
             networkResponseView_->setPlainText(
                 "API returned failure: " + root["result"].toString());
             return;
@@ -893,7 +1069,7 @@ void MainWindow::onFetchExchangeRates() {
         const QString    updated = root["time_last_update_utc"].toString();
         const QJsonObject rates  = root["rates"].toObject();
 
-
+        //formatiranje
         QString out;
         out += QString("Exchange Rates\n");
         out += QString("Base currency : %1\n").arg(base);
@@ -904,7 +1080,7 @@ void MainWindow::onFetchExchangeRates() {
         out += QString("%1  %2\n").arg("Code", -6).arg("Rate", 14);
         out += QString(22, u'-') + "\n";
 
-        QStringList keys = rates.keys();
+        QStringList keys = rates.keys(); //kljucevi su USD, EUR itd.
         keys.sort();
         for (const QString& code : keys) {
             const double rate = rates[code].toDouble();
@@ -1025,13 +1201,13 @@ void MainWindow::onSendBackup() {
 
 
 
-void MainWindow::onDownload() {
+void MainWindow::onDownload() { //u RAM, ne izravno u datoteku
 
     if (currentReply_) {
         speedTimer_->stop();
         currentReply_->abort();
         finalizeDownload(true);
-        return;
+        return; //znaci da vec download radi da prekine
     }
 
     QString urlStr = urlEdit_->text().trimmed();
@@ -1040,18 +1216,21 @@ void MainWindow::onDownload() {
         return;
     }
 
-    downloadBuffer_.clear();
+    downloadBuffer_.clear(); //member varijabla moramo cistit
     downloadView_->clear();
     downloadProgressBar_->setRange(0, 100);
     downloadProgressBar_->setValue(0);
     downloadProgressBar_->setFormat("Connecting...");
     downloadBtn_->setText("Cancel");
 
-    QNetworkRequest request{QUrl(urlStr)};
+    QNetworkRequest request{QUrl(urlStr)}; //slanje zahtjeva
     request.setHeader(QNetworkRequest::UserAgentHeader, "WarehouseApp/1.0");
 
+    //asinkroni get, get() se vraća odmah i podaci stižu kroz signale koje poziva event loop, nista se ne zablokira
     currentReply_ = networkManager_->get(request);
 
+
+    //granamo po brzini
     const int speedIdx = speedLimitCombo_->currentIndex();
     if (speedIdx == 0) {
 
@@ -1075,33 +1254,41 @@ void MainWindow::onDownload() {
 }
 
 void MainWindow::onReadChunk() {
-    if (!currentReply_) return;
+    if (!currentReply_) return; //zastita od zakasnjelog signala
 
 
-    if (readChunkSize_ < 0) {
-        const QByteArray data = currentReply_->readAll();
+    if (readChunkSize_ < 0) { //unlimited
+        const QByteArray data = currentReply_->readAll(); //sve se uzima
         if (!data.isEmpty())
             downloadBuffer_.append(data);
         return;
     }
 
 
-    const QByteArray data = currentReply_->read(readChunkSize_);
+    const QByteArray data = currentReply_->read(readChunkSize_); //tocno jedan chunk
     if (!data.isEmpty())
         downloadBuffer_.append(data);
 
 
-    const QVariant clen = currentReply_->header(QNetworkRequest::ContentLengthHeader);
+    //za postotak trebamo dijeliti s ukupnom velicinom. pokusavamo doc do tog broja na tri nacina
+    //pitamo server
+    const QVariant clen = currentReply_->header(QNetworkRequest::ContentLengthHeader); //provjera headera, header() vraca QVariant, gledamo ako je valjan
     qint64 totalBytes = clen.isValid() ? clen.toLongLong() : 0;
+
+    //ako server nezna procijenjujemo
     if (totalBytes <= 0)
         totalBytes = downloadBuffer_.size() + currentReply_->bytesAvailable();
+    // ako je i to nula onda samo da ne dijelimo sa nulom.
     if (totalBytes <= 0)
         totalBytes = 1;
 
-    int pct = static_cast<int>(downloadBuffer_.size() * 100 / totalBytes);
-    if (pct > 100) pct = 100;
 
 
+    int pct = static_cast<int>(downloadBuffer_.size() * 100 / totalBytes); //za postotke
+    if (pct > 100) pct = 100; //nikad preko 100
+
+    //crtamo bar i provjeravamo ako je gotov
+    //is finished mora biti ispunjen i kanta/buffer mora biti prazna
     downloadProgressBar_->setRange(0, 100);
     downloadProgressBar_->setValue(pct);
     downloadProgressBar_->setFormat(
@@ -1140,6 +1327,9 @@ void MainWindow::onDownloadFinished() {
 
     finalizeDownload();
 }
+
+//zaustavljamo timer, brisemo mrezni objekt, i vracamo gumb u pocetno stanje
+//ako je uspijelo spremamo datoteku
 
 void MainWindow::finalizeDownload(bool cancelled) {
     speedTimer_->stop();
@@ -1185,7 +1375,7 @@ void MainWindow::finalizeDownload(bool cancelled) {
         return;
     }
 
-    // Success
+    // Uspijeh
     downloadProgressBar_->setRange(0, 100);
     downloadProgressBar_->setValue(100);
     const qint64 total = downloadBuffer_.size();
@@ -1221,27 +1411,27 @@ void MainWindow::finalizeDownload(bool cancelled) {
 }
 
 void MainWindow::onRequestStatus() {
-    QUdpSocket sock;
+    QUdpSocket sock; //lokalni sock na stacku
 
-    if (!sock.bind(QHostAddress::LocalHost, 0)) {
+    if (!sock.bind(QHostAddress::LocalHost, 0)) { //daj mi bilo koji slobodni port moramo bindat da server zna kome odgovorit, nije ko tcp
         QMessageBox::warning(this, "UDP Status", "Failed to bind local UDP socket.");
         return;
     }
 
-    sock.writeDatagram("STATUS", QHostAddress::LocalHost, UDP_PORT); //23118
+    sock.writeDatagram("STATUS", QHostAddress::LocalHost, UDP_PORT); //23118, saljemo zahtjev
 
-    if (!sock.waitForReadyRead(3000)) {
+    if (!sock.waitForReadyRead(3000)) { //cekamo
         networkResponseView_->setPlainText(
             "Timeout: no UDP response from WarehouseServer.\n"
             "Make sure WarehouseServer.exe is running.");
         return;
     }
 
-    QByteArray datagram(sock.pendingDatagramSize(), Qt::Uninitialized);
-    sock.readDatagram(datagram.data(), datagram.size()); //primamo datagram/JSON
+    QByteArray datagram(sock.pendingDatagramSize(), Qt::Uninitialized); //kolka je velicina pa alociramo
+    sock.readDatagram(datagram.data(), datagram.size()); //primamo datagram/JSON, kopiramo
 
 
-    QJsonDocument doc = QJsonDocument::fromJson(datagram);
+    QJsonDocument doc = QJsonDocument::fromJson(datagram); //parsiramo u json format
     QString display;
     if (!doc.isNull()) {
         QJsonObject obj = doc.object();
@@ -1544,13 +1734,14 @@ void MainWindow::onDecryptUsersExport() {
 }
 
 void MainWindow::onSignOrders() {
+    //provjera ako postoji par generiran od generateKeys
     if (!QFile::exists("private.pem")) {
         QMessageBox::warning(this, "Sign Orders",
                              "private.pem not found.\n"
                              "Generate RSA keys first (Generate Keys button).");
         return;
     }
-
+    //provjera ako postoji file sa narudzbama
     QFile src("orders.xml");
     if (!src.open(QIODevice::ReadOnly)) {
         QMessageBox::warning(this, "Sign Orders",
@@ -1558,9 +1749,14 @@ void MainWindow::onSignOrders() {
                              "Create some orders first (Orders tab).");
         return;
     }
+
+
     const QByteArray data = src.readAll();
     src.close();
 
+    //potpis
+    //isEmpty provjerava gresku u potpisu, vracamo bytearray a ne bool
+    //sig.size() uvijek 256 bajta
     const QByteArray sig = CryptoManager::signData(data, "private.pem");
     if (sig.isEmpty()) {
         cryptoStatusLabel_->setText(
@@ -1568,12 +1764,13 @@ void MainWindow::onSignOrders() {
         return;
     }
 
+    //zapis podataka
     QFile sigFile("orders.xml.sig");
-    if (!sigFile.open(QIODevice::WriteOnly)) {
+    if (!sigFile.open(QIODevice::WriteOnly)) { //ovdje kreiramo, u verify je readonly
         QMessageBox::warning(this, "Sign Orders", "Cannot write orders.xml.sig.");
         return;
     }
-    sigFile.write(sig);
+    sigFile.write(sig); //zapis
     sigFile.close();
 
     cryptoStatusLabel_->setText(
@@ -1594,6 +1791,7 @@ void MainWindow::onSignOrders() {
 }
 
 void MainWindow::onVerifyOrders() {
+
     if (!QFile::exists("public.pem")) {
         QMessageBox::warning(this, "Verify Orders",
                              "public.pem not found.\n"
@@ -1663,7 +1861,7 @@ void MainWindow::onEncryptFile() {
                              "Save a snapshot first (Snapshots tab).");
         return;
     }
-    const QByteArray plaintext = srcFile.readAll();
+    const QByteArray plaintext = srcFile.readAll(); //readAll vraca QByteArray
     srcFile.close();
 
     const QByteArray encrypted = CryptoManager::encryptAES(plaintext, password);
@@ -1789,14 +1987,14 @@ void MainWindow::onValidateBackup() {
     QProcess proc;
     proc.start(validatorPath, {"stock_snapshot.bin"});
 
-    if (!proc.waitForStarted(3000)) {
+    if (!proc.waitForStarted(3000)) { //nije ni krenuo
         QMessageBox::critical(this, "Validate Backup",
                               "Could not launch WarehouseValidator.\n"
                               "Make sure it is built and located next to WarehouseApp.");
         return;
     }
 
-    proc.waitForFinished(5000);
+    proc.waitForFinished(5000); //moguci error ali u praksi nemoguce jer validator cita 20 bajtova.
 
     if (proc.exitCode() == 0) {
         QMessageBox::information(this, "Validate Backup",
@@ -1858,9 +2056,9 @@ void MainWindow::onOpenSettings() {
 
 void MainWindow::onGenerateReport() {
     QString filePath = QFileDialog::getSaveFileName(
-        this, "Save Inventory Report",
-        "inventory_report.pdf",
-        "PDF Files (*.pdf)");
+        this, "Save Inventory Report", //parent dijalog, u main window smo, naslov prozora
+        "inventory_report.pdf", //ime datoteke
+        "PDF Files (*.pdf)"); //filtar
 
     if (filePath.isEmpty())
         return;
@@ -1907,12 +2105,13 @@ void MainWindow::onAnalyzeInventory() {
         int    singleLowStock = 0;
         double singleValue    = 0.0;
         for (int i = 0; i < total; ++i) {
-            if (pendingProducts_[i].getQuantity() < 10) ++singleLowStock;
-            singleValue += pendingProducts_[i].getTotalValue();
+            const Product& p = pendingProducts_[i];
+            if (p.getQuantity() < 10) ++singleLowStock;
+            singleValue += p.getTotalValue();
             {
                 volatile double acc = 0.0;
                 for (int j = 1; j <= 800000; ++j) {
-                    acc += std::sqrt(pendingProducts_[i].getPrice() * j) / (j + 1.0);
+                    acc += std::sqrt(p.getPrice() * j) / (j + 1.0);
                 }
             }
         }
@@ -1953,7 +2152,7 @@ void MainWindow::startParallelAnalysis() {
 
     pendingAnalyzers_[0] = new InventoryAnalyzer(
         &pendingProducts_, 0,         oneThird,  1,
-        &analysisCounterMutex_, &analysisProcessedCount_, &analysisFileMutex_, this);
+        &analysisCounterMutex_, &analysisProcessedCount_, &analysisFileMutex_, this); //sve dretve dijele isti mutex
     pendingAnalyzers_[1] = new InventoryAnalyzer(
         &pendingProducts_, oneThird,  twoThirds, 2,
         &analysisCounterMutex_, &analysisProcessedCount_, &analysisFileMutex_, this);
@@ -2241,6 +2440,118 @@ void MainWindow::onExportHTML() {
     QMessageBox::information(this, "Export HTML",
                              QString("Exported %1 products.\n\nFile: %2")
                                  .arg(products_.size()).arg(path));
+}
+
+void MainWindow::onReorderReport() {
+    if (products_.empty()) {
+        QMessageBox::information(this, "Reorder Report", "No products to analyze.");
+        return;
+    }
+
+    std::vector<Order> orders = orderXmlManager_->loadOrders();
+    if (orders.empty()) {
+        QMessageBox::information(this, "Reorder Report",
+                                "No sales history found in orders.xml.");
+        return;
+    }
+
+    // Sales history: only orders that were actually fulfilled count as sales.
+    std::map<int,int> soldQty;   // productId -> total quantity sold
+    QDate earliest;
+    QDate latest;
+    for (const Order& o : orders) {
+        const std::string status = o.getStatus();
+        if (status != "DELIVERED" && status != "SHIPPED")
+            continue;
+
+        QDate d = QDate::fromString(QString::fromStdString(o.getOrderDate()), "yyyy-MM-dd");
+        if (!d.isValid())
+            continue;
+
+        if (!earliest.isValid() || d < earliest) earliest = d;
+        if (!latest.isValid()   || d > latest)   latest = d;
+
+        for (const OrderItem& item : o.getItems())
+            soldQty[item.productId] += item.quantity;
+    }
+
+    int spanDays = earliest.daysTo(latest);
+    if (spanDays < 1) spanDays = 1;
+
+    // Build the table + warehouse-level totals in one pass.
+    QDialog dlg(this);
+    dlg.setWindowTitle("Reorder Report");
+    QVBoxLayout* dlgLayout = new QVBoxLayout(&dlg);
+
+    QTableWidget* table = new QTableWidget(0, 5, &dlg);
+    table->setHorizontalHeaderLabels(
+        {"Product", "In stock", "Daily sales", "Reorder point", "Status"});
+    table->setSelectionBehavior(QAbstractItemView::SelectRows);
+    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    table->horizontalHeader()->setStretchLastSection(true);
+
+    int reorderCount = 0;
+    double cogs = 0.0;
+    double currentValue = 0.0;
+    std::vector<int> reorderRows;
+
+    for (const Product& p : products_) {
+        int id = p.getId();
+        int sold = soldQty.count(id) ? soldQty[id] : 0;
+        // Daily sales rounded up (integer ceiling) since calculateReorderPoint takes an int.
+        int dailySales = (sold + spanDays - 1) / spanDays;
+        int reorderPoint = WarehouseUtils::StockCalculator::calculateReorderPoint(
+                               dailySales, leadTimeSpin_->value());
+        QString statusStr = (p.getQuantity() < reorderPoint) ? "REORDER" : "OK";
+
+        cogs         += sold * p.getPrice();
+        currentValue += p.getTotalValue();
+
+        int row = table->rowCount();
+        table->insertRow(row);
+        table->setItem(row, 0, new QTableWidgetItem(QString::fromStdString(p.getName())));
+        table->setItem(row, 1, new QTableWidgetItem(QString::number(p.getQuantity())));
+        table->setItem(row, 2, new QTableWidgetItem(QString::number(dailySales)));
+        table->setItem(row, 3, new QTableWidgetItem(QString::number(reorderPoint)));
+        table->setItem(row, 4, new QTableWidgetItem(statusStr));
+
+        if (statusStr == "REORDER") {
+            ++reorderCount;
+            reorderRows.push_back(row);
+        }
+    }
+
+    double turnover = WarehouseUtils::StockCalculator::calculateTurnoverRate(cogs, currentValue);
+
+    // Apply the shared table style first, then highlight REORDER rows in red
+    // (so the style pass doesn't overwrite the red foreground).
+    applyTableStyle(table);
+    for (int r : reorderRows)
+        table->item(r, 4)->setForeground(Qt::red);
+    table->resizeColumnsToContents();
+    table->horizontalHeader()->setStretchLastSection(true);
+
+    QLabel* summary = new QLabel(
+        QString("Inventory turnover: %1x\nLead time: %2 days · sales history: %3 days")
+            .arg(turnover, 0, 'f', 2)
+            .arg(leadTimeSpin_->value())
+            .arg(spanDays), &dlg);
+
+    QPushButton* closeBtn = new QPushButton("Close", &dlg);
+    connect(closeBtn, &QPushButton::clicked, &dlg, &QDialog::accept);
+
+    dlgLayout->addWidget(summary);
+    dlgLayout->addWidget(table);
+    dlgLayout->addWidget(closeBtn);
+
+    dlg.resize(700, 400);
+    dlg.exec();
+
+    activityLog_.addEntry(currentUser_.getUsername(), "REORDER_REPORT",
+                          "Items to reorder: " + std::to_string(reorderCount));
+    statusBar()->showMessage(
+        QString("Reorder report: %1 of %2 products need reordering")
+            .arg(reorderCount).arg((int)products_.size()), 5000);
 }
 
 void MainWindow::onOpenAbout() {

@@ -648,6 +648,12 @@
 			"MU",
 			"EWIEGA46WW/moc_udpprotocol.cpp",
 			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/userdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_userdialog.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -851,6 +857,11 @@
 		],
 		[
 			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/translationmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/userdialog.cpp",
 			"MU",
 			null
 		]

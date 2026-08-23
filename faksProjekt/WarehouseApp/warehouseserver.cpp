@@ -17,7 +17,7 @@ WarehouseServer::WarehouseServer(QObject* parent) : QTcpServer(parent) {
 
     if (!udpSocket_->bind(QHostAddress::Any, UDP_PORT)) {
         qWarning() << "[Server] Failed to bind UDP socket on port" << UDP_PORT;
-    } else {
+    } else { //nakon sto se pozove signal readyread on poziva slot onudpdatagramreceived
         connect(udpSocket_, &QUdpSocket::readyRead,
                 this, &WarehouseServer::onUdpDatagramReceived);
         qInfo() << "[Server] UDP socket listening on port" << UDP_PORT;
@@ -34,8 +34,9 @@ void WarehouseServer::incomingConnection(qintptr socketDescriptor) {
 // udp
 
 void WarehouseServer::onUdpDatagramReceived() {
-    while (udpSocket_->hasPendingDatagrams()) {
-        QByteArray  datagram(udpSocket_->pendingDatagramSize(), Qt::Uninitialized);
+    while (udpSocket_->hasPendingDatagrams()) { //petlja zbog vise datagrama
+        QByteArray  datagram(udpSocket_->pendingDatagramSize(), Qt::Uninitialized); //priprema buffera
+        //izlazni parametri
         QHostAddress sender;
         quint16      senderPort = 0;
 
@@ -61,7 +62,7 @@ void WarehouseServer::handleStatusQuery(const QHostAddress& sender, quint16 port
     double value    = 0.0;
     for (const Product& p : products) {
         value += p.getTotalValue();
-        if (p.isLowStock(10)) ++lowStock;
+        if (p.isLowStock(10)) ++lowStock; //sve ispod praga 10
     }
 
     QJsonObject json;
@@ -80,15 +81,15 @@ void WarehouseServer::handleStatusQuery(const QHostAddress& sender, quint16 port
 
 void WarehouseServer::handleLogPacket(const QByteArray& payload,
                                       const QHostAddress& sender, quint16 port) {
-    constexpr int SZ = static_cast<int>(sizeof(LogPacket));
+    constexpr int SZ = static_cast<int>(sizeof(LogPacket)); //136
 
-    if (payload.isEmpty() || payload.size() % SZ != 0) {
+    if (payload.isEmpty() || payload.size() % SZ != 0) { //ako nije dijelivo sa 136
         qWarning() << "[UDP] Invalid LOG payload size:" << payload.size()
                    << "(expected multiple of" << SZ << ")";
         return;
     }
 
-    const int count = payload.size() / SZ;
+    const int count = payload.size() / SZ; // 2720/136 = 20, zapisi
 
     QFile logFile("server_log.txt");
     if (!logFile.open(QIODevice::Append | QIODevice::Text)) {
@@ -101,11 +102,12 @@ void WarehouseServer::handleLogPacket(const QByteArray& payload,
         << "  at " << QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss")
         << "  (" << count << " entries) ===\n";
 
+    //skacemo po 136, payload.consData pointer na bajt broj 0,
     for (int i = 0; i < count; ++i) {
         const auto* pkt = reinterpret_cast<const LogPacket*>(
             payload.constData() + i * SZ);
 
-
+        //sigurno kopiranje stringova
         char username[33] = {};
         char action[33]   = {};
         char target[65]   = {};

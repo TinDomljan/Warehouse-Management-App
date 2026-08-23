@@ -18,11 +18,7 @@
 	[
 		{
 			"backtrace" : 0,
-			"id" : "WarehouseDlgs::@6890427a1f51a3e7e1df"
-		},
-		{
-			"backtrace" : 0,
-			"id" : "WarehouseExport::@6890427a1f51a3e7e1df"
+			"id" : "WarehouseResources::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 0,
@@ -30,7 +26,11 @@
 		},
 		{
 			"backtrace" : 0,
-			"id" : "WarehouseResources::@6890427a1f51a3e7e1df"
+			"id" : "WarehouseExport::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 0,
+			"id" : "WarehouseDlgs::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "WarehouseApp_autogen_timestamp_deps::@6890427a1f51a3e7e1df",

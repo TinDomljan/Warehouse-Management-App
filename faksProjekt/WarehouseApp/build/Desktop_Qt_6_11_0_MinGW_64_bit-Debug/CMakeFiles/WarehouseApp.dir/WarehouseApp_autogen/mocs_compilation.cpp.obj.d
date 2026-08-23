@@ -454,6 +454,8 @@ CMakeFiles/WarehouseApp.dir/WarehouseApp_autogen/mocs_compilation.cpp.obj: \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qrubberband.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QComboBox \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcombobox.h \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSpinBox \
+ C:/Qt/6.11.0/mingw_64/include/QtWidgets/qspinbox.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QMenuBar \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenubar.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qmenu.h \
@@ -512,11 +514,11 @@ CMakeFiles/WarehouseApp.dir/WarehouseApp_autogen/mocs_compilation.cpp.obj: \
  C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\WarehouseApp_autogen\EWIEGA46WW/moc_productdialog.cpp \
  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/productdialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QDoubleSpinBox \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/qspinbox.h \
- C:/Qt/6.11.0/mingw_64/include/QtWidgets/QSpinBox \
  C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\WarehouseApp_autogen\EWIEGA46WW/moc_settingsdialog.cpp \
  C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsdialog.h \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/QColorDialog \
  C:/Qt/6.11.0/mingw_64/include/QtWidgets/qcolordialog.h \
  C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\WarehouseApp_autogen\EWIEGA46WW/moc_supplierdialog.cpp \
- C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/supplierdialog.h
+ C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/supplierdialog.h \
+ C:\Users\tindo\Documents\GitHub\Ntp\faksProjekt\WarehouseApp\build\Desktop_Qt_6_11_0_MinGW_64_bit-Debug\WarehouseApp_autogen\EWIEGA46WW/moc_userdialog.cpp \
+ C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/userdialog.h

@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
     }
     qInfo() << "[Server] Database opened:" << dbPath;
 
-    WarehouseServer server;
+    WarehouseServer server; //vec se ovdje binda
     if (!server.listen(QHostAddress::Any, SERVER_PORT)) {
         qCritical() << "[Server] Failed to listen on port" << SERVER_PORT;
         return 1;

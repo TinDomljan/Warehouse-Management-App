@@ -3,6 +3,9 @@
 #include "logindialog.h"
 #include "mainwindow.h"
 #include "databasemanager.h"
+#include "translationmanager.h"
+#include "settingsmanager.h"
+
 
 int main(int argc, char* argv[]) {
     QApplication app(argc, argv);
@@ -13,6 +16,9 @@ int main(int argc, char* argv[]) {
                               DatabaseManager::instance().lastError());
         return 1;
     }
+
+    TranslationManager::instance().setLanguage(
+        SettingsManager::instance().loadLanguage().toStdString());
 
     LoginDialog loginDialog;
     if (loginDialog.exec() == QDialog::Accepted) {

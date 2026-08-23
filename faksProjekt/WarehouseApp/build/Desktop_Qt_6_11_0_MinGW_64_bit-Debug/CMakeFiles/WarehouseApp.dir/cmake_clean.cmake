@@ -48,6 +48,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/WarehouseApp.dir/supplierdialog.cpp.obj.d"
   "CMakeFiles/WarehouseApp.dir/translationmanager.cpp.obj"
   "CMakeFiles/WarehouseApp.dir/translationmanager.cpp.obj.d"
+  "CMakeFiles/WarehouseApp.dir/userdialog.cpp.obj"
+  "CMakeFiles/WarehouseApp.dir/userdialog.cpp.obj.d"
   "WarehouseApp.exe"
   "WarehouseApp.exe.manifest"
   "WarehouseApp.pdb"

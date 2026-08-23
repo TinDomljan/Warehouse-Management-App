@@ -32,6 +32,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/settingsmanager.cpp" "CMakeFiles/WarehouseApp.dir/settingsmanager.cpp.obj" "gcc" "CMakeFiles/WarehouseApp.dir/settingsmanager.cpp.obj.d"
   "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/supplierdialog.cpp" "CMakeFiles/WarehouseApp.dir/supplierdialog.cpp.obj" "gcc" "CMakeFiles/WarehouseApp.dir/supplierdialog.cpp.obj.d"
   "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/translationmanager.cpp" "CMakeFiles/WarehouseApp.dir/translationmanager.cpp.obj" "gcc" "CMakeFiles/WarehouseApp.dir/translationmanager.cpp.obj.d"
+  "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/userdialog.cpp" "CMakeFiles/WarehouseApp.dir/userdialog.cpp.obj" "gcc" "CMakeFiles/WarehouseApp.dir/userdialog.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

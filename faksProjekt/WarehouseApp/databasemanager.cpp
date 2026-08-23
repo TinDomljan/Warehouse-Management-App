@@ -74,7 +74,7 @@ void DatabaseManager::createTables() {
 void DatabaseManager::seedDefaultData() {
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
 
-    q.exec("SELECT COUNT(*) FROM categories");
+    q.exec("SELECT COUNT(*) FROM categories"); //provjera da ne seedamo opet
     if (q.next() && q.value(0).toInt() > 0)
         return;
 
@@ -375,6 +375,7 @@ std::vector<Product> DatabaseManager::getProductsFiltered(const QString& search,
     std::vector<Product> result;
     QSqlQuery q(QSqlDatabase::database(CONNECTION));
 
+
     QString sql =
         "SELECT p.id, p.name, p.price, p.quantity, "
         "       (p.price * p.quantity) AS total_value, "
@@ -384,6 +385,7 @@ std::vector<Product> DatabaseManager::getProductsFiltered(const QString& search,
         "LEFT JOIN categories c ON p.category_id = c.id "
         "LEFT JOIN suppliers  s ON p.supplier_id  = s.id ";
 
+    //dodajemo na sql upit za filtriranje i trazenje
     if (!search.trimmed().isEmpty()) {
         sql += "WHERE p.name LIKE :search "
                "   OR c.name LIKE :search "
@@ -392,9 +394,10 @@ std::vector<Product> DatabaseManager::getProductsFiltered(const QString& search,
 
     sql += "ORDER BY " + (orderByClause.isEmpty() ? QString("p.id ASC") : orderByClause);
 
+    //parametriziramo i izvrsujemo
     q.prepare(sql);
     if (!search.trimmed().isEmpty())
-        q.bindValue(":search", "%" + search.trimmed() + "%");
+        q.bindValue(":search", "%" + search.trimmed() + "%"); //postotci su wildcard
 
     if (!q.exec())
         return result;
@@ -447,6 +450,16 @@ bool DatabaseManager::updateUser(const User& user, const std::string& password) 
               "WHERE id = :id");
     q.bindValue(":fullname", QString::fromStdString(user.getFullName()));
     q.bindValue(":pwd",      hash);
+    q.bindValue(":role",     static_cast<int>(user.getRole()));
+    q.bindValue(":id",       user.getId());
+    return q.exec();
+}
+
+bool DatabaseManager::updateUserProfile(const User& user) {
+    QSqlQuery q(QSqlDatabase::database(CONNECTION));
+    q.prepare("UPDATE users SET full_name = :fullname, role = :role "
+              "WHERE id = :id");
+    q.bindValue(":fullname", QString::fromStdString(user.getFullName()));
     q.bindValue(":role",     static_cast<int>(user.getRole()));
     q.bindValue(":id",       user.getId());
     return q.exec();
