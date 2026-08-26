@@ -64,10 +64,12 @@ void Product::setSupplier(const Supplier& supplier) {
 }
 
 // izr polje
+//inv analyzer, server, clienthandler
 double Product::getTotalValue() const {
     return price_ * quantity_;
 }
 
+//server
 bool Product::isLowStock(int threshold) const {
     return quantity_ < threshold;
 }

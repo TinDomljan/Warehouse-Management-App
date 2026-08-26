@@ -57,6 +57,7 @@ private slots:
     void onAddProduct();
     void onReorderReport();
     void onRemoveProduct();
+    void onManageProduct();
     void onOpenSettings();
     void onOpenAbout();
     void onQuickCalc();
@@ -106,7 +107,7 @@ private:
     QPushButton*  addProductBtn_;
     QPushButton*  reorderReportBtn_;
     QSpinBox*     leadTimeSpin_;
-    QPushButton*  removeProductBtn_;
+    QPushButton*  manageProductBtn_;
     QPushButton*  manageOrdersBtn_;
     QPushButton*  manageLogBtn_;
     QPushButton*  generateReportBtn_;

@@ -26,12 +26,22 @@ public:
                   int nextId,
                   QWidget* parent = nullptr);
 
+    // Edit mode — popunjava dijalog postojecim proizvodom
+    ProductDialog(const std::vector<Category>& categories,
+                  const std::vector<Supplier>& suppliers,
+                  const Product& existing,
+                  QWidget* parent = nullptr);
+
     Product getProduct() const;
+    bool isDeleteRequested() const;
     void updateLanguage();
 
 
 private slots:
     void onSaveClicked();
+    void onStockIn();
+    void onStockOut();
+    void onDeleteClicked();
 
 
 private:
@@ -50,6 +60,14 @@ private:
     std::vector<Supplier> suppliers_;
     Product product_;
     int nextId_;
+
+    QSpinBox*    stockAmountSpin_ = nullptr;
+    QPushButton* stockInButton_   = nullptr;
+    QPushButton* stockOutButton_  = nullptr;
+    QPushButton* deleteButton_    = nullptr;
+    QLabel*      stockLabel_      = nullptr;
+    bool         editMode_        = false;
+    bool         deleteRequested_ = false;
 
     void setupUI();
 };

@@ -361,4 +361,154 @@ void TranslationManager::loadTranslations() {
     translations_["about_title"]["HRV"] = "O aplikaciji";
     translations_["about_text"]["ENG"] = "Warehouse Management System\nVersion 1.0\n\nDeveloped for Advanced Programming Techniques\nZagreb University of Applied Sciences\n\nAuthor: Tindo";
     translations_["about_text"]["HRV"] = "Sustav Upravljanja Skladištem\nVerzija 1.0\n\nRazvijeno za kolegij Napredne Tehnike Programiranja\nTehničko Veleučilište u Zagrebu\n\nAutor: Tindo";
+
+    // ===== TAB TITLES =====
+    translations_["tab_products"]["ENG"] = "Products";
+    translations_["tab_products"]["HRV"] = "Proizvodi";
+    translations_["tab_snapshots"]["ENG"] = "Snapshots";
+    translations_["tab_snapshots"]["HRV"] = "Snimke";
+    translations_["tab_suppliers"]["ENG"] = "Suppliers";
+    translations_["tab_suppliers"]["HRV"] = "Dobavljači";
+    translations_["tab_network"]["ENG"] = "Network";
+    translations_["tab_network"]["HRV"] = "Mreža";
+    translations_["tab_crypto"]["ENG"] = "Crypto";
+    translations_["tab_crypto"]["HRV"] = "Kriptografija";
+
+    // ===== PRODUCTS TAB =====
+    translations_["p_search"]["ENG"] = "Search:";
+    translations_["p_search"]["HRV"] = "Pretraga:";
+    translations_["p_sort"]["ENG"] = "Sort:";
+    translations_["p_sort"]["HRV"] = "Sortiranje:";
+    translations_["p_btn_manage"]["ENG"] = "Manage Product";
+    translations_["p_btn_manage"]["HRV"] = "Upravljaj Proizvodom";
+    translations_["p_btn_analyze"]["ENG"] = "Analyze Inventory";
+    translations_["p_btn_analyze"]["HRV"] = "Analiziraj Zalihe";
+    translations_["p_btn_csv"]["ENG"] = "Export CSV";
+    translations_["p_btn_csv"]["HRV"] = "Izvoz CSV";
+    translations_["p_btn_html"]["ENG"] = "Export HTML";
+    translations_["p_btn_html"]["HRV"] = "Izvoz HTML";
+    translations_["p_leadtime"]["ENG"] = "Lead time (days):";
+    translations_["p_leadtime"]["HRV"] = "Vrijeme isporuke (dani):";
+    translations_["p_btn_reorder"]["ENG"] = "Reorder Report";
+    translations_["p_btn_reorder"]["HRV"] = "Izvještaj Narudžbi";
+    translations_["sort_default"]["ENG"] = "Default (ID)";
+    translations_["sort_default"]["HRV"] = "Zadano (ID)";
+    translations_["sort_name_az"]["ENG"] = "Name A → Z";
+    translations_["sort_name_az"]["HRV"] = "Naziv A → Z";
+    translations_["sort_name_za"]["ENG"] = "Name Z → A";
+    translations_["sort_name_za"]["HRV"] = "Naziv Z → A";
+    translations_["sort_price_asc"]["ENG"] = "Price ↑";
+    translations_["sort_price_asc"]["HRV"] = "Cijena ↑";
+    translations_["sort_price_desc"]["ENG"] = "Price ↓";
+    translations_["sort_price_desc"]["HRV"] = "Cijena ↓";
+    translations_["sort_qty_asc"]["ENG"] = "Quantity ↑";
+    translations_["sort_qty_asc"]["HRV"] = "Količina ↑";
+    translations_["sort_qty_desc"]["ENG"] = "Quantity ↓";
+    translations_["sort_qty_desc"]["HRV"] = "Količina ↓";
+    translations_["sort_value_asc"]["ENG"] = "Value ↑";
+    translations_["sort_value_asc"]["HRV"] = "Vrijednost ↑";
+    translations_["sort_value_desc"]["ENG"] = "Value ↓";
+    translations_["sort_value_desc"]["HRV"] = "Vrijednost ↓";
+    translations_["sort_category"]["ENG"] = "Category";
+    translations_["sort_category"]["HRV"] = "Kategorija";
+    translations_["sort_supplier"]["ENG"] = "Supplier";
+    translations_["sort_supplier"]["HRV"] = "Dobavljač";
+
+    // ===== BOTTOM BAR =====
+    translations_["b_quickcalc"]["ENG"] = "Quick Calculator";
+    translations_["b_quickcalc"]["HRV"] = "Brzi Kalkulator";
+    translations_["b_report"]["ENG"] = "Generate Report";
+    translations_["b_report"]["HRV"] = "Generiraj Izvještaj";
+
+    // ===== SNAPSHOTS TAB =====
+    translations_["snap_info"]["ENG"] = "Save or load a binary snapshot of inventory-analysis results.\nRun 'Analyze Inventory' (Products tab) first, then save the per-thread\nanalysis segments to a custom binary file.";
+    translations_["snap_info"]["HRV"] = "Spremi ili učitaj binarnu snimku rezultata analize zaliha.\nPrvo pokreni 'Analiziraj Zalihe' (tab Proizvodi), zatim spremi segmente\nanalize po dretvi u vlastitu binarnu datoteku.";
+    translations_["snap_btn_save"]["ENG"] = "Save Snapshot";
+    translations_["snap_btn_save"]["HRV"] = "Spremi Snimku";
+    translations_["snap_btn_load"]["ENG"] = "Load Snapshot";
+    translations_["snap_btn_load"]["HRV"] = "Učitaj Snimku";
+    translations_["snap_btn_validate"]["ENG"] = "Validate Backup";
+    translations_["snap_btn_validate"]["HRV"] = "Provjeri Kopiju";
+
+    // ===== SUPPLIERS TAB =====
+    translations_["sup_btn_add"]["ENG"] = "Add Supplier";
+    translations_["sup_btn_add"]["HRV"] = "Dodaj Dobavljača";
+    translations_["sup_btn_edit"]["ENG"] = "Edit Supplier";
+    translations_["sup_btn_edit"]["HRV"] = "Uredi Dobavljača";
+    translations_["sup_btn_delete"]["ENG"] = "Delete Supplier";
+    translations_["sup_btn_delete"]["HRV"] = "Obriši Dobavljača";
+    translations_["sup_col_company"]["ENG"] = "Company";
+    translations_["sup_col_company"]["HRV"] = "Tvrtka";
+    translations_["sup_col_contact"]["ENG"] = "Contact";
+    translations_["sup_col_contact"]["HRV"] = "Kontakt";
+    translations_["sup_col_email"]["ENG"] = "Email";
+    translations_["sup_col_email"]["HRV"] = "Email";
+    translations_["sup_col_phone"]["ENG"] = "Phone";
+    translations_["sup_col_phone"]["HRV"] = "Telefon";
+    translations_["sup_col_address"]["ENG"] = "Address";
+    translations_["sup_col_address"]["HRV"] = "Adresa";
+
+    // ===== NETWORK TAB =====
+    translations_["net_barcode"]["ENG"] = "Barcode / product name:";
+    translations_["net_barcode"]["HRV"] = "Barkod / naziv proizvoda:";
+    translations_["net_btn_query"]["ENG"] = "Query Product";
+    translations_["net_btn_query"]["HRV"] = "Upit Proizvoda";
+    translations_["net_btn_rates"]["ENG"] = "Fetch Exchange Rates  (REST · EUR base)";
+    translations_["net_btn_rates"]["HRV"] = "Dohvati Tečajeve  (REST · EUR baza)";
+    translations_["net_btn_sendbackup"]["ENG"] = "Send Backup  (stock_snapshot.bin)  [TCP]";
+    translations_["net_btn_sendbackup"]["HRV"] = "Pošalji Kopiju  (stock_snapshot.bin)  [TCP]";
+    translations_["net_btn_status"]["ENG"] = "Request Status (UDP)";
+    translations_["net_btn_status"]["HRV"] = "Zatraži Status (UDP)";
+    translations_["net_btn_logsummary"]["ENG"] = "Send Log Summary (UDP)";
+    translations_["net_btn_logsummary"]["HRV"] = "Pošalji Sažetak Zapisa (UDP)";
+    translations_["net_http"]["ENG"] = "HTTP Download";
+    translations_["net_http"]["HRV"] = "HTTP Preuzimanje";
+    translations_["net_btn_download"]["ENG"] = "Download";
+    translations_["net_btn_download"]["HRV"] = "Preuzmi";
+    translations_["net_btn_cancel"]["ENG"] = "Cancel";
+    translations_["net_btn_cancel"]["HRV"] = "Odustani";
+    translations_["speed_unlimited"]["ENG"] = "Unlimited";
+    translations_["speed_unlimited"]["HRV"] = "Neograničeno";
+
+    // ===== CRYPTO TAB =====
+    translations_["c_password"]["ENG"] = "Password:";
+    translations_["c_password"]["HRV"] = "Lozinka:";
+    translations_["c_btn_enc"]["ENG"] = "Encrypt File";
+    translations_["c_btn_enc"]["HRV"] = "Šifriraj Datoteku";
+    translations_["c_btn_dec"]["ENG"] = "Decrypt File";
+    translations_["c_btn_dec"]["HRV"] = "Dešifriraj Datoteku";
+    translations_["c_ready"]["ENG"] = "Ready.";
+    translations_["c_ready"]["HRV"] = "Spremno.";
+    translations_["c_btn_genkeys"]["ENG"] = "Generate Keys";
+    translations_["c_btn_genkeys"]["HRV"] = "Generiraj Ključeve";
+    translations_["c_btn_exportusers"]["ENG"] = "Export Users (RSA Encrypted)";
+    translations_["c_btn_exportusers"]["HRV"] = "Izvoz Korisnika (RSA Šifrirano)";
+    translations_["c_btn_decryptusers"]["ENG"] = "Decrypt Users Export";
+    translations_["c_btn_decryptusers"]["HRV"] = "Dešifriraj Izvoz Korisnika";
+    translations_["c_btn_sign"]["ENG"] = "Sign Orders";
+    translations_["c_btn_sign"]["HRV"] = "Potpiši Narudžbe";
+    translations_["c_btn_verify"]["ENG"] = "Verify Orders";
+    translations_["c_btn_verify"]["HRV"] = "Provjeri Narudžbe";
+
+    // ===== INLINE DIALOGS =====
+    translations_["dlg_close"]["ENG"] = "Close";
+    translations_["dlg_close"]["HRV"] = "Zatvori";
+    translations_["dlg_decrypted_users"]["ENG"] = "Decrypted Users Export";
+    translations_["dlg_decrypted_users"]["HRV"] = "Dešifrirani Izvoz Korisnika";
+    translations_["dlg_analysis_results"]["ENG"] = "Inventory Analysis Results";
+    translations_["dlg_analysis_results"]["HRV"] = "Rezultati Analize Zaliha";
+    translations_["dlg_reorder"]["ENG"] = "Reorder Report";
+    translations_["dlg_reorder"]["HRV"] = "Izvještaj Narudžbi";
+
+    // ===== PRODUCT DIALOG (EDIT MODE) =====
+    translations_["pd_manage_title"]["ENG"] = "Manage Product";
+    translations_["pd_manage_title"]["HRV"] = "Upravljaj Proizvodom";
+    translations_["pd_stock_change"]["ENG"] = "Stock change:";
+    translations_["pd_stock_change"]["HRV"] = "Promjena zalihe:";
+    translations_["pd_stock_in"]["ENG"] = "Stock In";
+    translations_["pd_stock_in"]["HRV"] = "Zaprimi";
+    translations_["pd_stock_out"]["ENG"] = "Stock Out";
+    translations_["pd_stock_out"]["HRV"] = "Izdaj";
+    translations_["pd_delete"]["ENG"] = "Delete";
+    translations_["pd_delete"]["HRV"] = "Obriši";
 }

@@ -114,7 +114,7 @@ void MainWindow::applyRolePermissions() {
     };
 
     enable(addProductBtn_,     true);
-    enable(removeProductBtn_,  true);
+    enable(manageProductBtn_,  true);
     enable(analyzeInventoryBtn_, true);
     enable(exportCsvBtn_,      true);
     enable(exportHtmlBtn_,     true);
@@ -124,6 +124,7 @@ void MainWindow::applyRolePermissions() {
     enable(addSupplierBtn_,    true);
     enable(editSupplierBtn_,   true);
     enable(deleteSupplierBtn_, true);
+    enable(manageOrdersBtn_,   true);
     enable(manageLogBtn_,      true);
     enable(generateReportBtn_, true);
     enable(quickCalcBtn_,      true);
@@ -153,7 +154,7 @@ void MainWindow::applyRolePermissions() {
         tabWidget_->setTabVisible(5, false);  // Users — admin only
 
         enable(addProductBtn_,     false);
-        enable(removeProductBtn_,  false);
+        enable(manageProductBtn_,  false);
         enable(analyzeInventoryBtn_, false);
         enable(exportCsvBtn_,      false);
         enable(exportHtmlBtn_,     false);
@@ -162,6 +163,7 @@ void MainWindow::applyRolePermissions() {
         enable(deleteSupplierBtn_, false);
         enable(generateReportBtn_, false);
         enable(quickCalcBtn_,      false);
+        enable(manageOrdersBtn_,   false);
         enable(manageLogBtn_,      false);
 
         addProductAction_->setEnabled(false);
@@ -197,7 +199,7 @@ void MainWindow::setupUI() {
 
     tabWidget_->setTabIcon(0, QIcon(loadWarehouseIcon("product")));
     tabWidget_->setTabIcon(2, QIcon(loadWarehouseIcon("supplier")));
-    removeProductBtn_->setIcon(QIcon(loadWarehouseIcon("warning")));
+    manageProductBtn_->setIcon(QIcon(loadWarehouseIcon("warning")));
 
     mainLayout->addWidget(tabWidget_);
 
@@ -207,7 +209,7 @@ void MainWindow::setupUI() {
     generateReportBtn_      = new QPushButton();
     settingsBtn_            = new QPushButton();
     aboutBtn_               = new QPushButton();
-    quickCalcBtn_           = new QPushButton("Quick Calculator");
+    quickCalcBtn_           = new QPushButton(T("b_quickcalc"));
     logoutBtn_              = new QPushButton();
     bottomLayout->addStretch();
     bottomLayout->addWidget(manageOrdersBtn_);
@@ -240,23 +242,23 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     searchEdit_->setClearButtonEnabled(true);
 
     sortCombo_ = new QComboBox();
-    sortCombo_->addItem("Default (ID)",     QString("p.id ASC"));
-    sortCombo_->addItem("Name A → Z",  QString("p.name ASC"));
-    sortCombo_->addItem("Name Z → A",  QString("p.name DESC"));
-    sortCombo_->addItem("Price ↑",     QString("p.price ASC"));
-    sortCombo_->addItem("Price ↓",     QString("p.price DESC"));
-    sortCombo_->addItem("Quantity ↑",  QString("p.quantity ASC"));
-    sortCombo_->addItem("Quantity ↓",  QString("p.quantity DESC"));
-    sortCombo_->addItem("Value ↑",     QString("(p.price * p.quantity) ASC"));
-    sortCombo_->addItem("Value ↓",     QString("(p.price * p.quantity) DESC"));
-    sortCombo_->addItem("Category",         QString("c.name ASC"));
-    sortCombo_->addItem("Supplier",         QString("s.company_name ASC"));
-    sortCombo_->addItem("Value ↑", QString("total_value ASC"));
-    sortCombo_->addItem("Value ↓", QString("total_value DESC"));
+    sortCombo_->addItem(T("sort_default"),   QString("p.id ASC"));
+    sortCombo_->addItem(T("sort_name_az"),    QString("p.name ASC"));
+    sortCombo_->addItem(T("sort_name_za"),    QString("p.name DESC"));
+    sortCombo_->addItem(T("sort_price_asc"),  QString("p.price ASC"));
+    sortCombo_->addItem(T("sort_price_desc"), QString("p.price DESC"));
+    sortCombo_->addItem(T("sort_qty_asc"),    QString("p.quantity ASC"));
+    sortCombo_->addItem(T("sort_qty_desc"),   QString("p.quantity DESC"));
+    sortCombo_->addItem(T("sort_value_asc"),  QString("(p.price * p.quantity) ASC"));
+    sortCombo_->addItem(T("sort_value_desc"), QString("(p.price * p.quantity) DESC"));
+    sortCombo_->addItem(T("sort_category"),   QString("c.name ASC"));
+    sortCombo_->addItem(T("sort_supplier"),   QString("s.company_name ASC"));
+    sortCombo_->addItem(T("sort_value_asc"),  QString("total_value ASC"));
+    sortCombo_->addItem(T("sort_value_desc"), QString("total_value DESC"));
 
-    filterLayout->addWidget(new QLabel("Search:"));
+    filterLayout->addWidget(new QLabel(T("p_search")));
     filterLayout->addWidget(searchEdit_, 1);
-    filterLayout->addWidget(new QLabel("Sort:"));
+    filterLayout->addWidget(new QLabel(T("p_sort")));
     filterLayout->addWidget(sortCombo_);
     layout->addLayout(filterLayout);
 
@@ -284,21 +286,21 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     // gumbi
     QHBoxLayout* btnLayout = new QHBoxLayout();
     addProductBtn_       = new QPushButton();
-    removeProductBtn_    = new QPushButton();
-    analyzeInventoryBtn_ = new QPushButton("Analyze Inventory");
-    exportCsvBtn_  = new QPushButton("Export CSV");
-    exportHtmlBtn_ = new QPushButton("Export HTML");
+    manageProductBtn_    = new QPushButton(T("p_btn_manage"));
+    analyzeInventoryBtn_ = new QPushButton(T("p_btn_analyze"));
+    exportCsvBtn_  = new QPushButton(T("p_btn_csv"));
+    exportHtmlBtn_ = new QPushButton(T("p_btn_html"));
     btnLayout->addWidget(addProductBtn_);
-    btnLayout->addWidget(removeProductBtn_);
+    btnLayout->addWidget(manageProductBtn_);
     btnLayout->addWidget(analyzeInventoryBtn_);
     btnLayout->addWidget(exportCsvBtn_);
     btnLayout->addWidget(exportHtmlBtn_);
 
-    QLabel* leadTimeLabel = new QLabel("Lead time (days):");
+    QLabel* leadTimeLabel = new QLabel(T("p_leadtime"));
     leadTimeSpin_ = new QSpinBox();
     leadTimeSpin_->setRange(1, 90);
     leadTimeSpin_->setValue(7);
-    reorderReportBtn_ = new QPushButton("Reorder Report");
+    reorderReportBtn_ = new QPushButton(T("p_btn_reorder"));
     btnLayout->addWidget(leadTimeLabel);
     btnLayout->addWidget(leadTimeSpin_);
     btnLayout->addWidget(reorderReportBtn_);
@@ -307,7 +309,7 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     layout->addLayout(btnLayout);
 
     connect(addProductBtn_,       &QPushButton::clicked, this, &MainWindow::onAddProduct);
-    connect(removeProductBtn_,    &QPushButton::clicked, this, &MainWindow::onRemoveProduct);
+    connect(manageProductBtn_,    &QPushButton::clicked, this, &MainWindow::onManageProduct);
     connect(analyzeInventoryBtn_, &QPushButton::clicked, this, &MainWindow::onAnalyzeInventory);
     connect(exportCsvBtn_,        &QPushButton::clicked, this, &MainWindow::onExportCSV);
     connect(exportHtmlBtn_,       &QPushButton::clicked, this, &MainWindow::onExportHTML);
@@ -315,16 +317,14 @@ void MainWindow::setupProductsTab(QTabWidget* tabs) {
     connect(searchEdit_, &QLineEdit::textChanged,         this, [this]{ refreshProductTable(); }); //svaki pritisak tipke je novi upit
     connect(sortCombo_,  &QComboBox::currentIndexChanged, this, [this]{ refreshProductTable(); });
 
-    tabs->addTab(tab, "Products");
+    tabs->addTab(tab, T("tab_products"));
 }
 
 void MainWindow::setupSnapshotTab(QTabWidget* tabs) {
     QWidget* tab = new QWidget();
     QVBoxLayout* layout = new QVBoxLayout(tab);
 
-    QLabel* info = new QLabel("Save or load a binary snapshot of inventory-analysis results.\n"
-                              "Run 'Analyze Inventory' (Products tab) first, then save the per-thread\n"
-                              "analysis segments to a custom binary file.");
+    QLabel* info = new QLabel(T("snap_info"));
     layout->addWidget(info);
 
     snapshotTable_ = new QTableWidget(0, 6);
@@ -337,9 +337,9 @@ void MainWindow::setupSnapshotTab(QTabWidget* tabs) {
     layout->addWidget(snapshotTable_);
 
     QHBoxLayout* btnLayout = new QHBoxLayout();
-    saveSnapshotBtn_     = new QPushButton("Save Snapshot");
-    loadSnapshotBtn_     = new QPushButton("Load Snapshot");
-    validateBackupBtn_   = new QPushButton("Validate Backup");
+    saveSnapshotBtn_     = new QPushButton(T("snap_btn_save"));
+    loadSnapshotBtn_     = new QPushButton(T("snap_btn_load"));
+    validateBackupBtn_   = new QPushButton(T("snap_btn_validate"));
     btnLayout->addWidget(saveSnapshotBtn_);
     btnLayout->addWidget(loadSnapshotBtn_);
     btnLayout->addWidget(validateBackupBtn_);
@@ -350,7 +350,7 @@ void MainWindow::setupSnapshotTab(QTabWidget* tabs) {
     connect(loadSnapshotBtn_,   &QPushButton::clicked, this, &MainWindow::onLoadSnapshot);
     connect(validateBackupBtn_, &QPushButton::clicked, this, &MainWindow::onValidateBackup);
 
-    tabs->addTab(tab, "Snapshots");
+    tabs->addTab(tab, T("tab_snapshots"));
 }
 
 void MainWindow::setupSuppliersTab(QTabWidget* tabs) {
@@ -359,16 +359,17 @@ void MainWindow::setupSuppliersTab(QTabWidget* tabs) {
 
     supplierTable_ = new QTableWidget(0, 6);
     supplierTable_->setHorizontalHeaderLabels(
-        {"ID", "Company", "Contact", "Email", "Phone", "Address"});
+        {T("main_col_id"), T("sup_col_company"), T("sup_col_contact"),
+         T("sup_col_email"), T("sup_col_phone"), T("sup_col_address")});
     supplierTable_->setSelectionBehavior(QAbstractItemView::SelectRows);
     supplierTable_->setEditTriggers(QAbstractItemView::NoEditTriggers);
     supplierTable_->horizontalHeader()->setStretchLastSection(true);
     layout->addWidget(supplierTable_);
 
     QHBoxLayout* btnLayout = new QHBoxLayout();
-    addSupplierBtn_    = new QPushButton("Add Supplier");
-    editSupplierBtn_   = new QPushButton("Edit Supplier");
-    deleteSupplierBtn_ = new QPushButton("Delete Supplier");
+    addSupplierBtn_    = new QPushButton(T("sup_btn_add"));
+    editSupplierBtn_   = new QPushButton(T("sup_btn_edit"));
+    deleteSupplierBtn_ = new QPushButton(T("sup_btn_delete"));
     btnLayout->addWidget(addSupplierBtn_);
     btnLayout->addWidget(editSupplierBtn_);
     btnLayout->addWidget(deleteSupplierBtn_);
@@ -379,7 +380,7 @@ void MainWindow::setupSuppliersTab(QTabWidget* tabs) {
     connect(editSupplierBtn_,   &QPushButton::clicked, this, &MainWindow::onEditSupplier);
     connect(deleteSupplierBtn_, &QPushButton::clicked, this, &MainWindow::onDeleteSupplier);
 
-    tabs->addTab(tab, "Suppliers");
+    tabs->addTab(tab, T("tab_suppliers"));
 }
 
 void MainWindow::setupUsersTab(QTabWidget* tabs) {
@@ -452,10 +453,10 @@ void MainWindow::onOpenLogs() {
 void MainWindow::updateLanguage() {
     setWindowTitle(T("main_title"));
     addProductBtn_->setText(T("main_btn_add"));
-    removeProductBtn_->setText(T("main_btn_remove"));
+    manageProductBtn_->setText(T("p_btn_manage"));
     manageOrdersBtn_->setText(T("main_btn_manage_orders"));
     manageLogBtn_->setText(T("main_btn_manage_logs"));
-    generateReportBtn_->setText("Generate Report");
+    generateReportBtn_->setText(T("b_report"));
     settingsBtn_->setText(T("main_btn_settings"));
     aboutBtn_->setText(T("main_btn_about"));
     logoutBtn_->setText(T("main_btn_logout"));
@@ -779,6 +780,62 @@ void MainWindow::onRemoveProduct() {
     }
 }
 
+void MainWindow::onManageProduct() {
+    int currentRow = productTable_->currentRow();
+    if (currentRow < 0) {
+        QMessageBox::warning(this, "Manage Product", "Select a product first.");
+        return;
+    }
+
+    int productId = productTable_->item(currentRow, 0)->text().toInt();
+
+    auto it = std::find_if(products_.begin(), products_.end(),
+                           [productId](const Product& p){ return p.getId() == productId; });
+    if (it == products_.end()) {
+        QMessageBox::warning(this, "Manage Product", "Product not found.");
+        return;
+    }
+
+    int    beforeQty  = it->getQuantity();
+    QString beforeName = QString::fromStdString(it->getName());
+
+    ProductDialog dlg(categories_, suppliers_, *it, this);
+    if (dlg.exec() != QDialog::Accepted)
+        return;
+
+    if (dlg.isDeleteRequested()) {
+        if (!DatabaseManager::instance().deleteProduct(productId)) {
+            QMessageBox::critical(this, "Manage Product", "Database delete failed.");
+            return;
+        }
+        activityLog_.addEntry(currentUser_.getUsername(), "DELETE", beforeName.toStdString());
+        products_ = DatabaseManager::instance().getAllProducts();
+        refreshProductTable();
+        statusBar()->showMessage("Product deleted: " + beforeName, 3000);
+        return;
+    }
+
+    Product updated = dlg.getProduct();
+    if (!DatabaseManager::instance().updateProduct(updated)) {
+        QMessageBox::critical(this, "Manage Product", "Database update failed.");
+        products_ = DatabaseManager::instance().getAllProducts();
+        refreshProductTable();
+        return;
+    }
+
+    std::string action = (updated.getQuantity() > beforeQty) ? "STOCK_IN"
+                       : (updated.getQuantity() < beforeQty) ? "STOCK_OUT"
+                       : "EDIT_PRODUCT";
+    activityLog_.addEntry(currentUser_.getUsername(), action,
+                          updated.getName() + " (qty " + std::to_string(beforeQty) +
+                          " -> " + std::to_string(updated.getQuantity()) + ")");
+
+    products_ = DatabaseManager::instance().getAllProducts();
+    refreshProductTable();
+    statusBar()->showMessage(
+        QString("Product updated: %1").arg(QString::fromStdString(updated.getName())), 4000);
+}
+
 void MainWindow::onSaveSnapshot() {
     if (lastAnalysisRecords_.empty()) {
         QMessageBox::warning(this, "Save Snapshot",
@@ -856,16 +913,16 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
 
 
     QHBoxLayout* queryRow = new QHBoxLayout();
-    queryRow->addWidget(new QLabel("Barcode / product name:"));
+    queryRow->addWidget(new QLabel(T("net_barcode")));
     barcodeEdit_ = new QLineEdit();
     barcodeEdit_->setPlaceholderText("e.g. Widget Pro");
     queryRow->addWidget(barcodeEdit_, 1);
-    QPushButton* queryBtn = new QPushButton("Query Product");
+    QPushButton* queryBtn = new QPushButton(T("net_btn_query"));
     queryRow->addWidget(queryBtn);
     layout->addLayout(queryRow);
 
     QHBoxLayout* restRow = new QHBoxLayout();
-    QPushButton* exchangeRatesBtn = new QPushButton("Fetch Exchange Rates  (REST · EUR base)");
+    QPushButton* exchangeRatesBtn = new QPushButton(T("net_btn_rates"));
     restRow->addWidget(exchangeRatesBtn);
     restRow->addStretch();
     layout->addLayout(restRow);
@@ -879,7 +936,7 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
 
 
     QHBoxLayout* fileRow = new QHBoxLayout();
-    QPushButton* sendBackupBtn = new QPushButton("Send Backup  (stock_snapshot.bin)  [TCP]");
+    QPushButton* sendBackupBtn = new QPushButton(T("net_btn_sendbackup"));
     networkStatusLabel_ = new QLabel();
     networkStatusLabel_->setStyleSheet("color: gray;");
     fileRow->addWidget(sendBackupBtn);
@@ -897,8 +954,8 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
     layout->addWidget(udpLabel);
 
     QHBoxLayout* udpRow = new QHBoxLayout();
-    QPushButton* statusBtn  = new QPushButton("Request Status (UDP)");
-    QPushButton* logSendBtn = new QPushButton("Send Log Summary (UDP)");
+    QPushButton* statusBtn  = new QPushButton(T("net_btn_status"));
+    QPushButton* logSendBtn = new QPushButton(T("net_btn_logsummary"));
     udpRow->addWidget(statusBtn);
     udpRow->addWidget(logSendBtn);
     udpRow->addStretch();
@@ -916,7 +973,7 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
     line2->setFrameShadow(QFrame::Sunken);
     layout->addWidget(line2);
 
-    QLabel* httpLabel = new QLabel("HTTP Download");
+    QLabel* httpLabel = new QLabel(T("net_http"));
     httpLabel->setStyleSheet("color: gray; font-style: italic;");
     layout->addWidget(httpLabel);
 
@@ -927,12 +984,12 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
     dlRow->addWidget(urlEdit_, 1);
 
     speedLimitCombo_ = new QComboBox();
-    speedLimitCombo_->addItem("Unlimited");
+    speedLimitCombo_->addItem(T("speed_unlimited"));
     speedLimitCombo_->addItem("100 KB/s");
     speedLimitCombo_->addItem("50 KB/s");
     dlRow->addWidget(speedLimitCombo_);
 
-    downloadBtn_ = new QPushButton("Download");
+    downloadBtn_ = new QPushButton(T("net_btn_download"));
     dlRow->addWidget(downloadBtn_);
     layout->addLayout(dlRow);
 
@@ -960,7 +1017,7 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
 
     connect(downloadBtn_, &QPushButton::clicked, this, &MainWindow::onDownload);
 
-    tabs->addTab(tab, "Network");
+    tabs->addTab(tab, T("tab_network"));
 }
 
 
@@ -1175,7 +1232,7 @@ void MainWindow::onDownload() { //u RAM, ne izravno u datoteku
     downloadProgressBar_->setRange(0, 100);
     downloadProgressBar_->setValue(0);
     downloadProgressBar_->setFormat("Connecting...");
-    downloadBtn_->setText("Cancel");
+    downloadBtn_->setText(T("net_btn_cancel"));
 
     QNetworkRequest request{QUrl(urlStr)}; //slanje zahtjeva
     request.setHeader(QNetworkRequest::UserAgentHeader, "WarehouseApp/1.0");
@@ -1297,7 +1354,7 @@ void MainWindow::finalizeDownload(bool cancelled) {
     if (!cancelled && readChunkSize_ < 0)
         downloadBuffer_.append(currentReply_->readAll());
 
-    downloadBtn_->setText("Download");
+    downloadBtn_->setText(T("net_btn_download"));
 
     const QNetworkReply::NetworkError err = currentReply_->error();
     const QString errString = currentReply_->errorString();
@@ -1467,7 +1524,7 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
 
 
     QHBoxLayout* pwRow = new QHBoxLayout();
-    pwRow->addWidget(new QLabel("Password:"));
+    pwRow->addWidget(new QLabel(T("c_password")));
     cryptoPasswordEdit_ = new QLineEdit();
     cryptoPasswordEdit_->setEchoMode(QLineEdit::Password);
     cryptoPasswordEdit_->setPlaceholderText("Enter encryption password…");
@@ -1488,7 +1545,7 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
     layout->addWidget(sep);
 
     QHBoxLayout* encRow = new QHBoxLayout();
-    QPushButton* encBtn = new QPushButton("Encrypt File");
+    QPushButton* encBtn = new QPushButton(T("c_btn_enc"));
     QLabel* encInfo = new QLabel("stock_snapshot.bin  →  stock_snapshot.bin.enc");
     encInfo->setStyleSheet("color: gray;");
     encRow->addWidget(encBtn);
@@ -1497,7 +1554,7 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
     layout->addLayout(encRow);
 
     QHBoxLayout* decRow = new QHBoxLayout();
-    QPushButton* decBtn = new QPushButton("Decrypt File");
+    QPushButton* decBtn = new QPushButton(T("c_btn_dec"));
     QLabel* decInfo = new QLabel("stock_snapshot.bin.enc  →  stock_snapshot.bin.dec");
     decInfo->setStyleSheet("color: gray;");
     decRow->addWidget(decBtn);
@@ -1511,7 +1568,7 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
     sep2->setFrameShadow(QFrame::Sunken);
     layout->addWidget(sep2);
 
-    cryptoStatusLabel_ = new QLabel("Ready.");
+    cryptoStatusLabel_ = new QLabel(T("c_ready"));
     cryptoStatusLabel_->setWordWrap(true);
     cryptoStatusLabel_->setTextFormat(Qt::RichText);
     cryptoStatusLabel_->setAlignment(Qt::AlignTop | Qt::AlignLeft);
@@ -1534,14 +1591,14 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
 
     QHBoxLayout* rsaKeyRow = new QHBoxLayout();
     rsaKeyStatusLabel_ = new QLabel();
-    QPushButton* genKeysBtn = new QPushButton("Generate Keys");
+    QPushButton* genKeysBtn = new QPushButton(T("c_btn_genkeys"));
     rsaKeyRow->addWidget(rsaKeyStatusLabel_, 1);
     rsaKeyRow->addWidget(genKeysBtn);
     layout->addLayout(rsaKeyRow);
 
     QHBoxLayout* rsaBtnRow = new QHBoxLayout();
-    QPushButton* exportUsersBtn  = new QPushButton("Export Users (RSA Encrypted)");
-    QPushButton* decryptUsersBtn = new QPushButton("Decrypt Users Export");
+    QPushButton* exportUsersBtn  = new QPushButton(T("c_btn_exportusers"));
+    QPushButton* decryptUsersBtn = new QPushButton(T("c_btn_decryptusers"));
     QLabel* exportInfo = new QLabel("users_export.bin");
     exportInfo->setStyleSheet("color: gray;");
     rsaBtnRow->addWidget(exportUsersBtn);
@@ -1573,8 +1630,8 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
     layout->addWidget(sigTitle);
 
     QHBoxLayout* sigBtnRow = new QHBoxLayout();
-    QPushButton* signBtn   = new QPushButton("Sign Orders");
-    QPushButton* verifyBtn = new QPushButton("Verify Orders");
+    QPushButton* signBtn   = new QPushButton(T("c_btn_sign"));
+    QPushButton* verifyBtn = new QPushButton(T("c_btn_verify"));
     QLabel* sigInfo = new QLabel("orders.xml  →  orders.xml.sig");
     sigInfo->setStyleSheet("color: gray;");
     sigBtnRow->addWidget(signBtn);
@@ -1586,7 +1643,7 @@ void MainWindow::setupCryptoTab(QTabWidget* tabs) {
     connect(signBtn,   &QPushButton::clicked, this, &MainWindow::onSignOrders);
     connect(verifyBtn, &QPushButton::clicked, this, &MainWindow::onVerifyOrders);
 
-    tabs->addTab(tab, "Crypto");
+    tabs->addTab(tab, T("tab_crypto"));
 }
 
 void MainWindow::onGenerateRSAKeys() {
@@ -1678,7 +1735,7 @@ void MainWindow::onDecryptUsersExport() {
 
     // Show the JSON in a small scrollable dialog
     QDialog* dlg = new QDialog(this);
-    dlg->setWindowTitle("Decrypted Users Export");
+    dlg->setWindowTitle(T("dlg_decrypted_users"));
     dlg->resize(480, 220);
     QVBoxLayout* layout = new QVBoxLayout(dlg);
     QTextEdit* view = new QTextEdit(dlg);
@@ -1686,7 +1743,7 @@ void MainWindow::onDecryptUsersExport() {
     view->setFontFamily("Courier New");
     view->setPlainText(json);
     layout->addWidget(view);
-    QPushButton* closeBtn = new QPushButton("Close", dlg);
+    QPushButton* closeBtn = new QPushButton(T("dlg_close"), dlg);
     connect(closeBtn, &QPushButton::clicked, dlg, &QDialog::accept);
     layout->addWidget(closeBtn);
     dlg->exec();
@@ -2308,7 +2365,7 @@ void MainWindow::onAnalyzerFinished(int threadId) {
             .arg(total), 6000);
 
     QDialog dlg(this);
-    dlg.setWindowTitle("Inventory Analysis Results");
+    dlg.setWindowTitle(T("dlg_analysis_results"));
     dlg.setMinimumSize(540, 520);
 
     QVBoxLayout* dlgLayout = new QVBoxLayout(&dlg);
@@ -2317,7 +2374,7 @@ void MainWindow::onAnalyzerFinished(int threadId) {
     view->setHtml(html);
     dlgLayout->addWidget(view);
 
-    QPushButton* closeBtn = new QPushButton("Close");
+    QPushButton* closeBtn = new QPushButton(T("dlg_close"));
     connect(closeBtn, &QPushButton::clicked, &dlg, &QDialog::accept);
     dlgLayout->addWidget(closeBtn);
 
@@ -2444,7 +2501,7 @@ void MainWindow::onReorderReport() {
 
     // Build the table + warehouse-level totals in one pass.
     QDialog dlg(this);
-    dlg.setWindowTitle("Reorder Report");
+    dlg.setWindowTitle(T("dlg_reorder"));
     QVBoxLayout* dlgLayout = new QVBoxLayout(&dlg);
 
     QTableWidget* table = new QTableWidget(0, 5, &dlg);
@@ -2501,7 +2558,7 @@ void MainWindow::onReorderReport() {
             .arg(leadTimeSpin_->value())
             .arg(spanDays), &dlg);
 
-    QPushButton* closeBtn = new QPushButton("Close", &dlg);
+    QPushButton* closeBtn = new QPushButton(T("dlg_close"), &dlg);
     connect(closeBtn, &QPushButton::clicked, &dlg, &QDialog::accept);
 
     dlgLayout->addWidget(summary);
