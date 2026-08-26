@@ -32,7 +32,7 @@ public:
     int     threadId      = 0;
 
 signals:
-    void finished(int threadId);
+    void finished(int threadId); //izlaz prema gui
 
 private:
     const std::vector<Product>* products_;

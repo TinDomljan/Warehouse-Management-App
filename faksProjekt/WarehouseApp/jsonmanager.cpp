@@ -137,6 +137,38 @@ void JsonManager::addEntry(const LogEntry& entry) {
     }
 }
 
+void JsonManager::updateEntry(const LogEntry& entry) {
+    QFile file(filePath_);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        return;
+    }
+    QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+    file.close();
+
+    QJsonObject root = doc.object();
+    QJsonArray entriesArray = root["entries"].toArray();
+
+    // nađemo objekt s tim id-om i prepišemo polja
+    for (int i = 0; i < entriesArray.size(); i++) {
+        QJsonObject item = entriesArray[i].toObject();
+        if (item["id"].toInt() == entry.id) {
+            item["username"] = QString::fromStdString(entry.username);
+            item["action"] = QString::fromStdString(entry.action);
+            item["target"] = QString::fromStdString(entry.target);
+            item["timestamp"] = static_cast<double>(entry.timestamp);
+            entriesArray[i] = item;
+        }
+    }
+
+    root["entries"] = entriesArray;
+
+    QJsonDocument newDoc(root);
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
+        file.write(newDoc.toJson(QJsonDocument::Indented));
+        file.close();
+    }
+}
+
 void JsonManager::deleteEntry(int id) {
     QFile file(filePath_);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {

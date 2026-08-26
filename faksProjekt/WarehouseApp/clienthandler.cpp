@@ -19,25 +19,26 @@ ClientHandler::ClientHandler(qintptr socketDescriptor, QObject* parent)
             << "port" << socket_->peerPort();
 }
 
-// Kad dode data
+// Kad dode data npr 11bajtova 0  1  2  3  4  5  6  7  8  9  10 za binarnu FILE:stock_snapshot.bin:312\n zaglavlje tekst
+//W  i  d  g  e  t  ␣  P  r  o  \n
 
 void ClientHandler::onReadyRead() {
-    if (receivingFile_) { //sirovi bajtovi, postavljeno ako tcp poruka dode u vise paketa?
+    if (receivingFile_) { //bool vrijednost, ako se file i dalje salje, preskacemo na prvu
 
         fileBuffer_ += socket_->readAll();
         processFileData();
         return;
     }
 
-    buffer_ += socket_->readAll(); //naredbe
+    buffer_ += socket_->readAll(); //citamo sve u buffer buffer_ = "Widget Pro\n"
 
 
     while (true) {
-        int nl = buffer_.indexOf('\n'); //indeks kraja
-        if (nl == -1) break;       //u binarnoj je /n u headeru
+        int nl = buffer_.indexOf('\n'); //indeks kraja, npr nl = 10s
+        if (nl == -1) break;       //u binarnoj je /n u headeru al u nasem primjeru buffer je ""  u drugom krugu pa izlazimo van
 
-        QByteArray line = buffer_.left(nl).trimmed(); //bez /n
-        buffer_ = buffer_.mid(nl + 1);
+        QByteArray line = buffer_.left(nl).trimmed(); //uzmemo lijevi dio
+        buffer_ = buffer_.mid(nl + 1); //ostaje sve osim lijevog dijela u nasem primjeru prazan
 
         if (line.isEmpty()) continue;
 
@@ -54,7 +55,7 @@ void ClientHandler::onReadyRead() {
 }
 
 
-//razdvajamo FILE:stock_snapshot.bin:2048
+//razdvajamo FILE:stock_snapshot.bin:2048 i  nas primjer Widget Pro
 void ClientHandler::handleCommand(const QByteArray& line) {
     QString cmd = QString::fromUtf8(line);
 
@@ -105,8 +106,8 @@ void ClientHandler::handleBarcode(const QString& barcode) {
         json["supplier"] = QString::fromStdString(p.getSupplier().getCompanyName());
     }
 
-    QByteArray response = QJsonDocument(json).toJson(QJsonDocument::Compact) + "\n"; //vracamo
-    socket_->write(response);
+    QByteArray response = QJsonDocument(json).toJson(QJsonDocument::Compact) + "\n"; //pisemo response
+    socket_->write(response); //zapisujemo u uticnicu
 
     qInfo() << "[Server] Query:" << barcode
             << "-> found:" << !results.empty(); //nikad prazno se ne vraca

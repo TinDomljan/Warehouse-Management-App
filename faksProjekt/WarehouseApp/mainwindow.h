@@ -64,8 +64,6 @@ private slots:
     void onEditSupplier();
     void onAddSupplier();
     void onDeleteSupplier();
-    void onViewLog();
-    void onClearLog();
     void onSaveSnapshot();
     void onLoadSnapshot();
     void onValidateBackup();
@@ -92,6 +90,7 @@ private slots:
     void onAnalyzerFinished(int threadId);
     void onAnalysisProgressTick();
     void onOpenOrders();
+    void onOpenLogs();
     void onAddUser();
     void onEditUser();
     void onDeleteUser();
@@ -101,7 +100,6 @@ private:
     QTabWidget*   tabWidget_;
     QTableWidget* productTable_;
     QTableWidget* supplierTable_;
-    QTableWidget* logTable_;
     QTableWidget* snapshotTable_;
     QTableWidget* userTable_;
     QLabel*       userInfoLabel_;
@@ -109,6 +107,8 @@ private:
     QPushButton*  reorderReportBtn_;
     QSpinBox*     leadTimeSpin_;
     QPushButton*  removeProductBtn_;
+    QPushButton*  manageOrdersBtn_;
+    QPushButton*  manageLogBtn_;
     QPushButton*  generateReportBtn_;
     QPushButton*  analyzeInventoryBtn_;
     QPushButton*  exportCsvBtn_;
@@ -136,9 +136,6 @@ private:
     QPushButton*  addUserBtn_;
     QPushButton*  editUserBtn_;
     QPushButton*  deleteUserBtn_;
-
-
-    QPushButton*  clearLogBtn_;
 
 
     QAction*      addProductAction_;
@@ -212,7 +209,6 @@ private:
     void setupProductsTab(QTabWidget* tabs);
     void setupSnapshotTab(QTabWidget* tabs);
     void setupSuppliersTab(QTabWidget* tabs);
-    void setupLogTab(QTabWidget* tabs);
     void setupNetworkTab(QTabWidget* tabs);
     void setupCryptoTab(QTabWidget* tabs);
     void setupUsersTab(QTabWidget* tabs);
@@ -229,7 +225,6 @@ private:
 
     void refreshProductTable();
     void refreshSupplierTable();
-    void refreshLogTable();
     void refreshUserTable();
     void applyTableStyle(QTableWidget* table);
 };

@@ -4,1218 +4,1484 @@
             "action": "LOGIN",
             "id": 1,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGOUT",
             "id": 2,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 3,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGOUT",
             "id": 4,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 5,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "clerk"
         },
         {
             "action": "LOGOUT",
             "id": 6,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "clerk"
         },
         {
             "action": "LOGIN",
             "id": 7,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "manager"
         },
         {
             "action": "LOGIN",
             "id": 8,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ADD_PRODUCT",
             "id": 9,
             "target": "Slušalice",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 10,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "GENERATE_REPORT",
             "id": 11,
             "target": "C:/Users/tindo/Desktop/ntp/inventory_report.pdf",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 12,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "GENERATE_REPORT",
             "id": 13,
             "target": "C:/Users/tindo/Desktop/ntp/inventory_report.pdf",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 14,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 15,
             "target": "Products: 5",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 16,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 17,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 18,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_QUERY",
             "id": 19,
             "target": "laptop",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_SEND_BACKUP",
             "id": 20,
             "target": "Bytes: 344",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_STATUS",
             "id": 21,
             "target": "localhost",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_STATUS",
             "id": 22,
             "target": "localhost",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_LOG",
             "id": 23,
             "target": "Entries: 20",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_STATUS",
             "id": 24,
             "target": "localhost",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_LOG",
             "id": 25,
             "target": "Entries: 20",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_LOG",
             "id": 26,
             "target": "Entries: 20",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_STATUS",
             "id": 27,
             "target": "localhost",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_LOG",
             "id": 28,
             "target": "Entries: 20",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_SEND_BACKUP",
             "id": 29,
             "target": "Bytes: 344",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_QUERY",
             "id": 30,
             "target": "laptop",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_LOG",
             "id": 31,
             "target": "Entries: 20",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 32,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 33,
             "target": "https://speed.cloudflare.com/__down?bytes=2000000 (1953 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 34,
             "target": "https://speed.cloudflare.com/__down?bytes=2000000 (1953 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 35,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 36,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 37,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 38,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 39,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 40,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 41,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 42,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 43,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 44,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 45,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 46,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 47,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 48,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 49,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 50,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 51,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 52,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 53,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 54,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 55,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data (233 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 56,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data (233 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 57,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data (233 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 58,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data (233 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 59,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data (233 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 60,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data (233 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 61,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 62,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 63,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.csv (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 64,
             "target": "https://github.com/TinDomljan/Sample-warehouse-data/blob/main/product_catalog_update.zip (221 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 65,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 66,
             "target": "https://raw.githubusercontent.com/TinDomljan/Sample-warehouse-data/main/product_catalog_update.csv (140 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 67,
             "target": "https://raw.githubusercontent.com/TinDomljan/Sample-warehouse-data/main/product_catalog_update.csv (420 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 68,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 69,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 70,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 71,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 72,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 73,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 74,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 75,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 76,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 77,
             "target": "plain=344B cipher=368B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 78,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 79,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 80,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 81,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 82,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 83,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 84,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 85,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 86,
             "target": "cipher=368B plain=344B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "RSA_KEYGEN",
             "id": 87,
             "target": "private.pem + public.pem",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "USERS_EXPORT_RSA",
             "id": 88,
             "target": "users_export.bin 256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "USERS_DECRYPT_RSA",
             "id": 89,
             "target": "users_export.bin decrypted",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "USERS_DECRYPT_RSA",
             "id": 90,
             "target": "users_export.bin decrypted",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SIGN_SNAPSHOT",
             "id": 91,
             "target": "data=344B sig=256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VERIFY_SNAPSHOT",
             "id": 92,
             "target": "VALID",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 93,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 94,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SETTINGS_CHANGED",
             "id": 95,
             "target": "Font: 24pt",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGOUT",
             "id": 96,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 97,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SETTINGS_CHANGED",
             "id": 98,
             "target": "Font: 13pt",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGOUT",
             "id": 99,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 100,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 101,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 102,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 103,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 104,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 105,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 106,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 107,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 108,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 109,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 110,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 111,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 112,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "manager"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 113,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "manager"
         },
         {
             "action": "LOGIN",
             "id": 114,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 115,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 116,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 117,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 118,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 119,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SETTINGS_CHANGED",
             "id": 120,
             "target": "Font: 13pt",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 121,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 122,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 123,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_QUERY",
             "id": 124,
             "target": "Laptop",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 125,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SAVE_SNAPSHOT",
             "id": 126,
             "target": "Analysis segments: 3",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SAVE_SNAPSHOT",
             "id": 127,
             "target": "Analysis segments: 3",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOAD_SNAPSHOT",
             "id": 128,
             "target": "Records: 3",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VALIDATE_BACKUP",
             "id": 129,
             "target": "PASS",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 130,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 131,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "GENERATE_REPORT",
             "id": 132,
             "target": "C:/Users/tindo/Documents/GitHub/Ntp/faksProjekt/WarehouseApp/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug/inventory_report.pdf",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 133,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOAD_SNAPSHOT",
             "id": 134,
             "target": "Records: 3",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SIGN_ORDERS",
             "id": 135,
             "target": "data=646B sig=256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VERIFY_ORDERS",
             "id": 136,
             "target": "VALID",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SIGN_ORDERS",
             "id": 137,
             "target": "data=646B sig=256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VERIFY_ORDERS",
             "id": 138,
             "target": "VALID",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "USERS_EXPORT_RSA",
             "id": 139,
             "target": "users_export.bin 256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "USERS_DECRYPT_RSA",
             "id": 140,
             "target": "users_export.bin decrypted",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_ENCRYPT",
             "id": 141,
             "target": "plain=312B cipher=336B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_DECRYPT",
             "id": 142,
             "target": "cipher=336B plain=312B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "CRYPTO_RESTORE",
             "id": 143,
             "target": "stock_snapshot.bin.dec -> stock_snapshot.bin",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOAD_SNAPSHOT",
             "id": 144,
             "target": "Records: 3",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 145,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 146,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 147,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "REST_EXCHANGE_RATES",
             "id": 148,
             "target": "base=EUR count=166",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_QUERY",
             "id": 149,
             "target": "Laptop",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_SEND_BACKUP",
             "id": 150,
             "target": "Bytes: 312",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_STATUS",
             "id": 151,
             "target": "localhost",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "NET_UDP_LOG",
             "id": 152,
             "target": "Entries: 20",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOAD_SNAPSHOT",
             "id": 153,
             "target": "Records: 3",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VALIDATE_BACKUP",
             "id": 154,
             "target": "PASS",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 155,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 156,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "HTTP_DOWNLOAD",
             "id": 157,
             "target": "https://raw.githubusercontent.com/TinDomljan/Sample-warehouse-data/main/product_catalog_update.csv (15359 KB)",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 158,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 159,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 160,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 161,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "GENERATE_REPORT",
             "id": 162,
             "target": "C:/Users/tindo/Desktop/inventory_report.pdf",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 163,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 164,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 165,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "ANALYZE_INVENTORY",
             "id": 166,
             "target": "Products: 1000",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SIGN_ORDERS",
             "id": 167,
             "target": "data=646B sig=256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "RSA_KEYGEN",
             "id": 168,
             "target": "private.pem + public.pem",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SIGN_ORDERS",
             "id": 169,
             "target": "data=646B sig=256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VERIFY_ORDERS",
             "id": 170,
             "target": "VALID",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "SIGN_ORDERS",
             "id": 171,
             "target": "data=646B sig=256B",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "VERIFY_ORDERS",
             "id": 172,
             "target": "VALID",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 173,
             "target": "System",
-            "timestamp": 1787507566,
+            "timestamp": 1787742652,
             "username": "admin"
         },
         {
             "action": "LOGIN",
             "id": 174,
             "target": "System",
-            "timestamp": 1787507567,
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 175,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 176,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 177,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 178,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 179,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "REORDER_REPORT",
+            "id": 180,
+            "target": "Items to reorder: 0",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 181,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 182,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 183,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 184,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 185,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 186,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 187,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 188,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 189,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 190,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 191,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 192,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 193,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "CRYPTO_ENCRYPT",
+            "id": 194,
+            "target": "plain=312B cipher=336B",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "CRYPTO_DECRYPT",
+            "id": 195,
+            "target": "cipher=336B plain=312B",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "CRYPTO_RESTORE",
+            "id": 196,
+            "target": "stock_snapshot.bin.dec -> stock_snapshot.bin",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOAD_SNAPSHOT",
+            "id": 197,
+            "target": "Records: 3",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "USERS_EXPORT_RSA",
+            "id": 198,
+            "target": "users_export.bin 256B",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "USERS_DECRYPT_RSA",
+            "id": 199,
+            "target": "users_export.bin decrypted",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 200,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 201,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 202,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 203,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 204,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 205,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_STATUS",
+            "id": 206,
+            "target": "localhost",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 207,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 208,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "NET_UDP_LOG",
+            "id": 209,
+            "target": "Entries: 20",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 210,
+            "target": "System",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "REST_EXCHANGE_RATES",
+            "id": 211,
+            "target": "base=EUR count=166",
+            "timestamp": 1787742652,
+            "username": "admin"
+        },
+        {
+            "action": "LOGIN",
+            "id": 212,
+            "target": "System",
+            "timestamp": 1787742653,
             "username": "admin"
         }
     ]

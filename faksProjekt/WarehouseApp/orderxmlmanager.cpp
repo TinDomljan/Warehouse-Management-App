@@ -130,6 +130,7 @@ void OrderXmlManager::updateOrder(const Order& order) {
 
     QDomElement orderElem = root.firstChildElement("order");
     while (!orderElem.isNull()) {
+        //nademo preko id
         if (orderElem.attribute("id").toInt() == order.getId()) {
             auto updateField = [&](const QString& tagName, const QString& newValue) {
                 QDomElement field = orderElem.firstChildElement(tagName);

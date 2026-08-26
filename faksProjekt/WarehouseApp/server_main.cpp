@@ -17,8 +17,8 @@ int main(int argc, char* argv[]) {
     }
     qInfo() << "[Server] Database opened:" << dbPath;
 
-    WarehouseServer server; //vec se ovdje binda
-    if (!server.listen(QHostAddress::Any, SERVER_PORT)) {
+    WarehouseServer server; //udp socket binda
+    if (!server.listen(QHostAddress::Any, SERVER_PORT)) { //tcp port otvara, prihvacamo sa bilo kojeg ipa
         qCritical() << "[Server] Failed to listen on port" << SERVER_PORT;
         return 1;
     }
@@ -28,5 +28,5 @@ int main(int argc, char* argv[]) {
     qInfo() << "[Server]   <barcode>\\n          -> JSON product info";
     qInfo() << "[Server]   FILE:<name>:<size>\\n  -> receive binary file";
 
-    return app.exec();
+    return app.exec(); //event loop koji čeka mrežne događaje i pretvara ih u Qt signale
 }

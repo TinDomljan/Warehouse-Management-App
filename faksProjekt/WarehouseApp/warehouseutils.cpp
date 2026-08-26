@@ -29,4 +29,4 @@ int StockCalculator::calculateReorderPoint(int dailySales, int leadTimeDays) {
     return dailySales * leadTimeDays;
 }
 
-} //WarehouseUtils namespace
+}

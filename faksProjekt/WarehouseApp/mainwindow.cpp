@@ -21,6 +21,7 @@
 #include "supplierdialog.h"
 #include "orderdialog.h"
 #include "userdialog.h"
+#include "logdialog.h"
 #include <QProcess>
 #include <QCoreApplication>
 #include <QJsonDocument>
@@ -76,7 +77,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent) {
     loadSampleData();
     refreshProductTable();
     refreshSupplierTable();
-    refreshLogTable();
     refreshUserTable();
     updateLanguage();
 
@@ -124,7 +124,7 @@ void MainWindow::applyRolePermissions() {
     enable(addSupplierBtn_,    true);
     enable(editSupplierBtn_,   true);
     enable(deleteSupplierBtn_, true);
-    enable(clearLogBtn_,       true);
+    enable(manageLogBtn_,      true);
     enable(generateReportBtn_, true);
     enable(quickCalcBtn_,      true);
     addProductAction_->setEnabled(true);
@@ -134,23 +134,23 @@ void MainWindow::applyRolePermissions() {
 
     switch (currentUser_.getRole()) {
     case UserRole::Admin:
-        // Full access, including the admin-only Users tab (index 6).
+        // Full access, including the admin-only Users tab (index 5).
         break;
 
     case UserRole::Manager:
 
-        tabWidget_->setTabVisible(4, false);
-        tabWidget_->setTabVisible(5, false);
-        tabWidget_->setTabVisible(6, false);  // Users — admin only
-        enable(clearLogBtn_, false);
+        tabWidget_->setTabVisible(3, false);  // Network
+        tabWidget_->setTabVisible(4, false);  // Crypto
+        tabWidget_->setTabVisible(5, false);  // Users — admin only
+        enable(manageLogBtn_, false);
         break;
 
     case UserRole::Clerk:
 
-        tabWidget_->setTabVisible(1, false);
-        tabWidget_->setTabVisible(4, false);
-        tabWidget_->setTabVisible(5, false);
-        tabWidget_->setTabVisible(6, false);  // Users — admin only
+        tabWidget_->setTabVisible(1, false);  // Snapshots
+        tabWidget_->setTabVisible(3, false);  // Network
+        tabWidget_->setTabVisible(4, false);  // Crypto
+        tabWidget_->setTabVisible(5, false);  // Users — admin only
 
         enable(addProductBtn_,     false);
         enable(removeProductBtn_,  false);
@@ -162,7 +162,7 @@ void MainWindow::applyRolePermissions() {
         enable(deleteSupplierBtn_, false);
         enable(generateReportBtn_, false);
         enable(quickCalcBtn_,      false);
-        enable(clearLogBtn_,       false);
+        enable(manageLogBtn_,      false);
 
         addProductAction_->setEnabled(false);
         addProductAction_->setVisible(false);
@@ -190,7 +190,6 @@ void MainWindow::setupUI() {
     setupProductsTab(tabWidget_);
     setupSnapshotTab(tabWidget_);
     setupSuppliersTab(tabWidget_);
-    setupLogTab(tabWidget_);
     setupNetworkTab(tabWidget_);
     setupCryptoTab(tabWidget_);
     setupUsersTab(tabWidget_);
@@ -203,12 +202,16 @@ void MainWindow::setupUI() {
     mainLayout->addWidget(tabWidget_);
 
     QHBoxLayout* bottomLayout = new QHBoxLayout();
+    manageOrdersBtn_        = new QPushButton();   // XML CRUD
+    manageLogBtn_           = new QPushButton();   // JSON CRUD
     generateReportBtn_      = new QPushButton();
     settingsBtn_            = new QPushButton();
     aboutBtn_               = new QPushButton();
     quickCalcBtn_           = new QPushButton("Quick Calculator");
     logoutBtn_              = new QPushButton();
     bottomLayout->addStretch();
+    bottomLayout->addWidget(manageOrdersBtn_);
+    bottomLayout->addWidget(manageLogBtn_);
     bottomLayout->addWidget(generateReportBtn_);
     bottomLayout->addWidget(settingsBtn_);
     bottomLayout->addWidget(aboutBtn_);
@@ -216,6 +219,8 @@ void MainWindow::setupUI() {
     bottomLayout->addWidget(logoutBtn_);
     mainLayout->addLayout(bottomLayout);
 
+    connect(manageOrdersBtn_,   &QPushButton::clicked, this, &MainWindow::onOpenOrders);
+    connect(manageLogBtn_,      &QPushButton::clicked, this, &MainWindow::onOpenLogs);
     connect(generateReportBtn_, &QPushButton::clicked, this, &MainWindow::onGenerateReport);
     connect(settingsBtn_,       &QPushButton::clicked, this, &MainWindow::onOpenSettings);
     connect(aboutBtn_,          &QPushButton::clicked, this, &MainWindow::onOpenAbout);
@@ -407,28 +412,6 @@ void MainWindow::setupUsersTab(QTabWidget* tabs) {
     tabs->addTab(tab, T("users_tab"));
 }
 
-void MainWindow::setupLogTab(QTabWidget* tabs) {
-    QWidget* tab = new QWidget();
-    QVBoxLayout* layout = new QVBoxLayout(tab);
-
-    logTable_ = new QTableWidget(0, 5);
-    logTable_->setHorizontalHeaderLabels({"ID", "Time", "User", "Action", "Target"});
-    logTable_->setSelectionBehavior(QAbstractItemView::SelectRows);
-    logTable_->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    logTable_->horizontalHeader()->setStretchLastSection(true);
-    layout->addWidget(logTable_);
-
-    QHBoxLayout* btnLayout = new QHBoxLayout();
-    clearLogBtn_ = new QPushButton("Clear Log");
-    btnLayout->addWidget(clearLogBtn_);
-    btnLayout->addStretch();
-    layout->addLayout(btnLayout);
-
-    connect(clearLogBtn_, &QPushButton::clicked, this, &MainWindow::onClearLog);
-
-    tabs->addTab(tab, "Activity Log");
-}
-
 void MainWindow::setupMenuBar() {
     menuBar()->clear();
     QMenu* fileMenu = menuBar()->addMenu(T("main_menu_file"));
@@ -439,9 +422,6 @@ void MainWindow::setupMenuBar() {
 
     QMenu* toolsMenu = menuBar()->addMenu(T("main_menu_tools"));
     toolsMenu->addAction(T("main_btn_settings"), this, &MainWindow::onOpenSettings);
-
-    QMenu* dataMenu = menuBar()->addMenu(T("main_menu_data"));
-    dataMenu->addAction(T("main_menu_orders"), this, &MainWindow::onOpenOrders);
 
     QMenu* helpMenu = menuBar()->addMenu(T("main_menu_help"));
     helpMenu->addAction(T("main_btn_about"), this, &MainWindow::onOpenAbout);
@@ -456,10 +436,25 @@ void MainWindow::onOpenOrders() {
     dlg.exec();
 }
 
+void MainWindow::onOpenLogs() {
+    jsonManager_->saveLog(activityLog_);   // flush memory to file
+
+    LogDialog dlg(this);
+    dlg.exec();
+
+    // reload memory from file so the dialog's edits survive closeEvent
+    activityLog_ = ActivityLog();
+    std::vector<LogEntry> entries = jsonManager_->loadEntries();
+    for (const auto& e : entries)
+        activityLog_.addEntry(e.username, e.action, e.target);
+}
+
 void MainWindow::updateLanguage() {
     setWindowTitle(T("main_title"));
     addProductBtn_->setText(T("main_btn_add"));
     removeProductBtn_->setText(T("main_btn_remove"));
+    manageOrdersBtn_->setText(T("main_btn_manage_orders"));
+    manageLogBtn_->setText(T("main_btn_manage_logs"));
     generateReportBtn_->setText("Generate Report");
     settingsBtn_->setText(T("main_btn_settings"));
     aboutBtn_->setText(T("main_btn_about"));
@@ -588,35 +583,6 @@ void MainWindow::refreshUserTable() {
     applyTableStyle(userTable_);
     userTable_->resizeColumnsToContents();
 }
-
-void MainWindow::refreshLogTable() {
-    logTable_->setRowCount(0);
-
-    std::vector<LogEntry> entries = activityLog_.getAllEntries();
-
-    for (int i = 0; i < entries.size(); i++) {
-        int row = logTable_->rowCount();
-        logTable_->insertRow(row);
-
-        char timeBuffer[26];
-        ctime_s(timeBuffer, sizeof(timeBuffer), &entries[i].timestamp);
-        QString timeStr = QString(timeBuffer).trimmed();
-
-        logTable_->setItem(row, 0, new QTableWidgetItem(
-                                       QString::number(entries[i].id)));
-        logTable_->setItem(row, 1, new QTableWidgetItem(timeStr));
-        logTable_->setItem(row, 2, new QTableWidgetItem(
-                                       QString::fromStdString(entries[i].username)));
-        logTable_->setItem(row, 3, new QTableWidgetItem(
-                                       QString::fromStdString(entries[i].action)));
-        logTable_->setItem(row, 4, new QTableWidgetItem(
-                                       QString::fromStdString(entries[i].target)));
-    }
-
-    logTable_->resizeColumnsToContents();
-}
-
-
 
 void MainWindow::onAddSupplier() {
     int nextId = suppliers_.empty() ? 1 : suppliers_.back().getId() + 1;
@@ -813,23 +779,6 @@ void MainWindow::onRemoveProduct() {
     }
 }
 
-void MainWindow::onViewLog() {
-    refreshLogTable();
-}
-
-void MainWindow::onClearLog() {
-    int reply = QMessageBox::question(this, "Clear Log",
-                                      "Are you sure you want to clear the entire activity log?",
-                                      QMessageBox::Yes | QMessageBox::No);
-
-    if (reply == QMessageBox::Yes) {
-        jsonManager_->clearLog();
-        activityLog_ = ActivityLog();
-        refreshLogTable();
-        statusBar()->showMessage("Activity log cleared", 3000);
-    }
-}
-
 void MainWindow::onSaveSnapshot() {
     if (lastAnalysisRecords_.empty()) {
         QMessageBox::warning(this, "Save Snapshot",
@@ -1007,7 +956,7 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
     networkManager_ = new QNetworkAccessManager(this);
     speedTimer_      = new QTimer(this);
     speedTimer_->setInterval(200); //5 tickova u sekundi
-    connect(speedTimer_, &QTimer::timeout, this, &MainWindow::onReadChunk);
+    connect(speedTimer_, &QTimer::timeout, this, &MainWindow::onReadChunk); //bitno za throttle
 
     connect(downloadBtn_, &QPushButton::clicked, this, &MainWindow::onDownload);
 
@@ -1036,14 +985,16 @@ void MainWindow::onFetchExchangeRates() {
     QNetworkRequest request{QUrl("http://open.er-api.com/v6/latest/EUR")};
     request.setHeader(QNetworkRequest::UserAgentHeader, "WarehouseApp/1.0"); // zaglavlje zahtjeva
 
-    QNetworkReply* reply = networkManager_->get(request); //get nad resursom
+    QNetworkReply* reply = networkManager_->get(request); //get nad resursom, vraca se odmah
 
-    //odgovor
+    //kad objekt reply emitira signal finished, izvrši ovu funkciju, jer je QNetworkAccessManager radi asinkrono
+    //capture list za okolni kontekst
     connect(reply, &QNetworkReply::finished, this, [this, reply]() {
-        //kad objekt reply emitira signal finished, izvrši ovu funkciju, jer je QNetworkAccessManager radi asinkrono
-        //capture list za okolni kontekst
+
+
         reply->deleteLater();
 
+        //razina 1 mreza
         if (reply->error() != QNetworkReply::NoError) { //mrezna razina
             networkResponseView_->setPlainText(
                 "Error: " + reply->errorString());
@@ -1051,20 +1002,23 @@ void MainWindow::onFetchExchangeRates() {
             return;
         }
 
-
+        //razina 2 format
         QJsonDocument doc = QJsonDocument::fromJson(reply->readAll()); //parsiranje
         if (doc.isNull() || !doc.isObject()) { //razina formata
             networkResponseView_->setPlainText("Error: could not parse JSON response.");
             return;
         }
 
+        //razina 3 aplikacija
         QJsonObject root  = doc.object();
-        if (root["result"].toString() != "success") { //aplikacijska razina, npr. nepoznata bazna valuta
+        if (root["result"].toString() != "success") {
             networkResponseView_->setPlainText(
                 "API returned failure: " + root["result"].toString());
             return;
         }
 
+
+        //vadenje podataka
         const QString    base    = root["base_code"].toString();
         const QString    updated = root["time_last_update_utc"].toString();
         const QJsonObject rates  = root["rates"].toObject();
@@ -1231,6 +1185,7 @@ void MainWindow::onDownload() { //u RAM, ne izravno u datoteku
 
 
     //granamo po brzini
+    //imamo tri signala
     const int speedIdx = speedLimitCombo_->currentIndex();
     if (speedIdx == 0) {
 
@@ -1243,9 +1198,9 @@ void MainWindow::onDownload() { //u RAM, ne izravno u datoteku
                 this, &MainWindow::onDownloadFinished);
     } else {
 
-        readChunkSize_ = (speedIdx == 1) ? 100 * 1024 / 5 : 50 * 1024 / 5;
+        readChunkSize_ = (speedIdx == 1) ? 100 * 1024 / 5 : 50 * 1024 / 5; //dijelimo s 5 jer 5 puta u sekundi(200ms)
 
-        currentReply_->setReadBufferSize(readChunkSize_ * 2);
+        currentReply_->setReadBufferSize(readChunkSize_ * 2); //puta dva?
 
         speedTimer_->start();
     }
@@ -1298,6 +1253,7 @@ void MainWindow::onReadChunk() {
             .arg(totalBytes / 1024));
 
 
+    //najbitnije, jel sve preuzeto i jel buffer prazan
     if (currentReply_->isFinished() &&
         (currentReply_->bytesAvailable() == 0 ||
          currentReply_->error() != QNetworkReply::NoError)) {
@@ -1411,7 +1367,7 @@ void MainWindow::finalizeDownload(bool cancelled) {
 }
 
 void MainWindow::onRequestStatus() {
-    QUdpSocket sock; //lokalni sock na stacku
+    QUdpSocket sock; //na STOGU ne new
 
     if (!sock.bind(QHostAddress::LocalHost, 0)) { //daj mi bilo koji slobodni port moramo bindat da server zna kome odgovorit, nije ko tcp
         QMessageBox::warning(this, "UDP Status", "Failed to bind local UDP socket.");
@@ -1462,15 +1418,18 @@ void MainWindow::onSendLogSummary() {
 
 
     constexpr int MAX_ENTRIES = 20;
-    const int startIdx = std::max(0, static_cast<int>(entries.size()) - MAX_ENTRIES);
+    const int startIdx = std::max(0, static_cast<int>(entries.size()) - MAX_ENTRIES); //zastita negativno
     const int count    = static_cast<int>(entries.size()) - startIdx;
+
+
+    // "String ne mogu poslati binarno jer sadrži pokazivač, pa ga prepišem u fiksno polje od 32 znaka."
 
     QByteArray payload;
     payload.reserve(4 + count * static_cast<int>(sizeof(LogPacket)));
     payload.append("LOG:");
 
     for (int i = startIdx; i < static_cast<int>(entries.size()); ++i) {
-        LogPacket pkt{};
+        LogPacket pkt{}; //fiksna polja ne pokazivaci
         std::strncpy(pkt.username, entries[i].username.c_str(), 31);
         std::strncpy(pkt.action,   entries[i].action.c_str(),   31);
         std::strncpy(pkt.target,   entries[i].target.c_str(),   63);
@@ -2099,7 +2058,7 @@ void MainWindow::onAnalyzeInventory() {
     analysisStatusLabel_->setVisible(true);
 
     QThreadPool::globalInstance()->start(QRunnable::create([this, total]() {
-
+    //radnicka dretva da se ne zamrzne sve
         QElapsedTimer singleTimer;
         singleTimer.start();
         int    singleLowStock = 0;
@@ -2118,7 +2077,7 @@ void MainWindow::onAnalyzeInventory() {
         singleThreadTime_ = singleTimer.elapsed();
 
 
-        QMetaObject::invokeMethod(this, [this]() { startParallelAnalysis(); },
+        QMetaObject::invokeMethod(this, [this]() { startParallelAnalysis(); }, //izvrsi paralelnu analizu na glavnoj dretvi
                                   Qt::QueuedConnection);
     }));
 
@@ -2150,6 +2109,8 @@ void MainWindow::startParallelAnalysis() {
     analysisStatusLabel_->setText("Analysis started — 3 worker threads launched...");
 
 
+    //kreiranje paralelnih dretvi, svaka sa svojim dijelom analize
+
     pendingAnalyzers_[0] = new InventoryAnalyzer(
         &pendingProducts_, 0,         oneThird,  1,
         &analysisCounterMutex_, &analysisProcessedCount_, &analysisFileMutex_, this); //sve dretve dijele isti mutex
@@ -2162,17 +2123,19 @@ void MainWindow::startParallelAnalysis() {
 
     multiThreadTimer_.start();
 
+    //spajanje signala i pokretanje
     for (InventoryAnalyzer* a : pendingAnalyzers_) {
         connect(a, &InventoryAnalyzer::finished,
                 this, &MainWindow::onAnalyzerFinished);
         QThreadPool::globalInstance()->start(a);
     }
+    //za brojanje
     if (!analysisProgressTimer_) {
         analysisProgressTimer_ = new QTimer(this);
         connect(analysisProgressTimer_, &QTimer::timeout,
                 this, &MainWindow::onAnalysisProgressTick);
     }
-    analysisProgressTimer_->start(100);
+    analysisProgressTimer_->start(100); //svakih 100ms se okini
 
 }
 
@@ -2180,9 +2143,10 @@ void MainWindow::onAnalysisProgressTick() {
 
     int current;
     {
-        QMutexLocker locker(&analysisCounterMutex_);
-        current = analysisProcessedCount_;
+        QMutexLocker locker(&analysisCounterMutex_); //zakljucamo
+        current = analysisProcessedCount_; //prepisujemo u lokalnu varijablu, da dretve ne cekaju
     }
+    //diramo GUI
     analysisProgressBar_->setValue(current);
     analysisStatusLabel_->setText(
         QString("Analyzing inventory: %1 / %2 products processed...")
@@ -2190,7 +2154,7 @@ void MainWindow::onAnalysisProgressTick() {
 }
 
 void MainWindow::onAnalyzerFinished(int threadId) {
-    Q_UNUSED(threadId);
+    Q_UNUSED(threadId); //saljemo threadId al ne koristimo
     ++completedAnalyzers_;
 
     if (completedAnalyzers_ < 3)
@@ -2198,7 +2162,7 @@ void MainWindow::onAnalyzerFinished(int threadId) {
 
 
     if (analysisProgressTimer_)
-        analysisProgressTimer_->stop();
+        analysisProgressTimer_->stop(); //forsiramo zavrsetak zadnje
 
     analysisProgressBar_->setValue(analysisProgressBar_->maximum());
 
@@ -2578,7 +2542,11 @@ void MainWindow::closeEvent(QCloseEvent* event) {
     SettingsManager& sm = SettingsManager::instance();
     sm.saveVisualSettings(currentFontSize_, currentTextColor_,
                           currentBgColor_, currentLanguage_);
-    sm.saveWindowSettings(pos(), size(), isMaximized());
+    // Ako je prozor maksimiziran, pos()/size() vraćaju geometriju maksimiziranog
+    // prozora — spremamo normalGeometry() (stanje prije maksimiziranja) da restore radi.
+    const QRect geo = isMaximized() ? normalGeometry()
+                                    : QRect(pos(), size());
+    sm.saveWindowSettings(geo.topLeft(), geo.size(), isMaximized());
 
     jsonManager_->saveLog(activityLog_); //poziv u closeEvent
     event->accept();

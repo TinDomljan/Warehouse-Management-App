@@ -37,9 +37,9 @@ void InventoryAnalyzer::run() {
 
 
             {
-                QMutexLocker locker(counterMutex_);
+                QMutexLocker locker(counterMutex_); //stiti brojac
                 ++(*processedCount_);
-            }
+            } //otkljucaj
 
             if (p.getQuantity() < 10)
                 ++lowStockCount;
@@ -60,7 +60,7 @@ void InventoryAnalyzer::run() {
 
 
     {
-        std::lock_guard<std::mutex> lock(*fileMutex_);
+        std::lock_guard<std::mutex> lock(*fileMutex_); //stiti datoteku
 
         std::ofstream file("analysis_result.txt", std::ios::app);
         if (file.is_open()) {
@@ -81,5 +81,5 @@ void InventoryAnalyzer::run() {
         }
     }
 
-    emit finished(threadId);
+    emit finished(threadId); //javljamo glavnoj dretvi
 }

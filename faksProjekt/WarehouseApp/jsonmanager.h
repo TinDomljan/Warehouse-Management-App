@@ -15,6 +15,7 @@ public:
     void saveLog(const ActivityLog& log);
     std::vector<LogEntry> loadEntries();
     void addEntry(const LogEntry& entry);
+    void updateEntry(const LogEntry& entry);
     void deleteEntry(int id);
     void clearLog();
 

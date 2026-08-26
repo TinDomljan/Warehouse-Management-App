@@ -19,11 +19,11 @@ std::string TranslationManager::getLanguage() const {
 }
 
 std::string TranslationManager::tr(const std::string& key) const {
-    auto it = translations_.find(key);
-    if (it != translations_.end()) {
-        auto langIt = it->second.find(currentLanguage_);
+    auto it = translations_.find(key); //find() a ne [] da se ne ubaci prazan element ako ne postoji
+    if (it != translations_.end()) { //da li postoji kljuc
+        auto langIt = it->second.find(currentLanguage_); //jezik
         if (langIt != it->second.end()) {
-            return langIt->second;
+            return langIt->second; //vracamo tekst
         }
     }
     return key;  // ako nema prijevoda vrati ključ
@@ -225,6 +225,74 @@ void TranslationManager::loadTranslations() {
     translations_["user_err_duplicate"]["HRV"] = "Korisnik s tim korisničkim imenom već postoji.";
     translations_["user_op_failed"]["ENG"] = "The operation failed. Please try again.";
     translations_["user_op_failed"]["HRV"] = "Operacija nije uspjela. Pokušajte ponovno.";
+
+    // ===== BOTTOM BAR: DATA MANAGEMENT BUTTONS =====
+    translations_["main_btn_manage_orders"]["ENG"] = "Manage Orders";
+    translations_["main_btn_manage_orders"]["HRV"] = "Upravljanje Narudžbama";
+    translations_["main_btn_manage_logs"]["ENG"] = "Manage Log";
+    translations_["main_btn_manage_logs"]["HRV"] = "Upravljanje Zapisnikom";
+
+    // ===== LOG DIALOG (JSON CRUD) =====
+    translations_["log_title"]["ENG"] = "Activity Log";
+    translations_["log_title"]["HRV"] = "Zapisnik Aktivnosti";
+    translations_["log_col_id"]["ENG"] = "ID";
+    translations_["log_col_id"]["HRV"] = "ID";
+    translations_["log_col_time"]["ENG"] = "Time";
+    translations_["log_col_time"]["HRV"] = "Vrijeme";
+    translations_["log_col_user"]["ENG"] = "User";
+    translations_["log_col_user"]["HRV"] = "Korisnik";
+    translations_["log_col_action"]["ENG"] = "Action";
+    translations_["log_col_action"]["HRV"] = "Akcija";
+    translations_["log_col_target"]["ENG"] = "Target";
+    translations_["log_col_target"]["HRV"] = "Meta";
+    translations_["log_btn_add"]["ENG"] = "Add";
+    translations_["log_btn_add"]["HRV"] = "Dodaj";
+    translations_["log_btn_edit"]["ENG"] = "Edit";
+    translations_["log_btn_edit"]["HRV"] = "Uredi";
+    translations_["log_btn_delete"]["ENG"] = "Delete";
+    translations_["log_btn_delete"]["HRV"] = "Obriši";
+    translations_["log_btn_clear"]["ENG"] = "Clear All";
+    translations_["log_btn_clear"]["HRV"] = "Očisti Sve";
+    translations_["log_btn_close"]["ENG"] = "Close";
+    translations_["log_btn_close"]["HRV"] = "Zatvori";
+    translations_["log_add_title"]["ENG"] = "Add Log Entry";
+    translations_["log_add_title"]["HRV"] = "Dodaj Zapis";
+    translations_["log_edit_title"]["ENG"] = "Edit Log Entry";
+    translations_["log_edit_title"]["HRV"] = "Uredi Zapis";
+    translations_["log_user"]["ENG"] = "User:";
+    translations_["log_user"]["HRV"] = "Korisnik:";
+    translations_["log_action"]["ENG"] = "Action:";
+    translations_["log_action"]["HRV"] = "Akcija:";
+    translations_["log_target"]["ENG"] = "Target:";
+    translations_["log_target"]["HRV"] = "Meta:";
+    translations_["log_time"]["ENG"] = "Time:";
+    translations_["log_time"]["HRV"] = "Vrijeme:";
+    translations_["log_ph_user"]["ENG"] = "Enter username...";
+    translations_["log_ph_user"]["HRV"] = "Unesite korisničko ime...";
+    translations_["log_ph_action"]["ENG"] = "Enter action...";
+    translations_["log_ph_action"]["HRV"] = "Unesite akciju...";
+    translations_["log_ph_target"]["ENG"] = "Enter target...";
+    translations_["log_ph_target"]["HRV"] = "Unesite metu...";
+    translations_["log_btn_save"]["ENG"] = "Save";
+    translations_["log_btn_save"]["HRV"] = "Spremi";
+    translations_["log_btn_cancel"]["ENG"] = "Cancel";
+    translations_["log_btn_cancel"]["HRV"] = "Odustani";
+    translations_["log_err_title"]["ENG"] = "Validation Error";
+    translations_["log_err_title"]["HRV"] = "Greška validacije";
+    translations_["log_err_user"]["ENG"] = "Please enter a username.";
+    translations_["log_err_user"]["HRV"] = "Molimo unesite korisničko ime.";
+    translations_["log_select_edit"]["ENG"] = "Please select an entry to edit.";
+    translations_["log_select_edit"]["HRV"] = "Odaberite zapis za uređivanje.";
+    translations_["log_select_delete"]["ENG"] = "Please select an entry to delete.";
+    translations_["log_select_delete"]["HRV"] = "Odaberite zapis za brisanje.";
+    translations_["log_delete_title"]["ENG"] = "Delete Log Entry";
+    translations_["log_delete_title"]["HRV"] = "Brisanje Zapisa";
+    translations_["log_delete_confirm"]["ENG"] = "Are you sure you want to delete the entry for ";
+    translations_["log_delete_confirm"]["HRV"] = "Jeste li sigurni da želite obrisati zapis za ";
+    translations_["log_clear_title"]["ENG"] = "Clear Log";
+    translations_["log_clear_title"]["HRV"] = "Očisti Zapisnik";
+    translations_["log_clear_confirm"]["ENG"] = "Are you sure you want to clear the entire activity log?";
+    translations_["log_clear_confirm"]["HRV"] = "Jeste li sigurni da želite očistiti cijeli zapisnik aktivnosti?";
 
 
     translations_["order_title"]["ENG"] = "Orders";

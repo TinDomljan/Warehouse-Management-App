@@ -6,7 +6,7 @@
 
 #pragma pack(push, 1)
 struct LogPacket {
-    char    username[32];
+    char    username[32]; // znakovi UNUTAR strukture, ne pokazivač
     char    action[32];
     char    target[64];
     int64_t timestamp;

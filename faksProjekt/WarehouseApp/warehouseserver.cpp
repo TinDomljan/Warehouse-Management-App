@@ -35,7 +35,7 @@ void WarehouseServer::incomingConnection(qintptr socketDescriptor) {
 
 void WarehouseServer::onUdpDatagramReceived() {
     while (udpSocket_->hasPendingDatagrams()) { //petlja zbog vise datagrama
-        QByteArray  datagram(udpSocket_->pendingDatagramSize(), Qt::Uninitialized); //priprema buffera
+        QByteArray  datagram(udpSocket_->pendingDatagramSize(), Qt::Uninitialized); //priprema buffera, koliko je velik datagram
         //izlazni parametri
         QHostAddress sender;
         quint16      senderPort = 0;
