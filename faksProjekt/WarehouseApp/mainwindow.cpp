@@ -981,7 +981,7 @@ void MainWindow::setupNetworkTab(QTabWidget* tabs) {
 
     QHBoxLayout* dlRow = new QHBoxLayout();
     dlRow->addWidget(new QLabel("URL:"));
-    urlEdit_ = new QLineEdit("https://raw.githubusercontent.com/datablist/sample-csv-files/main/files/customers/customers-2000.csv");
+    urlEdit_ = new QLineEdit("http://raw.githubusercontent.com/TinDomljan/Sample-warehouse-data/main/product_catalog_update.csv");
     dlRow->addWidget(urlEdit_, 1);
 
     speedLimitCombo_ = new QComboBox();
@@ -1258,7 +1258,7 @@ void MainWindow::onDownload() { //u RAM, ne izravno u datoteku
 
         readChunkSize_ = (speedIdx == 1) ? 100 * 1024 / 5 : 50 * 1024 / 5; //dijelimo s 5 jer 5 puta u sekundi(200ms)
 
-        currentReply_->setReadBufferSize(readChunkSize_ * 2); //puta dva?
+        currentReply_->setReadBufferSize(readChunkSize_ * 2); //ogranicavanje kolicine podataka koje mozemo procitat, puta dva da malo ostavimo prostora.
 
         speedTimer_->start();
     }
@@ -1297,18 +1297,14 @@ void MainWindow::onReadChunk() {
 
 
 
-    int pct = static_cast<int>(downloadBuffer_.size() * 100 / totalBytes); //za postotke
-    if (pct > 100) pct = 100; //nikad preko 100
+    const int pct = WarehouseUtils::TransferProgress::percent(downloadBuffer_.size(), totalBytes);
 
     //crtamo bar i provjeravamo ako je gotov
     //is finished mora biti ispunjen i kanta/buffer mora biti prazna
     downloadProgressBar_->setRange(0, 100);
     downloadProgressBar_->setValue(pct);
     downloadProgressBar_->setFormat(
-        QString("%1% — %2 / %3 KB")
-            .arg(pct)
-            .arg(downloadBuffer_.size() / 1024)
-            .arg(totalBytes / 1024));
+        WarehouseUtils::TransferProgress::progressText(downloadBuffer_.size(), totalBytes));
 
 
     //najbitnije, jel sve preuzeto i jel buffer prazan
@@ -1321,14 +1317,11 @@ void MainWindow::onReadChunk() {
 
 void MainWindow::onDownloadProgress(qint64 received, qint64 total) {
     if (total > 0) {
-        int pct = static_cast<int>(received * 100 / total);
+        const int pct = WarehouseUtils::TransferProgress::percent(received, total);
         downloadProgressBar_->setRange(0, 100);
         downloadProgressBar_->setValue(pct);
         downloadProgressBar_->setFormat(
-            QString("%1% — %2 / %3 KB")
-                .arg(pct)
-                .arg(received / 1024)
-                .arg(total / 1024));
+            WarehouseUtils::TransferProgress::progressText(received, total));
     } else {
 
         downloadProgressBar_->setRange(0, 0);
@@ -1674,7 +1667,7 @@ void MainWindow::onExportUsersRSA() {
     }
 
 
-    // NOVO: hibridna envelope enkripcija — nema limita velicine
+    // enkriptiramo
     const QByteArray encrypted = CryptoManager::encryptUsersHybrid("public.pem");
     if (encrypted.isEmpty()) {
         cryptoStatusLabel_->setText(
@@ -2542,8 +2535,7 @@ void MainWindow::onReorderReport() {
 
     double turnover = WarehouseUtils::StockCalculator::calculateTurnoverRate(cogs, currentValue);
 
-    // Apply the shared table style first, then highlight REORDER rows in red
-    // (so the style pass doesn't overwrite the red foreground).
+
     applyTableStyle(table);
     for (int r : reorderRows)
         table->item(r, 4)->setForeground(Qt::red);
