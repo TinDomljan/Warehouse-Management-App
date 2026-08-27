@@ -397,6 +397,7 @@ std::vector<Product> DatabaseManager::getProductsFiltered(const QString& search,
     //parametriziramo i izvrsujemo
     q.prepare(sql);
     if (!search.trimmed().isEmpty())
+        //bindamo
         q.bindValue(":search", "%" + search.trimmed() + "%"); //postotci su wildcard
 
     if (!q.exec())

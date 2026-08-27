@@ -32,7 +32,7 @@ QString ReportManager::generateInventoryReport(const std::vector<Product>& produ
         std::vector<const Product*> catProducts;
         for (const Product& p : products) {
             if (p.getCategory().getId() == cat.getId())
-                catProducts.push_back(&p);
+                catProducts.push_back(&p); //da se ne kopira
         }
         if (catProducts.empty()) continue; //preskacemo prazne kategorije
 
@@ -126,7 +126,7 @@ bool ReportManager::exportToPDF(const QString& html, const QString& filePath) {
     doc.setHtml(html);
     doc.setPageSize(printer.pageLayout().paintRectPixels(printer.resolution()).size());
     //QTextDocument mjeri u pikselima,QPrinter u milimetrima ova linija kaze koliko piksela ima na raspolaganju
-    doc.print(&printer);
+    doc.print(&printer); //zapisujemo
 
     return QFile::exists(filePath);
 }

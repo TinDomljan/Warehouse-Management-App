@@ -16,8 +16,7 @@
 #include "Order.h"
 #include "orderxmlmanager.h"
 
-// Input form used for both Add and Edit — mirrors AllergenFormDialog pattern,
-// extended with a QDateEdit, a status QComboBox, and an editable items sub-table.
+
 class OrderFormDialog : public QDialog {
     Q_OBJECT
 public:

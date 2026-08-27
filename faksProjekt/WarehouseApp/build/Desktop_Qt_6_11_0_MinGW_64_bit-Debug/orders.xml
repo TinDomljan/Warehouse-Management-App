@@ -3,7 +3,7 @@
     <order id="1">
         <customerName>Mirko</customerName>
         <orderDate>2026-06-25</orderDate>
-        <status>PENDING</status>
+        <status>SHIPPED</status>
         <items/>
     </order>
     <order id="2">

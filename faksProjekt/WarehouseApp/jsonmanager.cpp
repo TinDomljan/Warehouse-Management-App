@@ -49,6 +49,7 @@ std::vector<LogEntry> JsonManager::loadEntries() {
     QJsonArray entriesArray = root["entries"].toArray();
 
     // loopamo kroz stablo
+    //svaki element json niza predstavlja jedan logentry
     for (int i = 0; i < entriesArray.size(); i++) {
 
 
@@ -137,6 +138,7 @@ void JsonManager::addEntry(const LogEntry& entry) {
     }
 }
 
+//IZMJENA
 void JsonManager::updateEntry(const LogEntry& entry) {
     QFile file(filePath_);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -169,6 +171,7 @@ void JsonManager::updateEntry(const LogEntry& entry) {
     }
 }
 
+//ne brisem direktno nego dodajem sve nazad osim onog s trazenim id
 void JsonManager::deleteEntry(int id) {
     QFile file(filePath_);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {

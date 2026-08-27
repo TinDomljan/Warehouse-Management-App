@@ -22,6 +22,7 @@
 #include "orderdialog.h"
 #include "userdialog.h"
 #include "logdialog.h"
+#include "reportpreviewdialog.h"
 #include <QProcess>
 #include <QCoreApplication>
 #include <QJsonDocument>
@@ -142,7 +143,7 @@ void MainWindow::applyRolePermissions() {
 
         tabWidget_->setTabVisible(3, false);  // Network
         tabWidget_->setTabVisible(4, false);  // Crypto
-        tabWidget_->setTabVisible(5, false);  // Users — admin only
+        tabWidget_->setTabVisible(5, false);  // Users
         enable(manageLogBtn_, false);
         break;
 
@@ -151,7 +152,7 @@ void MainWindow::applyRolePermissions() {
         tabWidget_->setTabVisible(1, false);  // Snapshots
         tabWidget_->setTabVisible(3, false);  // Network
         tabWidget_->setTabVisible(4, false);  // Crypto
-        tabWidget_->setTabVisible(5, false);  // Users — admin only
+        tabWidget_->setTabVisible(5, false);  // Users
 
         enable(addProductBtn_,     false);
         enable(manageProductBtn_,  false);
@@ -2001,10 +2002,10 @@ void MainWindow::onValidateBackup() {
 
     //kao zasebni proces
     QProcess proc;
-    proc.start(validatorPath, {"stock_snapshot.bin"});
+    proc.start(validatorPath, {"warehouse.db"});
 
     if (!proc.waitForStarted(3000)) { //nije ni krenuo
-        QMessageBox::critical(this, "Validate Backup",
+        QMessageBox::critical(this, "Validate Database",
                               "Could not launch WarehouseValidator.\n"
                               "Make sure it is built and located next to WarehouseApp.");
         return;
@@ -2013,17 +2014,17 @@ void MainWindow::onValidateBackup() {
     proc.waitForFinished(5000); //moguci error ali u praksi nemoguce jer validator cita 20 bajtova.
 
     if (proc.exitCode() == 0) {
-        QMessageBox::information(this, "Validate Backup",
-                                 "Backup file is valid.\n\n" +
+        QMessageBox::information(this, "Validate Database",
+                                 "Database file is valid.\n\n" +
                                  QString::fromUtf8(proc.readAllStandardOutput()).trimmed());
     } else {
         QString errMsg = QString::fromUtf8(proc.readAllStandardError()).trimmed();
-        QMessageBox::warning(this, "Validate Backup",
-                             "Backup file is invalid or missing.\n\n" +
+        QMessageBox::warning(this, "Validate Database",
+                             "Database file is invalid or missing.\n\n" +
                              (errMsg.isEmpty() ? "Unknown error." : errMsg));
     }
 
-    activityLog_.addEntry(currentUser_.getUsername(), "VALIDATE_BACKUP",
+    activityLog_.addEntry(currentUser_.getUsername(), "VALIDATE_DB",
                           proc.exitCode() == 0 ? "PASS" : "FAIL");
 }
 
@@ -2071,24 +2072,18 @@ void MainWindow::onOpenSettings() {
 }
 
 void MainWindow::onGenerateReport() {
-    QString filePath = QFileDialog::getSaveFileName(
-        this, "Save Inventory Report", //parent dijalog, u main window smo, naslov prozora
-        "inventory_report.pdf", //ime datoteke
-        "PDF Files (*.pdf)"); //filtar
-
-    if (filePath.isEmpty())
-        return;
+    loadSampleData();  //da osvjezimo podatke
 
     QString html = ReportManager::generateInventoryReport(products_, categories_);
 
-    if (ReportManager::exportToPDF(html, filePath)) {
-        activityLog_.addEntry(currentUser_.getUsername(), "GENERATE_REPORT", filePath.toStdString());
-        statusBar()->showMessage("Report saved: " + filePath, 5000);
-        QMessageBox::information(this, "Report Generated",
-                                 "Inventory report saved to:\n" + filePath);
-    } else {
-        QMessageBox::warning(this, "Report Error",
-                             "Failed to write PDF to:\n" + filePath);
+    // Prvo prikazujemo izvjestaj u aplikaciji; spremanje u PDF je u dijalogu.
+    ReportPreviewDialog dlg(html, this);
+    dlg.exec();
+
+    QString savedPath = dlg.lastSavedPath();
+    if (!savedPath.isEmpty()) {
+        activityLog_.addEntry(currentUser_.getUsername(), "GENERATE_REPORT", savedPath.toStdString());
+        statusBar()->showMessage("Report saved: " + savedPath, 5000);
     }
 }
 
@@ -2599,6 +2594,7 @@ void MainWindow::closeEvent(QCloseEvent* event) {
     SettingsManager& sm = SettingsManager::instance();
     sm.saveVisualSettings(currentFontSize_, currentTextColor_,
                           currentBgColor_, currentLanguage_);
+
     // Ako je prozor maksimiziran, pos()/size() vraćaju geometriju maksimiziranog
     // prozora — spremamo normalGeometry() (stanje prije maksimiziranja) da restore radi.
     const QRect geo = isMaximized() ? normalGeometry()

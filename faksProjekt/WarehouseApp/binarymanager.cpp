@@ -28,7 +28,8 @@ bool BinaryManager::saveSnapshot(const std::vector<AnalysisSnapshotRecord>& reco
     header.recordCount = static_cast<int>(records.size()); //koliko recorda zapisujemo
     header.timestamp = time(nullptr);
 
-//da se gleda kao niz bajtova
+    //odakle i kolioko
+    //reinterpret cast zbog Snapshotheade* i const char*
     file.write(reinterpret_cast<const char*>(&header), sizeof(SnapshotHeader));
 
 

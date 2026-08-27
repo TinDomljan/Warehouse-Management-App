@@ -66,6 +66,16 @@ bool User::checkPassword(const std::string& password) const {
         QString::fromStdString(password_));
 }
 
+
+std::string User::getRoleAsString() const {
+    switch (role_) {
+    case UserRole::Admin:   return "Admin";
+    case UserRole::Manager: return "Manager";
+    case UserRole::Clerk:   return "Clerk";
+    default:                return "Unknown";
+    }
+}
+
 bool User::login(const std::string& password) {
     if (checkPassword(password)) {
         loggedIn_ = true;
@@ -79,14 +89,7 @@ void User::logout() {
 }
 
 
-std::string User::getRoleAsString() const {
-    switch (role_) {
-    case UserRole::Admin:   return "Admin";
-    case UserRole::Manager: return "Manager";
-    case UserRole::Clerk:   return "Clerk";
-    default:                return "Unknown";
-    }
-}
+
 
 std::string User::toString() const {
     return "[" + std::to_string(id_) + "] " + username_ +

@@ -30,6 +30,7 @@ void OrderXmlManager::ensureFileExists() {
     }
 }
 
+//root je orders
 std::vector<Order> OrderXmlManager::loadOrders() {
     std::vector<Order> orders;
 
@@ -45,8 +46,9 @@ std::vector<Order> OrderXmlManager::loadOrders() {
     file.close();
 
     QDomElement root = doc.documentElement();
-
+    //uzimamo root
     QDomElement orderElem = root.firstChildElement("order");
+    //setanje po stablu
     while (!orderElem.isNull()) {
         int id = orderElem.attribute("id").toInt();
         std::string customerName = orderElem.firstChildElement("customerName").text().toStdString();
@@ -118,6 +120,7 @@ void OrderXmlManager::addOrder(const Order& order) {
     file.close();
 }
 
+//iz orderformdialogue
 void OrderXmlManager::updateOrder(const Order& order) {
     QFile file(filePath_);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -141,6 +144,7 @@ void OrderXmlManager::updateOrder(const Order& order) {
                     }
                 };
 
+            //samo zamijenimo polja
             updateField("customerName", QString::fromStdString(order.getCustomerName()));
             updateField("orderDate", QString::fromStdString(order.getOrderDate()));
             updateField("status", QString::fromStdString(order.getStatus()));
@@ -149,6 +153,7 @@ void OrderXmlManager::updateOrder(const Order& order) {
             QDomElement oldItems = orderElem.firstChildElement("items");
             QDomElement newItems = doc.createElement("items");
 
+            //kreiramo nove iteme
             for (const auto& item : order.getItems()) {
                 QDomElement itemElem = doc.createElement("item");
                 itemElem.setAttribute("productId", item.productId);

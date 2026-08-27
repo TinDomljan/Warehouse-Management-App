@@ -130,6 +130,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         orderdialog.h orderdialog.cpp
         userdialog.h userdialog.cpp
         logdialog.h logdialog.cpp
+        reportpreviewdialog.h reportpreviewdialog.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET WarehouseApp APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

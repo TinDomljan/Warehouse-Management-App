@@ -427,8 +427,8 @@ void TranslationManager::loadTranslations() {
     translations_["snap_btn_save"]["HRV"] = "Spremi Snimku";
     translations_["snap_btn_load"]["ENG"] = "Load Snapshot";
     translations_["snap_btn_load"]["HRV"] = "Učitaj Snimku";
-    translations_["snap_btn_validate"]["ENG"] = "Validate Backup";
-    translations_["snap_btn_validate"]["HRV"] = "Provjeri Kopiju";
+    translations_["snap_btn_validate"]["ENG"] = "Validate Database";
+    translations_["snap_btn_validate"]["HRV"] = "Validiraj bazu";
 
     // ===== SUPPLIERS TAB =====
     translations_["sup_btn_add"]["ENG"] = "Add Supplier";
