@@ -1673,7 +1673,7 @@ void MainWindow::onExportUsersRSA() {
         return;
     }
 
-    // STARO: CryptoManager::encryptUsersJson("public.pem")  (cisti RSA, ~245 B limit)
+
     // NOVO: hibridna envelope enkripcija — nema limita velicine
     const QByteArray encrypted = CryptoManager::encryptUsersHybrid("public.pem");
     if (encrypted.isEmpty()) {
