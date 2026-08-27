@@ -2,6 +2,7 @@
 #include <cstring>
 
 int main(int argc, char* argv[]) {
+    //argv[1] je putanja
     if (argc < 2) {
         fprintf(stderr, "Usage: WarehouseValidator <file_path>\n");
         return 1;

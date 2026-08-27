@@ -1673,11 +1673,12 @@ void MainWindow::onExportUsersRSA() {
         return;
     }
 
-    const QByteArray encrypted = CryptoManager::encryptUsersJson("public.pem");
+    // STARO: CryptoManager::encryptUsersJson("public.pem")  (cisti RSA, ~245 B limit)
+    // NOVO: hibridna envelope enkripcija — nema limita velicine
+    const QByteArray encrypted = CryptoManager::encryptUsersHybrid("public.pem");
     if (encrypted.isEmpty()) {
         cryptoStatusLabel_->setText(
-            "<span style='color:red;'>Export failed — see application log.<br>"
-            "Possible cause: too many users (RSA-PKCS1 limit: ~6 users).</span>");
+            "<span style='color:red;'>Export failed — see application log.</span>");
         return;
     }
 
@@ -1693,7 +1694,7 @@ void MainWindow::onExportUsersRSA() {
     cryptoStatusLabel_->setText(
         QString("<span style='color:green;'>&#10003; Users exported<br>"
                 "users_export.bin written (%1 B)<br>"
-                "Encrypted with RSA-2048-PKCS1 (public.pem)</span>")
+                "Encrypted with hybrid RSA-2048 + AES-256-CBC (envelope)</span>")
             .arg(encrypted.size()));
     activityLog_.addEntry(currentUser_.getUsername(), "USERS_EXPORT_RSA",
                           QString("users_export.bin %1B").arg(encrypted.size()).toStdString());
@@ -1721,7 +1722,9 @@ void MainWindow::onDecryptUsersExport() {
     const QByteArray encrypted = in.readAll();
     in.close();
 
-    const QString json = CryptoManager::decryptUsersJson(encrypted, "private.pem");
+    // STARO: CryptoManager::decryptUsersJson(encrypted, "private.pem")  (cisti RSA)
+    // NOVO: hibridni EVP_Open put
+    const QString json = CryptoManager::decryptUsersHybrid(encrypted, "private.pem");
     if (json.isEmpty()) {
         cryptoStatusLabel_->setText(
             "<span style='color:red;'>Decryption failed — wrong key or corrupted file.</span>");

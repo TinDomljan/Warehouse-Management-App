@@ -640,3 +640,176 @@ QString CryptoManager::decryptRSA(const QByteArray& ciphertext,
     plaintext.resize(static_cast<int>(outLen));
     return QString::fromUtf8(plaintext);
 }
+
+// ============================================================================
+// NOVO: hibridna (envelope) enkripcija — EVP_Seal / EVP_Open
+// AES-256-CBC sifrira podatke, RSA javni kljuc omota nasumicni AES kljuc.
+// Format: [4B ekl big-endian][ek (ekl B)][IV (16 B)][AES ciphertext]
+// ============================================================================
+
+QByteArray CryptoManager::sealHybrid(const QByteArray& data, const QString& publicKeyPath) {
+    // 1. ucitaj javni kljuc
+    EVP_PKEY* pkey = rsaLoadPublicKey(publicKeyPath);
+    if (!pkey) {
+        qWarning() << "[Crypto] sealHybrid: cannot load public key:" << opensslError();
+        return {};
+    }
+
+    // 2. cipher kontekst
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+
+    const EVP_CIPHER* cipher = EVP_aes_256_cbc();
+    const int ivLen = EVP_CIPHER_iv_length(cipher);   // 16
+
+    // 3. buffer za RSA-omotani AES kljuc (max = velicina RSA kljuca) + IV
+    QByteArray ek(EVP_PKEY_size(pkey), '\0');
+    unsigned char* ekPtr = reinterpret_cast<unsigned char*>(ek.data());
+    unsigned char iv[EVP_MAX_IV_LENGTH];
+    int ekl = 0;
+
+    // 4. SealInit: OpenSSL sam generira nasumicni AES kljuc, RSA ga sifrira u ek, puni iv
+    if (EVP_SealInit(ctx, cipher, &ekPtr, &ekl, iv, &pkey, 1) != 1) {
+        qWarning() << "[Crypto] sealHybrid: EVP_SealInit failed:" << opensslError();
+        EVP_CIPHER_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+
+    // 5. sifriraj podatke
+    QByteArray ciphertext(data.size() + EVP_CIPHER_block_size(cipher), '\0');
+    int outLen = 0;
+    if (EVP_SealUpdate(ctx,
+                       reinterpret_cast<unsigned char*>(ciphertext.data()), &outLen,
+                       reinterpret_cast<const unsigned char*>(data.constData()),
+                       static_cast<int>(data.size())) != 1) {
+        qWarning() << "[Crypto] sealHybrid: EVP_SealUpdate failed:" << opensslError();
+        EVP_CIPHER_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+    int finalLen = 0;
+    if (EVP_SealFinal(ctx,
+                      reinterpret_cast<unsigned char*>(ciphertext.data()) + outLen,
+                      &finalLen) != 1) {
+        qWarning() << "[Crypto] sealHybrid: EVP_SealFinal failed:" << opensslError();
+        EVP_CIPHER_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+    ciphertext.resize(outLen + finalLen);
+
+    // 6. sloziti okvir: [4B ekl][ek][IV][ciphertext] — duljinu pisemo rucno (big-endian)
+    QByteArray out;
+    out.append(static_cast<char>((ekl >> 24) & 0xFF));
+    out.append(static_cast<char>((ekl >> 16) & 0xFF));
+    out.append(static_cast<char>((ekl >>  8) & 0xFF));
+    out.append(static_cast<char>( ekl        & 0xFF));
+    out.append(ek.constData(), ekl);
+    out.append(reinterpret_cast<const char*>(iv), ivLen);
+    out.append(ciphertext);
+
+    // 7. ciscenje
+    EVP_CIPHER_CTX_free(ctx);
+    EVP_PKEY_free(pkey);
+
+    qInfo() << "[Crypto] sealHybrid: wrapped key" << ekl << "B, IV" << ivLen
+            << "B, ciphertext" << ciphertext.size() << "B → total" << out.size() << "B";
+    return out;
+}
+
+QByteArray CryptoManager::openHybrid(const QByteArray& sealed, const QString& privateKeyPath) {
+    const EVP_CIPHER* cipher = EVP_aes_256_cbc();
+    const int ivLen = EVP_CIPHER_iv_length(cipher);   // 16
+
+    // 1. rasclani okvir: [4B ekl][ek][IV][ciphertext]
+    if (sealed.size() < 4) {
+        qWarning() << "[Crypto] openHybrid: sealed too short (no length header)";
+        return {};
+    }
+    const unsigned char* p = reinterpret_cast<const unsigned char*>(sealed.constData());
+    const int ekl = (static_cast<int>(p[0]) << 24) | (static_cast<int>(p[1]) << 16) |
+                    (static_cast<int>(p[2]) <<  8) |  static_cast<int>(p[3]);
+
+    if (ekl <= 0 || sealed.size() < static_cast<qsizetype>(4 + ekl + ivLen)) {
+        qWarning() << "[Crypto] openHybrid: sealed too short or bad ekl:" << ekl;
+        return {};
+    }
+
+    const unsigned char* ek = p + 4;
+    const unsigned char* iv = p + 4 + ekl;
+    const unsigned char* ct = p + 4 + ekl + ivLen;
+    const int ctLen = static_cast<int>(sealed.size()) - (4 + ekl + ivLen);
+
+    // 2. ucitaj privatni kljuc
+    EVP_PKEY* pkey = rsaLoadPrivateKey(privateKeyPath);
+    if (!pkey) {
+        qWarning() << "[Crypto] openHybrid: cannot load private key:" << opensslError();
+        return {};
+    }
+
+    EVP_CIPHER_CTX* ctx = EVP_CIPHER_CTX_new();
+    if (!ctx) {
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+
+    // 3. OpenInit: RSA odmota AES kljuc, zatim AES desifrira podatke
+    if (EVP_OpenInit(ctx, cipher, ek, ekl, iv, pkey) != 1) {
+        qWarning() << "[Crypto] openHybrid: EVP_OpenInit failed:" << opensslError();
+        EVP_CIPHER_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+
+    QByteArray plaintext(ctLen + EVP_CIPHER_block_size(cipher), '\0');
+    int outLen = 0;
+    if (EVP_OpenUpdate(ctx,
+                       reinterpret_cast<unsigned char*>(plaintext.data()), &outLen,
+                       ct, ctLen) != 1) {
+        qWarning() << "[Crypto] openHybrid: EVP_OpenUpdate failed:" << opensslError();
+        EVP_CIPHER_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+    int finalLen = 0;
+    if (EVP_OpenFinal(ctx,
+                      reinterpret_cast<unsigned char*>(plaintext.data()) + outLen,
+                      &finalLen) != 1) {
+        qWarning() << "[Crypto] openHybrid: EVP_OpenFinal failed (wrong key or corrupted data):"
+                   << opensslError();
+        EVP_CIPHER_CTX_free(ctx);
+        EVP_PKEY_free(pkey);
+        return {};
+    }
+    plaintext.resize(outLen + finalLen);
+
+    EVP_CIPHER_CTX_free(ctx);
+    EVP_PKEY_free(pkey);
+    return plaintext;
+}
+
+QByteArray CryptoManager::encryptUsersHybrid(const QString& publicKeyPath) {
+    // Ista serijalizacija kao encryptUsersJson (samo username + role, NE lozinka),
+    // ali BEZ 245-bajtne provjere — hibridna enkripcija nema RSA limit velicine.
+    const std::vector<User> users = DatabaseManager::instance().getAllUsers();
+
+    QJsonArray arr;
+    for (const auto& u : users) {
+        QJsonObject obj;
+        obj["username"] = QString::fromStdString(u.getUsername());
+        obj["role"]     = QString::fromStdString(u.getRoleAsString());
+        arr.append(obj);
+    }
+    const QByteArray json = QJsonDocument(arr).toJson(QJsonDocument::Compact);
+
+    return sealHybrid(json, publicKeyPath);
+}
+
+QString CryptoManager::decryptUsersHybrid(const QByteArray& sealed,
+                                          const QString& privateKeyPath) {
+    return QString::fromUtf8(openHybrid(sealed, privateKeyPath));
+}

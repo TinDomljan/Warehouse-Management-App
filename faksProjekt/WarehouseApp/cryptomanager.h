@@ -62,6 +62,18 @@ public:
     static QString decryptUsersJson(const QByteArray& encrypted,
                                     const QString&    privateKeyPath);
 
+    // ===================== NOVO: hibridna (envelope) enkripcija =====================
+    // Nasumicni AES kljuc sifrira podatke, RSA javni kljuc "omota" AES kljuc.
+    // Koristi OpenSSL EVP_Seal/EVP_Open. Nema RSA ogranicenja velicine.
+    static QByteArray sealHybrid(const QByteArray& data, const QString& publicKeyPath);
+    static QByteArray openHybrid(const QByteArray& sealed, const QString& privateKeyPath);
+
+    // Izvoz korisnika preko hibridne enkripcije (bez 245-bajtnog limita).
+    static QByteArray encryptUsersHybrid(const QString& publicKeyPath);
+    static QString    decryptUsersHybrid(const QByteArray& sealed,
+                                         const QString& privateKeyPath);
+    // ===============================================================================
+
 
 
 
